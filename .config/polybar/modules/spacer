@@ -1,0 +1,8 @@
+[module/spacer]
+type = custom/text
+content = " "
+content-padding = 0
+content-background = ${colors.transparent}
+content-foreground = ${colors.transparent}
+
+# vim:ft=dosini

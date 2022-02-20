@@ -1,0 +1,135 @@
+#------------------------------------------------------------------------------
+# RANDOM
+#------------------------------------------------------------------------------
+snippet todo "To Do note"
+// TODO: $1
+endsnippet
+
+snippet sleep "Sleep function"
+setTimeOut(${1:function}, ${2:timeInms});
+endsnippet
+
+#------------------------------------------------------------------------------
+# PRINT
+#------------------------------------------------------------------------------
+snippet sout "Print string"
+console.log("$1");
+endsnippet
+
+snippet out "Print string"
+console.log($1);
+endsnippet
+
+snippet fout "Print f string"
+console.log(\`$1\`);
+endsnippet
+
+#------------------------------------------------------------------------------
+# 
+#------------------------------------------------------------------------------
+
+snippet shebang "Javascript shebang"
+#!/usr/bin/js78
+endsnippet
+
+#------------------------------------------------------------------------------
+# VARIABLES
+#------------------------------------------------------------------------------
+
+snippet v "Variable declaration"
+var $1 = $2;
+endsnippet
+
+snippet l "Variable declaration"
+let $1 = $2;
+endsnippet
+
+snippet constant "Constant declaration"
+const $1 = $2;
+endsnippet
+
+#------------------------------------------------------------------------------
+# FUNCTIONS
+#------------------------------------------------------------------------------
+
+snippet f "Function declaration"
+function $1() {
+  $2
+}
+endsnippet
+
+snippet af "Anonymus Function"
+($1) => {
+  $2
+}
+endsnippet
+
+
+#------------------------------------------------------------------------------
+# CONDITIONALS
+#------------------------------------------------------------------------------
+
+snippet if "If statement"
+if ($1) {
+  $2
+}
+endsnippet
+
+snippet ifel "If else statement"
+if ($1) {
+  $2
+} else {
+  $3
+}
+endsnippet
+
+snippet elif "elif statement"
+if ($1) {
+  $2
+} else if () {
+  $3
+}
+endsnippet
+
+snippet switch "switch statement"
+switch(${1:case_value}) {
+  case $2:
+    $3
+    break;
+  case $4:
+    $5
+    break;
+  default:
+    $6
+}
+endsnippet
+
+
+#------------------------------------------------------------------------------
+# Browser Functions
+#------------------------------------------------------------------------------
+
+snippet alert "alert function"
+alert($1);
+endsnippet
+
+snippet prompt "prompt function"
+prompt($1);
+endsnippet
+
+#------------------------------------------------------------------------------
+# Loops
+#------------------------------------------------------------------------------
+
+snippet for "basic for loop"
+for (var i = 0; i $1; i++) {
+  $2
+}
+endsnippet
+
+#------------------------------------------------------------------------------
+# DOM
+#------------------------------------------------------------------------------
+snippet domq "basic for loop"
+document.querySelector(${1:cssSelector})$2;
+endsnippet

@@ -1,0 +1,24 @@
+[module/xkeyboard]
+;https://github.com/jaagr/polybar/wiki/Module:-xkeyboard
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format = <label-layout> <label-indicator>
+format-prefix = " "
+; format-prefix-foreground = ${colors.prefix}
+format-prefix-foreground = ${monokai.orange}
+format-prefix-background = ${colors.background}
+; format-prefix-underline = ${colors.underline}
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+label-layout = %name%
+
+label-layout-underline = ${colors.underline}
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.background}
+; label-indicator-underline = ${colors.underline}
+format-underline = ${colors.underline}
+
+# vim:ft=dosini

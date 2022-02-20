@@ -1,0 +1,30 @@
+[module/memory1]
+;https://github.com/jaagr/polybar/wiki/Module:-memory
+type = internal/memory
+interval = 1
+; label Available tokens:
+;   %percentage_used% (default)
+;   %percentage_free%
+;   %gb_used%
+;   %gb_free%
+;   %gb_total%
+;   %mb_used%
+;   %mb_free%
+;   %mb_total%
+label = %percentage_used%%
+bar-used-indicator =
+bar-used-width = 10
+bar-used-foreground-0 = ${monokai.violet}
+bar-used-empty-foreground = ${colors.white}
+bar-used-fill = 
+bar-used-empty = 
+
+format = <label> <bar-used>
+format-prefix = "  "
+; format-prefix-foreground = ${colors.prefix}
+format-prefix-foreground = ${monokai.blue}
+format-underline = ${colors.underline}
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+# vim:ft=dosini

@@ -1,0 +1,385 @@
+#------------------------------------------------------------------------------
+# FUNCTIONS
+#------------------------------------------------------------------------------
+snippet f "Function definition. No parameters."
+def $1():
+	'''
+	$2
+	'''
+endsnippet
+
+snippet ff "Function definition. One parameters"
+def $1($2):
+	'''
+	$3
+	:param1: $4
+	:returns: $5
+	'''
+endsnippet
+
+snippet fff "Function definition. Two parameters."
+def $1($2):
+	'''
+	$3
+	:param1: $4
+	:param2: $5
+	:returns: $6
+	'''
+endsnippet
+
+#------------------------------------------------------------------------------
+# Variable
+#------------------------------------------------------------------------------
+
+snippet v "Variable"
+$1 = $2
+endsnippet
+
+#------------------------------------------------------------------------------
+# Classes
+#------------------------------------------------------------------------------
+snippet c "Class with constructor"
+class $1:
+	def __init__(self, $2):
+		self.$2 = $2
+endsnippet
+
+snippet cc "Class with constructor"
+class $1:
+	def __init__(self, $2, $3):
+		self.$2 = $2
+		self.$3 = $3
+endsnippet
+
+snippet inherit "Inherit class"
+class $1($2):
+	def __init__(self):
+		super().__init__()
+endsnippet
+
+
+#------------------------------------------------------------------------------
+# METHODS
+#------------------------------------------------------------------------------
+snippet m "Method with no parameters"
+def $1(self):
+	$2
+endsnippet
+
+snippet mm "Method with one parameter"
+def $1(self, $2):
+	$3
+endsnippet
+
+#------------------------------------------------------------------------------
+# MISC
+#------------------------------------------------------------------------------
+snippet todo "TODO" b
+# TODO: $1
+endsnippet
+
+snippet shebang "Python 3 shebang" b
+#!/usr/bin/env python3
+endsnippet
+
+snippet today "Writes today date"
+`!v strftime("%c")`
+endsnippet
+
+snippet bugs "Bug delimitator" b
+# ==BUGS=======================================================================
+# $1
+# =============================================================================
+endsnippet
+
+snippet notes "Notes delimitator" b
+# ==NOTES======================================================================
+# $1
+# =============================================================================
+endsnippet
+
+snippet delimitator "Line used to delimitate stuff" b
+
+# =============================================================================
+
+endsnippet
+
+#------------------------------------------------------------------------------
+# LOOPS
+#------------------------------------------------------------------------------
+snippet	for "For loop" 
+for $1 in $2:
+	$3
+endsnippet
+
+snippet	w "while" 
+while $1:
+	$2
+endsnippet
+
+snippet	dictfor "Iterate over a dictionary" 
+for (${1:key}, ${2:value}) in ${3:dict}.items():
+	$4
+endsnippet
+
+snippet	dffor "Iterate over a DataFrame" 
+for (${1:index}, ${2:row}) in ${3:dataframe}.iterrows():
+	$4
+endsnippet
+
+#------------------------------------------------------------------------------
+# CONDITIONALS
+#------------------------------------------------------------------------------
+snippet	if "If conditional"
+if $1:
+	$2		
+endsnippet
+
+snippet	elif "elif conditional"
+elif $1:
+	$2		
+endsnippet
+
+snippet	el "else conditional"
+else:
+	$1
+endsnippet
+
+#------------------------------------------------------------------------------
+# PRINT
+#------------------------------------------------------------------------------
+snippet sout "Print string"
+print("$1")
+endsnippet
+
+snippet fout "Print f strings"
+print(f"$1")
+endsnippet
+
+snippet out "print()"
+print($1)
+endsnippet
+
+#------------------------------------------------------------------------------
+# INPUT
+#------------------------------------------------------------------------------
+snippet in "input()"
+$1 = input("${2:text}")
+endsnippet
+
+#------------------------------------------------------------------------------
+# LINUX SCRIPTS
+#------------------------------------------------------------------------------
+snippet pscript "Create a linux script"
+#!/usr/bin/env python3
+#==============================================================================
+#   FILE: $1
+#
+#   USAGE: $2
+#
+#   DESCRIPTION: $3
+#
+#   OPTIONS: $4
+#   DEPENDENCIES: $5
+#   AUTHOR:  
+#   COMPANY:  
+#   VERSION:  1.0
+#   CREATED:  `!v strftime("%c")`
+#   REVISION:  
+#==============================================================================
+
+import subprocess as sp
+import sys
+
+endsnippet
+
+snippet sprun "Execute linux command"
+$1 = sp.run("$2", shell=True, capture_output=True, text=True)
+endsnippet
+
+#------------------------------------------------------------------------------
+# FILES
+#------------------------------------------------------------------------------
+
+snippet read "Open file"
+with open("$1") as $2:
+	$3 = $2.read()
+endsnippet
+
+snippet append "Append to file file"
+with open("$1", mode="a") as $2:
+	$2.write(${3:"string_to_append"})
+endsnippet
+
+snippet write "Write file"
+with open("$1", mode="w") as $2:
+	$2.write(${3:"string_to_write}")
+endsnippet
+
+snippet readlines "Read lines"
+with open("$1") as $2:
+	$3 = $2.readlines()
+endsnippet
+
+
+#------------------------------------------------------------------------------
+# CSV
+#------------------------------------------------------------------------------
+
+snippet readcsv "Read csv file"
+with open("$1") as $2:
+	$3 = csv.reader($2)
+endsnippet
+
+snippet csvtodf "Create a dataframe from a csv file"
+${1:dataframe} = pd.read_csv("${2:path/to/file.csv}")
+endsnippet
+
+
+
+#------------------------------------------------------------------------------
+# LIST/DICTIONARY COMPREHENSION
+#------------------------------------------------------------------------------
+
+snippet lscomp "List Comprehension"
+${1:list_name} = [${2:new_item} for ${3:item} in ${4:list}]
+endsnippet
+
+snippet condlscomp "List comprehension with conditional"
+${1:list_name} = [${2:new_item} for ${3:item} in ${4:list} if ${5:test}]
+endsnippet
+
+snippet dictcomp "Dictionary comprehension from dictionary"
+${1:new_dict} = {${2:new_key}:${3:new_value} for (${4:key}, ${5:value}) in ${6:dict}.items()}
+endsnippet
+
+snippet dictlscomp "Dictionary comprehension from list"
+${1:new_dict} = {${2:new_key}:${3:new_value} for ${4:item} in ${5:list}}
+endsnippet
+
+snippet conddictcomp "Dictionary comprehension from dictionary with conditional"
+${1:new_dict} = {${2:new_key}:${3:new_value} for (${4:key}, ${5:value}) in ${6:dict}.items() if ${7:test}}
+endsnippet
+
+snippet conddictlscomp "Dictionary comprehension from list with conditional"
+${1:new_dict} = {${2:new_key}:${3:new_value} for ${4:item} in ${5:list} if ${6:test}}
+endsnippet
+
+#------------------------------------------------------------------------------
+# TKINTER
+#------------------------------------------------------------------------------
+
+snippet tkinit "Tkinter create window"
+from tkinter import *
+
+window = Tk()
+window.title(${1:window_name})
+window.minsize(width=$2, height=$3)
+window.config(padx=$4, pady=$4)
+
+$5
+
+window.mainloop()
+endsnippet
+
+snippet tklabel "Tkinter label"
+$1 = Label(text=$2, font=(${3:font_name}, ${4:font_size}, ${5:type}))
+$1.grid(column=$6, row=$7, columnspan=$8)
+endsnippet
+
+snippet tkbutton "Tkinter button"
+def ${6:exec_func}():
+    my_label.config(text=input.get())
+
+
+$1 = Button(text=$2, font=(${3:font_name}, ${4:font_size}, ${5:type}), command=${6:exec_func})
+$1.grid(column=$7, row=$8, columnspan=$9)
+endsnippet
+
+snippet tkentry "Tkinter entry"
+$1 = Entry(width=$2)
+$1.insert(END, string="$3")
+$1.grid(column=$4, row=$5, columnspan=$6))
+print($1.get())
+endsnippet
+
+snippet tktext "Tkinter text"
+$1 = Text(height=$2, width=$3)
+$1.focus()
+$1.insert(END, "${4:text}")
+print(text.get("1.0", END))
+$1.grid(column=$5, row=$6, columnspan=$7)
+endsnippet
+
+snippet tkspinbox "Tkinter Spinbox"
+def ${4:exec_func}():
+    print($1.get())
+
+$1 = Spinbox(from_=0, to=$2, width=$3, command=${4:exec_func})
+$1.grid(column=$5, row=$6, columnspan=$7)
+endsnippet
+
+snippet tkscale "Tkinter Scale"
+def ${4:exec_func}(value):
+    print(value)
+
+$1 = Scale(from_=0, to=$2, width=$3, command=${4:exec_func})
+$1.grid(column=$5, row=$6, columnspan=$7)
+endsnippet
+
+snippet tkcheckbutton "Tkinter Check Button"
+def checkbutton_used():
+    # imprime 1 si checkbox esta palomeada, 0 si no
+    print(checked_state.get())
+
+
+checked_state = IntVar()
+$1 = Checkbutton(text="$2", variable=checked_state, command=${3:exec_func})
+checked_state.get()
+$1.grid(column=$4, row=$5, columnspan=$6)
+endsnippet
+
+
+snippet tkradio "Tkinter Radio Button"
+def ${3:exec_func}():
+    print(radio_state.get())
+
+
+radio_state = IntVar()
+$1 = Radiobutton(text="$2", value=1, variable=radio_state, command=${3:exec_func})
+
+$4 = Radiobutton(text="$5", value=2, variable=radio_state, command=${3:exec_func})
+$1.grid(column=$6, row=$7, columnspan=$10)
+$4.grid(column=$8, row=$9, columnspan=$11)
+endsnippet
+
+snippet tklsbox "Tkinter List Box"
+def ${4:exec_func}(event):
+    print($1.get($1.curselection()))
+
+
+$2 = [$3]
+$1 = Listbox(height=len($3))
+
+for item in $2:
+    $1.insert($2.index(item), item)
+
+$1.bind("<<ListboxSelect>>", ${4:exec_func})
+$1.grid(column=$5, row=$6, columnspan=$7)
+endsnippet
+
+snippet tkcanvas "Tkinter canvas"
+$1 = Canvas(width=$2, height=$3, bg=$4, highlightthickness=0)
+$1.grid(column=$5, row=$6, columnspan=$7)
+endsnippet
+
+snippet tkcanvasimg "Add backgroud image to a tkcanvas"
+$1 = PhotoImage(file=$2)
+${3:canvas_name}.create_image(${4:x_position}, ${5:y_position}, image=$1)
+endsnippet
+
+snippet tkcanvastext "Adds text to tk canvas"
+$1 = ${2:canvas_name}.create_text(${3:x_position}, ${4:y_position}, text=$5, fill=${6:color},
+									font=(${7:font_name}, ${8:font_size}, ${9:bold_italic_etc}))
+endsnippet
+

@@ -1,0 +1,17 @@
+[module/internet-download]
+type = custom/script
+exec = ~/Projects/Python/net-speed.py --download
+interval = 60
+tail = true
+
+;HOW TO SET IT MINIMAL 10 CHARACTERS - HIDDEN BEHIND SYSTEM ICONS
+label = %output%
+; label = %output:10%
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "  " 
+format-prefix-foreground = ${monokai.cyan}
+format-underline = ${colors.underline}
+
+# vim:ft=dosini

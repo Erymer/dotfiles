@@ -1,0 +1,89 @@
+# LAYOUT
+snippet container "Container widget"
+Container(child: $1),
+endsnippet
+
+snippet column "Column widget"
+Column(
+	children: <Widget>[
+	  $1
+	]
+),
+endsnippet
+
+snippet row "Row widget"
+Row(
+	children: <Widget>[
+	  $1
+	]
+),
+endsnippet
+
+# IMAGES
+snippet assetimg "Asset image"
+AssetImage('${1:image_path}'),
+endsnippet
+
+# TEXT
+snippet text "Text with formats"
+Text(
+'${1:text}',
+style: TextStyle(
+	fontFamily: '${2:fontName}',
+	fontSize: ${3:fontSize},
+	color: Colors.$4,
+	fontWeight: FontWeight.$5,
+	letterSpacing: ${6:fontSpacing},
+),
+),
+endsnippet
+
+# SEPARATOR
+snippet sizedbox "Sized Box"
+SizedBox(width: $1),
+endsnippet
+
+# CREATE WIDGETS
+snippet stles "StatelessWidget"
+class ${1:name} extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blue,
+      appBar: AppBar(
+        backgroundColor: Colors.blue.shade900,
+        title: Text('Ask Me Anything'),
+      ),
+      body: Container(),
+    );
+  }
+}
+endsnippet
+
+snippet stful "Statefull Widget"
+class ${1:name} extends StatefulWidget {
+  @override
+  _$1State createState() => _$1State();
+}
+
+class _$1State extends State<$1> {
+  @override
+    Widget build(BuildContext context) {
+    return Container();
+  }
+}
+endsnippet
+
+# FUNCTIONS
+snippet f "Simple Function"
+${1:widget} ${2:function_name}(){
+  return $1(
+  
+  );
+}
+endsnippet
+
+# PRINT
+snippet out "print statement"
+print('$1');
+endsnippet

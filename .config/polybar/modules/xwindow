@@ -1,0 +1,18 @@
+[module/xwindow]
+;https://github.com/jaagr/polybar/wiki/Module:-xwindow
+type = internal/xwindow
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 50
+
+format-prefix = "  "
+format-prefix-underline = #292d3e
+format-underline = ${colors.red}
+format-foreground = ${colors.white}
+format-background = ${colors.background}
+
+# vim:ft=dosini
+

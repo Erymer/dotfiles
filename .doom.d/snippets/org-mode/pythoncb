@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: pythoncb
+# uuid: pythoncb
+# key: pythoncb
+# --
+#+begin_src python :results output
+`%`$0
+#+end_src

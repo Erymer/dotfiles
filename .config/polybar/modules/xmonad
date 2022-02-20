@@ -1,0 +1,8 @@
+[module/xmonad]
+type = custom/script
+exec = xmonad-log
+tail = true
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+
+# vim:ft=dosini

@@ -1,0 +1,9 @@
+[module/xmenu]
+type = custom/script
+interval = 1200
+exec = echo "  "
+click-left = "sh /home/dt/xmenu/xmenu.sh"
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+# vim:ft=dosini

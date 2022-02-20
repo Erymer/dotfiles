@@ -1,0 +1,181 @@
+[colors]
+black = #282828
+red = #CC241D
+green = #98971A
+yellow = #D79921
+blue = #458588
+purple = #B16286
+aqua = #689D6A
+gray = #A89984
+orange = #D65D0E
+white = #EBDBB2
+transparent	= #00000000
+background = #ff282a36
+foreground = #fff8f8f2
+
+[bar/magbar]
+monitor = HDMI-1
+;enable-ipc = true
+width = 100%
+height = 24
+dpi-x = 96
+dpi-y = 96
+border-size = 1
+border-color = ${colors.transparent}
+module-margin-left = 0
+module-margin-right = 0
+override-redirect = true
+wm-restack = i3
+tray-position = right
+tray-detached = true
+tray-offset-x = -288
+tray-offset-y = 0
+tray-padding = 2
+tray-background = ${colors.black}
+background = ${colors.transparent}
+foreground = ${colors.transparent}
+font-0 = Fira Mono:bold:fontformat=truetype:size=10:antialias=true
+font-1 = FiraMono Nerd Font Mono:pixelsize=11:antialias=true
+modules-left = i3 spacer window
+modules-center = date
+;modules-right = spacer backlight spacer volume spacer temperature spacer battery
+
+[bar/magbarLaptop]
+monitor = eDP1
+;enable-ipc = true
+width = 100%
+height = 24
+dpi-x = 96
+dpi-y = 96
+border-size = 1
+border-color = ${colors.transparent}
+module-margin-left = 0
+module-margin-right = 0
+override-redirect = true
+wm-restack = i3
+tray-position = right
+tray-detached = true
+tray-offset-x = 0
+;tray-offset-x = -288
+tray-offset-y = 0
+tray-padding = 2
+tray-background = ${colors.black}
+background = ${colors.transparent}
+foreground = ${colors.transparent}
+font-0 = Fira Mono:bold:fontformat=truetype:size=10:antialias=true
+font-1 = FiraMono Nerd Font Mono:pixelsize=11:antialias=true
+modules-left = i3 spacer window
+modules-center = date
+modules-right = spacer backlight spacer volume spacer temperature spacer battery
+[module/spacer]
+type = custom/text
+content = ﱢ
+content-padding = 0
+content-background = ${colors.transparent}
+content-foreground = ${colors.transparent}
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+label-mode-padding = 2
+label-mode-background = ${colors.black}
+label-mode-foreground = ${colors.white}
+label-focused = %index%
+label-focused-padding = 2
+label-focused-background = ${colors.white}
+label-focused-foreground = ${colors.black}
+label-unfocused = %index%
+label-unfocused-padding = 2
+label-unfocused-background = ${colors.black}
+label-unfocused-foreground = ${colors.white}
+label-visible = %index%
+label-visible-padding = 2
+label-visible-background = ${colors.red}
+label-visible-foreground = ${colors.green}
+label-urgent = %index%
+label-urgent-padding = 2
+label-urgent-background = ${colors.red}
+label-urgent-foreground = ${colors.gray}
+
+[module/window]
+type = internal/xwindow
+label = %title:0:24:...%
+format = <label>
+format-padding = 1
+format-background = ${colors.black}
+format-foreground = ${colors.white}
+
+[module/date]
+type = internal/date
+interval = 1
+date =  %a %b %d
+time =  %H:%M
+label = %date%, %time%
+format = <label>
+format-padding = 1
+format-background = ${colors.black}
+format-foreground = ${colors.white}
+
+[module/backlight]
+type = custom/script
+exec = xbacklight -get | sed 's/\.[0-9][0-9][0-9][0-9][0-9][0-9]//g' | xargs -I{} echo "Brillo: {}"
+;exec = brightnessctl --machine-readable | cut -d, -f4 | cut -d% -f1
+tail = true
+interval = 0.1
+label = %output:3%%
+format =  <label>
+format-padding = 1
+format-background = ${colors.black}
+format-foreground = ${colors.white}
+scroll-up = xbacklight -inc 20
+scroll-down = xbacklight -dec 20
+
+[module/volume]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+use-ui-max = false
+label-volume = %percentage:3%%
+label-muted = %percentage:3%%
+format-volume = 墳 <label-volume>
+format-volume-padding = 1
+format-volume-background = ${colors.background}
+format-volume-foreground = ${colors.foreground}
+format-muted = ﱝ <label-muted>
+format-muted-padding = 1
+format-muted-background = ${colors.background}
+format-muted-foreground = ${colors.red-dim}
+
+[module/temperature]
+type = internal/temperature
+base-temperature = 20
+warn-temperature = 60
+label = %temperature-c%
+label-warn = %temperature-c%
+format =  <label>
+format-padding = 1
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-warn =  <label-warn>
+format-warn-padding = 1
+format-warn-background = ${colors.background}
+format-warn-foreground = ${colors.yellow-bright}
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+full-at = 98
+label-charging = %percentage:3%%
+label-discharging = %percentage:3%%
+format-charging =  <label-charging>
+format-charging-padding = 1
+format-charging-background = ${colors.background}
+format-charging-foreground = ${colors.green-dim}
+format-discharging =  <label-discharging>
+format-discharging-padding = 1
+format-discharging-background = ${colors.background}
+format-discharging-foreground = ${colors.foreground}
+format-full =  FULL
+format-full-padding = 1
+format-full-background = ${colors.background}
+format-full-foreground = ${colors.cyan-dim}

@@ -1,0 +1,44 @@
+[module/temperature1]
+;https://github.com/jaagr/polybar/wiki/Module:-temperature
+type = internal/temperature
+; Thermal zone to use
+; To list all the zone types, run
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 0
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon4/temp1_input
+; hwmon-path = /sys/devices/virtual/thermal/thermal_zone0/hwmon1/temp1_input
+
+label = %temperature-c%
+format-prefix = " "
+; format-prefix-foreground = ${colors.prefix}
+format-prefix-foreground = ${monokai.yellow}
+
+; format = <ramp> <label>
+format = <label>
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-underline = ${colors.underline}
+
+warn-temperature = 80
+; format-warn = <ramp> <label-warn>
+format-warn = <label-warn>
+format-warn-underline = ${colors.yellow}
+label-warn =  %temperature-c%
+label-warn-foreground = ${colors.foreground}
+label-warn-background= ${colors.red}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-foreground =${colors.foreground}
+
+# vim:ft=dosini

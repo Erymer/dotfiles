@@ -1,0 +1,13 @@
+[module/networkspeeddown]
+;https://github.com/jaagr/polybar/wiki/Module:-network
+type = internal/network
+interface = wlp3s0
+label-connected = "%downspeed:7%"
+format-connected = <label-connected>
+format-connected-prefix = "  "
+format-connected-prefix-foreground = ${colors.prefix}
+format-connected-underline = ${colors.underline}
+format-connected-foreground = ${colors.white}
+format-connected-background = ${colors.background}
+
+# vim:ft=dosini

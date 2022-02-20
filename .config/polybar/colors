@@ -1,0 +1,92 @@
+;=====================================================
+;
+; To learn more about how to configure Polybar
+; go to https://github.com/jaagr/polybar
+;
+; The README contains alot of information
+; Themes : https://github.com/jaagr/dots/tree/master/.local/etc/themer/themes
+; https://github.com/jaagr/polybar/wiki/
+; https://github.com/jaagr/polybar/wiki/Configuration
+; https://github.com/jaagr/polybar/wiki/Formatting
+;
+;=====================================================
+
+[gruvbox]
+;black = #282828
+black = #1d2021
+red = #CC241D
+green = #98971A
+yellow = #D79921
+blue = #458588
+purple = #B16286
+aqua = #689D6A
+gray = #A89984
+orange = #D65D0E
+white = #EBDBB2
+background = #1d2021
+foreground = #ebdbb2
+
+[nord]
+black1 = #2E3440
+black2 = #3B4252
+black3 = #434C5E
+gray = #4C566A
+white1 = #D8DEE9
+white2 = #E5E9F0
+white3 = #ECEFF4
+aqua = #8FBCBB
+blue1 = #88C0D0
+blue2 = #81A1C1
+red = #BF616A
+orange = #D08770
+yellow = #EBCB8B
+green = #A3BE8C
+purple = #B48EAD
+
+[water]
+black = #222831
+gray = #393E46
+turquoise = #00ADB5
+white = #EEEEEE
+
+[custom]
+black = #333333
+gray = #706C61
+white = #FFFFFF
+blue = #E1F4F3
+
+[monokai]
+black = #272822
+lightblack = #3E3D32
+darkgray = #75715E
+gray = #CFCFC2
+white = #F8F8F2
+yellow = #E6DB74
+orange = #FD971F
+red = #F92672
+magenta = #FD5FF0
+violet = #AE81FF
+blue = #66D9EF
+cyan = #A1EFE4
+green = #A6E22E
+
+[colors]
+background = ${monokai.black}
+foreground = ${monokai.white}
+underline = ${monokai.gray} 
+prefix = ${monokai.violet}
+
+orange =${nord.orange}
+black = ${nord.black1}
+red = ${monokai.red}
+green = ${monokai.green}
+yellow = ${nord.yellow}
+blue = ${nord.blue3}
+purple = ${nord.purple}
+aqua = ${nord.aqua}
+gray = ${monokai.gray}
+white = ${monokai.white}
+
+transparent	= #00000000
+
+# vim:ft=dosini

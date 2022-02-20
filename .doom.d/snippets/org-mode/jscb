@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: jscb
+# uuid: jscb
+# key: jscb
+# --
+#+begin_src javascript :results output
+`%`$0
+#+end_src

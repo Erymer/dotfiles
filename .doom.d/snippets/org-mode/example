@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: example
+# uuid: example
+# key: example
+# --
+#+BEGIN_EXAMPLE
+`%`$0
+#+END_EXAMPLE

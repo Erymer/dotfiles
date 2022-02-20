@@ -1,0 +1,17 @@
+[module/internet-check]
+type = custom/script
+exec = ~/Tools/internet-check.sh
+; interval = 2
+tail = true
+
+;HOW TO SET IT MINIMAL 10 CHARACTERS - HIDDEN BEHIND SYSTEM ICONS
+label = %output%
+; label = %output:10%
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "  " 
+format-prefix-foreground = ${monokai.cyan}
+format-underline = ${colors.underline}
+
+# vim:ft=dosini

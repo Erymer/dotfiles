@@ -1,0 +1,6 @@
+bind-key j next
+bind-key k prev
+bind-key l open
+bind-key h quit
+bind-key q hard-quit
+browser brave

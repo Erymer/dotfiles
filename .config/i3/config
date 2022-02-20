@@ -1,0 +1,355 @@
+ # gruvbox colorscheme colors
+# set $bg #1d2021
+# set $red #cc241d
+# set $green #98971a
+# set $yellow #d79921
+# set $blue #458588
+# set $purple #b16286
+# set $aqua #689d68
+# set $gray #a89984
+# set $darkgray #1d2021
+# set $orange #d65d0e
+
+# Nord Colorscheme
+# set $black1  #2E3440
+# set $black2  #3B4252
+# set $black3  #434C5E
+# set $gray  #4C566A
+# set $white  #D8DEE9
+# set $white2  #E5E9F0
+# set $white3  #ECEFF4
+# set $aqua  #8FBCBB
+# set $blue1  #88C0D0
+# set $blue2  #81A1C1
+# set $blue3  #5E81AC
+# set $red  #BF616A
+# set $orange  #D08770
+# set $yellow  #EBCB8B
+# set $green  #A3BE8C
+# set $purple  #B48EAD
+
+# Custom Colorscheme water
+# set $black #222831
+# set $gray #393E46
+# set $turquoise #00ADB5
+# set $white #EEEEEE
+
+# Monokai Colorscheme
+set $black #272822
+set $lightblack #3E3D32
+set $darkgray #75715E
+set $gray #CFCFC2
+set $white #F8F8F2
+set $yellow #E6DB74
+set $orange #FD971F
+set $red #F92672
+set $magenta #FD5FF0
+set $violet #AE81FF
+set $blue #66D9EF
+set $cyan #A1EFE4
+set $green #A6E22E
+
+# Custom Colorscheme water
+# set $black #333333
+# set $gray #706C61
+# set $white #FFFFFF
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #000000 $white  $white $blue $blue
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+# Window Config
+default_border pixel 2
+default_floating_border normal
+for_window [class=".*"] border pixel 2
+for_window [class="Nextcloud" instance="nextcloud" title="Nextclound"] floating enable sticky enable border normal
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font Fira Mono 10
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# https://github.com/google/xsecurelock#automatic-locking
+exec --no-startup-id xss-lock --transfer-sleep-lock -- xsecurelock
+
+exec --no-startup-id bash ~/.config/i3/autostart.sh
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+set $up k
+set $down j
+set $left h
+set $right l
+
+# use Mouse+Mod4 to drag floating windows to their wanted position
+floating_modifier Mod4
+
+# kill focused window
+bindsym Mod4+q kill
+
+# Program bindkeys
+bindsym Mod4+d exec rofi -show run
+bindsym Mod4+n workspace --no-auto-back-and-forth $ws2 exec kitty --class Ranger --title Ranger ranger
+# bindsym Mod4+t workspace --no-auto-back-and-forth $ws3 exec nvim-qt
+# bindsym Mod4+t workspace --no-auto-back-and-forth $ws3 exec kitty --override window_margin_width=0 --class Neovim --title Neovim nvim
+bindsym Mod4+t workspace --no-auto-back-and-forth $ws3 exec nvim-qt
+# bindsym Mod4+Return exec alacritty --class Terminal --title Alacritty
+bindsym Mod4+Return exec kitty --class Terminal --title Kitty
+bindsym Mod4+Shift+Return exec kitty --class Terminal --title Kitty --override window_margin_width=0
+bindsym Mod4+b workspace --no-auto-back-and-forth $ws1 exec brave
+bindsym Mod4+Right exec xbacklight -inc 20
+bindsym Mod4+Left exec xbacklight -dec 20
+
+# Projects bindkeys 
+# bindsym Mod4+g exec todo # Adds something to my To Do list. Uses Script ~/.magBin/todo
+# bindsym Mod4+c exec readtodo # Reads something from my To Do list. Uses Script ~/.magBin/readtodo
+bindsym Mod4+F1 exec ~/Tools/toggle-mute.sh
+bindsym Mod4+F2 workspace --no-auto-back-and-forth $ws8 exec ~/Tools/spotify.sh
+bindsym Mod4+F4 exec ~/Tools/shutdown.sh
+bindsym Mod4+F7 exec brightnessctl set 20%-
+bindsym Mod4+F8 exec brightnessctl set +20%
+bindsym Mod4+F9 exec ~/.magBin/screencf
+bindsym Mod4+F11 exec ~/Tools/lock-suspend.sh
+bindsym Mod4+F12 exec ~/Tools/lorem.sh
+bindsym Print exec scrot --quality 100 --focused && notify-send "Printed window"
+bindsym Mod4+Print exec scrot --quality 100 --focused && notify-send "Printed window"
+# bindsym Mod4+Print exec scrot --quality 100 --select && notify-send "Printed Selection"
+bindsym Mod4+space exec ~/Tools/Touchpad.sh
+
+# Open applications on specific workspaces
+assign [class="Brave"] $ws1
+assign [class="Firefox"] $ws1
+assign [title="Ranger"] $ws2
+assign [class="nvim-qt" title="Neovim"] $ws3
+assign [title="emacs"] $ws4
+assign [title="zathura"] $ws4
+assign [class="discord" instance="discord" title="Discord"] $ws6
+
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym Mod4+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+bindsym Mod4+$left focus left
+bindsym Mod4+$down focus down
+bindsym Mod4+$up focus up
+bindsym Mod4+$right focus right
+# bindsym Mod4+Tab workspace back_and_forth
+focus_wrapping workspace
+
+# Go to program
+# To know window atributes use  ~/Projects/ShellScript/geti3WindowCriteria.sh 
+# If an app executes within the terminal emulator use title option to change the title of the window. For example, to open Ranger with alacritty, use "alacritty --title Ranger -e ranger", otherwise the name of the window will be alacritty.
+# https://faq.i3wm.org/question/2172/how-do-i-find-the-criteria-for-use-with-i3-config-commands-like-for_window-eg-to-force-splashscreens-and-dialogs-to-show-in-floating-mode.1.html
+bindsym Mod4+Shift+t [class="nvim-qt" title="nvim-qt"] focus
+bindsym Mod4+Shift+b [class="Brave"] focus
+bindsym Mod4+Shift+n [title="Ranger"] focus
+# bindsym Mod4+Shift+Return [title="Kitty"] focus
+
+# move focused window
+bindsym Mod4+Ctrl+$left move left
+bindsym Mod4+Ctrl+$down move down
+bindsym Mod4+Ctrl+$up move up
+bindsym Mod4+Ctrl+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym Mod4+Shift+Left move left
+bindsym Mod4+Shift+Down move down
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+Right move right
+
+# split in horizontal orientation
+#bindsym Mod4+c split h
+
+# split in vertical orientation
+bindsym Mod4+v split v
+
+# enter fullscreen mode for the focused container
+bindsym Mod4+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym Mod4+s layout stacking
+bindsym Mod4+w layout tabbed
+bindsym Mod4+p layout toggle split
+
+# toggle tiling / floating
+bindsym Mod4+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+# bindsym Mod4+space focus mode_toggle
+
+# focus the parent container
+#bindsym Mod4+, focus parent
+
+# focus the child container
+#bindsym Mod4+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym Mod4+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym Mod4+minus scratchpad show
+
+workspace_auto_back_and_forth yes # Change back and forth between previous and curret workspace using the same keys
+
+#Workspace Names
+set $ws1 "1 "
+set $ws2 "2 "
+set $ws3 "3 "
+set $ws4 "4 "
+set $ws5 "5 "
+set $ws6 "6 "
+set $ws7 "7"
+set $ws8 "8 "
+set $ws9 "9"
+set $ws10 "10 "
+
+# set $ws1 "1"
+# set $ws2 "2"
+# set $ws3 "3"
+# set $ws4 "4"
+# set $ws5 "5"
+# set $ws6 "6"
+# set $ws7 "7"
+# set $ws8 "8"
+# set $ws9 "9"
+# set $ws10 "10"
+
+# set ws-icon-1 = 1;
+# set ws-icon-2 = 2;
+# set ws-icon-3 = 3;
+# set ws-icon-4 = 4;
+# set ws-icon-5 = 5;
+# set ws-icon-6 = 6;
+# set ws-icon-7 = 7;
+# set ws-icon-8 = 8;
+# set ws-icon-9 = 9;
+# set ws-icon-10 = 10;
+
+# ws-icon-1 = 2;
+# ws-icon-2 = 3;
+# ws-icon-3 = 4;
+# ws-icon-4 = 5;
+# ws-icon-5 = 6;
+# ws-icon-6 = 7;
+# ws-icon-7 = 8;
+# ws-icon-8 = 9;
+# ws-icon-9 = 10;
+# ws-icon-default = " "
+
+# switch to workspace
+bindsym Mod4+a workspace $ws1
+bindsym Mod4+o workspace $ws2
+bindsym Mod4+e workspace $ws3
+bindsym Mod4+u workspace $ws4
+bindsym Mod4+i workspace $ws5
+bindsym Mod4+g workspace number $ws6
+bindsym Mod4+7 workspace number $ws7
+bindsym Mod4+8 workspace number $ws8
+bindsym Mod4+9 workspace number $ws9
+
+workspace $ws1 output primary
+workspace $ws2 output primary
+workspace $ws3 output primary
+workspace $ws4 output primary
+workspace $ws5 output primary
+workspace $ws6 output primary
+workspace $ws7 output primary
+workspace $ws8 output primary
+workspace $ws9 output primary
+# workspace $ws10 output HDMI-A-0
+
+bindsym Mod4+Tab workspace $ws10
+
+# move focused container to workspace and switch to that workspace
+bindsym Mod4+Shift+a move container to workspace number $ws1
+bindsym Mod4+Shift+o move container to workspace number $ws2
+bindsym Mod4+Shift+e move container to workspace number $ws3
+bindsym Mod4+Shift+u move container to workspace number $ws4
+bindsym Mod4+Shift+i move container to workspace number $ws5
+bindsym Mod4+Shift+g move container to workspace number $ws6
+bindsym Mod4+Shift+7 move container to workspace number $ws7
+bindsym Mod4+Shift+8 move container to workspace number $ws8
+bindsym Mod4+Shift+9 move container to workspace number $ws9
+bindsym Mod4+Shift+z move container to workspace number $ws10
+
+focus_follows_mouse no
+
+# reload the configuration file
+bindsym Mod4+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym Mod4+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym Mod4+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or Mod4+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Mod4+r mode "default"
+}
+
+bindsym Mod4+r mode "resize"
+
+gaps inner 10
+gaps top 30
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+#bar {
+        #status_command i3status
+#}
+
+#######################################################################
+# automatically start i3-config-wizard to offer the user to create a
+# keysym-based config which used their favorite modifier (alt or windows)
+#
+# i3-config-wizard will not launch if there already is a config file
+# in ~/.config/i3/config (or $XDG_CONFIG_HOME/i3/config if set) or
+# ~/.i3/config.
+#
+# Please remove the following exec line:
+#######################################################################

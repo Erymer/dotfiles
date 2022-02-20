@@ -1,0 +1,44 @@
+[module/backlight]
+; https://github.com/jaagr/polybar/wiki/Module:-backlight
+type = internal/backlight
+scroll-up = xbacklight -inc 20
+scroll-down = xbacklight -dec 20
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format-prefix = " "
+format-prefix-foreground = ${colors.prefix}
+
+format = <label>
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-underline = ${colors.underline}
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 = x
+ramp-1 = ▂
+ramp-2 = ▄
+ramp-3 = ▆
+ramp-4 = █
+
+; Only applies if <bar> is used
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
+bar-empty-font = 3
+bar-empty-foreground = ${colors.foreground}
+bar-indicator-foreground = ${colors.foreground}
+bar-indicator-font = 3
+bar-fill-font = 3
+bar-fill-foreground = ${colors.foreground}
+# vim:ft=dosini

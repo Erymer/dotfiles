@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: confcb
+# uuid: confcb
+# key: confcb
+# --
+#+begin_src conf :results output
+`%`$0
+#+end_src

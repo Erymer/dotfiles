@@ -1,0 +1,10 @@
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix-foreground = #7D49B6
+format-prefix-underline = #7D49B6
+format-underline = #7D49B6
+# vim:ft=dosini
