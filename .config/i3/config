@@ -127,18 +127,18 @@ bindsym Mod4+Left exec xbacklight -dec 20
 # Projects bindkeys 
 # bindsym Mod4+g exec todo # Adds something to my To Do list. Uses Script ~/.magBin/todo
 # bindsym Mod4+c exec readtodo # Reads something from my To Do list. Uses Script ~/.magBin/readtodo
-bindsym Mod4+F1 exec ~/Tools/toggle-mute.sh
-bindsym Mod4+F2 workspace --no-auto-back-and-forth $ws8 exec ~/Tools/spotify.sh
-bindsym Mod4+F4 exec ~/Tools/shutdown.sh
+bindsym Mod4+F1 exec ~/Scripts/toggle-mute.sh
+bindsym Mod4+F2 workspace --no-auto-back-and-forth $ws8 exec ~/Scripts/spotify.sh
+bindsym Mod4+F4 exec ~/Scripts/shutdown.sh
 bindsym Mod4+F7 exec brightnessctl set 20%-
 bindsym Mod4+F8 exec brightnessctl set +20%
 bindsym Mod4+F9 exec ~/.magBin/screencf
-bindsym Mod4+F11 exec ~/Tools/lock-suspend.sh
-bindsym Mod4+F12 exec ~/Tools/lorem.sh
+bindsym Mod4+F11 exec ~/Scripts/lock-suspend.sh
+bindsym Mod4+F12 exec ~/Scripts/lorem.sh
 bindsym Print exec scrot --quality 100 --focused && notify-send "Printed window"
 bindsym Mod4+Print exec scrot --quality 100 --focused && notify-send "Printed window"
 # bindsym Mod4+Print exec scrot --quality 100 --select && notify-send "Printed Selection"
-bindsym Mod4+space exec ~/Tools/Touchpad.sh
+bindsym Mod4+space exec ~/Scripts/Touchpad.sh
 
 # Open applications on specific workspaces
 assign [class="Brave"] $ws1

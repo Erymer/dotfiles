@@ -1,6 +1,6 @@
 [module/internet-check]
 type = custom/script
-exec = ~/Tools/internet-check.sh
+exec = ~/Scripts/internet-check.sh
 ; interval = 2
 tail = true
 

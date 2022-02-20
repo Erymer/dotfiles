@@ -243,8 +243,7 @@ cenctar() {
 alias wifiscan='nmcli device wifi list'
 
 # Config files shotcuts
-alias zshcf="chezmoi edit $HOME/.zshrc"
-alias alcf="chezmoi edit $HOME/.config/alias"
+alias alcf="nvim $HOME/.config/alias"
 #Functions
 
 # Comandos para recordar
