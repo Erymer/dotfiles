@@ -33,6 +33,7 @@ alias please='sudo bash -c "$(fc -ln -1)"'
 alias pls='sudo bash -c "$(fc -ln -1)"'
 alias pager='bash -c "$(fc -ln -1)" | bat'
 alias pg='bash -c "$(fc -ln -1)" | bat'
+alias todolinux='todo new -l linux'
 
 rpg () {
   rpg-cli "$@"
@@ -157,7 +158,6 @@ yesdisk(){
   sudo wipefs --all --force "${blk_device}" > /dev/null
 }
 
-
 t(){
   tmux new-session \; \
         split-window -h \; \
@@ -201,16 +201,8 @@ py() {
 alias wallpaper='feh --bg-fill'
 
 # Package Manager
-alias pacman='sudo pacman --color auto' 
-alias p='sudo pacman --color auto'
-alias pinstall='sudo pacman -S'
-psearch() {
-  sudo pacman --color auto -Ss "$@" | $PAGER
-}
-
-ysearch() {
-  yay --color auto -Ss "$@" | $PAGER
-}
+alias pacinstall='sudo pacman -S'
+alias pacrm='sudo pacman -Rs'
 
 # Homelab
 alias amberjack='ping -c 2 192.168.100.93 && ssh amberjack'
@@ -228,8 +220,10 @@ ctar() {
   tarball="$1.tgz"
   tar -zvcf ${tarball} ${file}
 }
+
 alias untar="tar -zxvf" # Unpack tarball
 alias lstar="tar -tvf" # List tarball files
+
 cenctar() {
   file=$1
   tarball="$1.tgz"

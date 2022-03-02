@@ -141,3 +141,9 @@ for file in $ALIAS_DIRECTORY/* ; do
 done
 
 $HOME/Projects/Python/oracle-cli/oracle-cli.py
+
+PATH="/home/mag/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/mag/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/mag/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/mag/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/mag/perl5"; export PERL_MM_OPT;

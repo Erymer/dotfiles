@@ -36,7 +36,7 @@ fi
 
 eval $(ssh-agent)
 
-exec i3
+# exec i3
 #exec qtile
-# exec xmonad
+exec xmonad
 # exec $1

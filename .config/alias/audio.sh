@@ -29,6 +29,7 @@ fi
 
 alias mute='pamixer --mute'
 alias unmute='pamixer --unmute'
+alias mx='pulsemixer'
 
 spotify() {
     if [ ! $(pgrep "spotifyd") ]; then
