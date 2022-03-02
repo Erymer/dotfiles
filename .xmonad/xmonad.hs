@@ -1,14 +1,3 @@
--- Xmonad is a dynamically tiling X11 window manager that is written and
--- configured in Haskell. Official documentation: https://xmonad.org
-
--- This is the xmonad configuration of Derek Taylor (DistroTube)
--- My YouTube: http://www.youtube.com/c/DistroTube
--- My GitLab:  http://www.gitlab.com/dwt1/
-
--- This config is massively long. It is purposely bloated with a ton of
--- examples of what you can do with xmonad. It is written more as a
--- study guide rather than a config that you should download and use.
-
 ------------------------------------------------------------------------
 -- IMPORTS
 ------------------------------------------------------------------------
@@ -280,6 +269,7 @@ myManageHook = composeAll
      [ className =? "obs"     --> doShift ( "4:Write" )
      , className =? "Brave-browser" --> doShift ( "1:Web" )
      , className =? "FileManager"     --> doShift ( "2:FileNav" )
+     , className =? "Pcmanfm"     --> doShift ( "2:FileNav" )
      , className =? "nvim-qt" --> doShift ( "3:Code" )
      , className =? "Gimp"    --> doFloat
      , className =? "Gcr-prompter"    --> doCenterFloat
@@ -430,18 +420,20 @@ myKeys =
         , ("M-C-M1-<Down>", sendMessage DeArrange)
         , ("M-f", sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts) -- Toggles noborder/full
         , ("M-S-<Space>", sendMessage ToggleStruts)         -- Toggles struts
-        , ("M-S-n", sendMessage $ MT.Toggle NOBORDERS)      -- Toggles noborder
+        -- , ("M-S-n", sendMessage $ MT.Toggle NOBORDERS)      -- Toggles noborder
         , ("M-<KP_Multiply>", sendMessage (IncMasterN 1))   -- Increase number of clients in master pane
         , ("M-<KP_Divide>", sendMessage (IncMasterN (-1)))  -- Decrease number of clients in master pane
         , ("M-S-<KP_Multiply>", increaseLimit)              -- Increase number of windows
         , ("M-S-<KP_Divide>", decreaseLimit)                -- Decrease number of windows
-
-    -- Workspaces
         , ("M-<Tab>", nextScreen)  -- Switch focus to next monitor
+
+    -- Apps
         , ("M-b", spawn myBrowser)
         , ("M-t", spawn myEditor)
         , ("M-n", spawn (myTerminal ++ "-e --class FileManager --title Ranger ranger"))
+        , ("M-S-n", spawn "pcmanfm")
 
+    -- Special Keys
         , ("M-<F1>", spawn (scriptsFolder ++ "/toggle-mute.sh"))
         , ("M-<F2>", spawn (scriptsFolder ++ "/spotify.sh"))
         , ("M-<F4>", spawn (scriptsFolder ++ "/shutdown.sh"))
@@ -462,10 +454,8 @@ myKeys =
 main :: IO ()
 main = do
     dbus <- D.connectSession
-    -- Request access to the DBus name
     D.requestName dbus (D.busName_ "org.xmonad.Log")
         [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
-    -- The xmonad, ya know...what the window manager is named after.
     xmonad $ ewmh $ docks $ defaults { logHook = dynamicLogWithPP (myLogHook dbus) }
 
 -- Emit a DBus signal on log updates
