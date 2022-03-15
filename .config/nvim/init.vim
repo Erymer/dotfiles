@@ -104,7 +104,7 @@ Plug 'easymotion/vim-easymotion' "Jump to specific location
 Plug 'junegunn/goyo.vim' "Minimalistic writting
 Plug 'junegunn/limelight.vim' "Adds trasparency to pharagraphs that are not being used
 Plug 'mboughaba/i3config.vim' "i3 config file sintax highlight
-Plug 'axvr/org.vim' "Vim org mode sintax Highlighting
+
 Plug 'godlygeek/tabular' "vim-markdown dependency
 Plug 'plasticboy/vim-markdown' "Markdown
 Plug 'dmoerner/vim-markdownfootnotes'
@@ -114,6 +114,8 @@ Plug 'chrisbra/csv.vim'
 Plug 'ap/vim-css-color' "Highlight hex color codes their respective color
 Plug 'machakann/vim-highlightedyank'
 Plug 'SirVer/ultisnips' "Code snippets
+Plug 'nvim-treesitter/nvim-treesitter' "Better Sintax Highlighting. Recomended by Sonokai Color Theme
+Plug 'nvim-orgmode/orgmode'
 " Plug 'vim-scripts/AutoComplPop'
 " Plug 'vim-syntastic/syntastic'
 " Plug 'nvie/vim-flake8' 
@@ -136,7 +138,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'tpope/vim-abolish' "Autocorrector
 " Plug 'kien/rainbow_parentheses.vim' 
 " Plug 'michaelb/sniprun', { 'do': 'bash install.sh' }
-" Plug 'nvim-treesitter/nvim-treesitter' "Better Sintax Highlighting. Recomended by Sonokai Color Theme
 " if has('nvim')
 "     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "Autocompletion for various languages
 " else
@@ -307,3 +308,26 @@ let g:dashboard_custom_header = [
       \' :................................................................................................... ',
       \' :................................................................................................... ',
      \ ]
+
+" nvim-orgmode
+lua << EOF
+
+-- Load custom tree-sitter grammar for org filetype
+require('orgmode').setup_ts_grammar()
+
+-- Tree-sitter configuration
+require'nvim-treesitter.configs'.setup {
+  -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
+  highlight = {
+    enable = true,
+    disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
+    additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
+  },
+  ensure_installed = {'org'}, -- Or run :TSUpdate org
+}
+
+require('orgmode').setup({
+  org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
+  org_default_notes_file = '~/Dropbox/org/refile.org',
+})
+EOF

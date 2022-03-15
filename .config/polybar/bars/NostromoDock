@@ -45,5 +45,6 @@ module-margin = 5
 modules-left = xmonad spacer
 modules-center = date
 modules-right = sep internet-check sep wired-network sep memory1 sep cpu2 sep temperature1 sep fan-speed sep battery sep
+; modules-right = sep internet-check sep wired-network sep memory1 sep cpu2 sep temperature1 sep battery sep
 
 # vim:ft=dosini

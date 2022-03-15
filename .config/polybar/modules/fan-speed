@@ -1,7 +1,7 @@
 [module/fan-speed]
 type = custom/script
 exec = cat /sys/devices/platform/asus-nb-wmi/hwmon/hwmon[[:print:]]*/fan1_input
-; interval = 2
+interval = 1
 tail = true
 
 ;HOW TO SET IT MINIMAL 10 CHARACTERS - HIDDEN BEHIND SYSTEM ICONS

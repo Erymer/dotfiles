@@ -17,11 +17,13 @@ full-at = 100
 ; format-charging = <animation-charging> <label-charging>
 format-charging = <label-charging>
 format-charging-prefix = " "
-format-charging-prefix-foreground = #55aa55
+; format-charging-prefix-foreground = #55aa55
+format-charging-prefix-foreground = ${colors.green}
 label-charging = %percentage%%
 format-charging-foreground = ${colors.foreground}
 format-charging-background = ${colors.background}
-format-charging-underline = #55aa55
+; format-charging-underline = #55aa55
+format-charging-underline = ${colors.green}
 
 ; Available tags:
 ;   <label-discharging> (default)
@@ -38,8 +40,10 @@ format-discharging-foreground = ${colors.foreground}
 format-discharging-background = ${colors.background}
 
 format-full-prefix = " "
-format-full-prefix-foreground = #55aa55
-format-full-underline = #55aa55
+; format-full-prefix-foreground = #55aa55
+; format-full-underline = #55aa55
+format-full-prefix-foreground = ${colors.green}
+format-full-underline = ${colors.green}
 format-full-foreground = ${colors.foreground}
 format-full-background = ${colors.background}
 

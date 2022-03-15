@@ -1,6 +1,7 @@
 ------------------------------------------------------------------------
 -- IMPORTS
 ------------------------------------------------------------------------
+-- Good source for configs https://github.com/gvolpe/nix-config/blob/master/home/programs/xmonad/config.hs
     -- Base
 import XMonad
 import System.Exit (exitSuccess)
@@ -29,7 +30,7 @@ import qualified Data.Tuple.Extra as TE
 import qualified Data.Map as M
 
     -- Hooks
-import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, PP(..))
+import XMonad.Hooks.DynamicLog (shorten, dynamicLogWithPP, wrap, PP(..))
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks (avoidStruts, docks, docksEventHook, ToggleStruts(..))
@@ -99,7 +100,8 @@ myBrowser :: String
 myBrowser = "brave"                 -- Sets brave as browser for tree select
 
 myEditor :: String
-myEditor = "nvim-qt"    -- Sets vim as editor for tree select
+-- myEditor = "neovide"
+myEditor = "kitty --override window_margin_width=0 nvim"
 
 myBorderWidth :: Dimension
 myBorderWidth = 2          -- Sets border width for windows
@@ -128,15 +130,16 @@ color4 = "#2E9AFE"
 ------------------------------------------------------------------------
 myStartupHook :: X ()
 myStartupHook = do
-          spawnOnce "picom --backend glx&"
-          spawnOnce "dunst &"
-          spawnOnce "gpg-agent &"
-          spawnOnce "polybar Nostromo &"
-          spawnOnce "feh --bg-fill $HOME/Images/Wallpapers/weeb/cookie-monster.png"
-          spawnOnce "xss-lock --transfer-sleep-lock -- xsecurelock"
-          spawnOnce "unclutter &"
-          spawnOnce "numlockx &"
-          spawnOnce "~/Scripts/nextcloud-sync.sh"
+          -- spawnOnce "picom --backend glx&"
+          -- spawnOnce "dunst &"
+          -- spawnOnce "gpg-agent &"
+          -- spawnOnce "polybar Nostromo &"
+          -- spawnOnce "feh --bg-fill $HOME/Images/Wallpapers/weeb/cookie-monster.png"
+          -- spawnOnce "xss-lock --transfer-sleep-lock -- xsecurelock"
+          -- spawnOnce "unclutter &"
+          -- spawnOnce "numlockx &"
+          -- spawnOnce "~/Scripts/nextcloud-sync.sh"
+          spawnOnce "~/.xmonad/autostart.sh"
           -- setWMName "LG3D"
 
 ------------------------------------------------------------------------
@@ -249,7 +252,7 @@ dtXPKeymap = M.fromList $
 ------------------------------------------------------------------------
 -- WORKSPACES
 ------------------------------------------------------------------------
-magWorkspaces = ["1:Web", "2:FileNav", "3:Code", "4:Write", "5:Misc", "6:Chat", "7:Monitor", "8", "9"]
+myWorkspaces = ["1:Web", "2:FileNav", "3:Code", "4:Write", "5:Misc", "6:Chat", "7:Monitor", "8", "9"]
 
 ------------------------------------------------------------------------
 -- MANAGEHOOK
@@ -271,8 +274,9 @@ myManageHook = composeAll
      , className =? "FileManager"     --> doShift ( "2:FileNav" )
      , className =? "Pcmanfm"     --> doShift ( "2:FileNav" )
      , className =? "nvim-qt" --> doShift ( "3:Code" )
-     , className =? "Gimp"    --> doFloat
+     -- , className =? "Gimp"    --> doFloat
      , className =? "Gcr-prompter"    --> doCenterFloat
+     , className =? "Brave"    --> doCenterFloat
      , className =? "dzen"    --> doFloat
      , title =? "Oracle VM VirtualBox Manager"     --> doFloat
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
@@ -288,11 +292,11 @@ myLogHook dbus = def
     { ppOutput  = dbusOutput dbus
     , ppCurrent = wrap ("%{F" ++ color4 ++ "} ") "%{F-}"
     , ppLayout = wrap ("%{F" ++ color4 ++ "} ") "%{F-}"
-    -- , ppVisible = wrap ("%{F" ++ color1 ++ "} ") "%{F-}"
-    -- , ppUrgent  = wrap ("%{F" ++ color3 ++ "} ") "%{F-}"
+    , ppVisible = wrap ("%{F" ++ color1 ++ "} ") "%{F-}"
+    , ppUrgent  = wrap ("%{F" ++ color3 ++ "} ") "%{F-}"
     , ppHidden  = wrap ("%{F" ++ color1 ++ "} ") "%{F-}"
-    -- , ppTitle   = wrap ("%{F" ++ color2 ++ "}")"%{F-}"
-    -- , ppSep     = "  |  "
+    , ppTitle   = shorten 30 . wrap ("%{F" ++ color2 ++ "}")"%{F-}"
+    , ppSep     = " | "
     }
 
 ------------------------------------------------------------------------
@@ -349,14 +353,14 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                                  --
 ------------------------------------------------------------------------
 -- KEYBINDINGS
-myKeys :: [(String, X ())]
-toggleGreedyWS = toggleOrDoSkip [] W.greedyView =<< gets (W.currentTag . windowset)
-myKeys =
+dvorakKeys :: [(String, X ())]
+dvorakKeys =
     -- Xmonad
         [ ("M-C-r", spawn "xmonad --recompile && notify-send 'Xmonad Recompiled'")      -- Recompiles xmonad
         , ("M-S-r", spawn "xmonad --restart")        -- Restarts xmonad
         , ("M-S-q", io exitSuccess)                  -- Quits xmonad
         , ("M-<Return>", spawn myTerminal)
+        , ("M-S-<Return>", spawn (myTerminal ++ " --override window_margin_width=0"))
 
     -- Windows
         , ("M-q", kill1)                           -- Kill the currently focused client
@@ -368,14 +372,6 @@ myKeys =
 
         
     -- Change to workspace
-        -- , ("M-a", windows $ W.greedyView "1:Web")
-        -- , ("M-o", windows $ W.greedyView "2:FileNav")
-        -- , ("M-e", windows $ W.greedyView "3:Code")
-        -- , ("M-u", windows $ W.greedyView "4:Write")
-        -- , ("M-i", windows $ W.greedyView "5:Misc")
-        -- , ("M-g", windows $ W.greedyView "6:Chat")
-        -- , ("M-!", windows $ W.greedyView "7:Monitor")
-
         -- https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/XMonad-Actions-CycleWS.html#g:3
         , ("M-a", toggleOrView "1:Web")
         , ("M-o", toggleOrView "2:FileNav")
@@ -384,15 +380,7 @@ myKeys =
         , ("M-i", toggleOrView "5:Misc")
         , ("M-g", toggleOrView "6:Chat")
         , ("M-!", toggleOrView "7:Monitor")
-        , ("M-c", swapNextScreen)
-
-        -- , ("M-a", toggleGreedyWS "1:Web")
-        -- , ("M-o", toggleGreedyWS "2:FileNav")
-        -- , ("M-e", toggleGreedyWS "3:Code")
-        -- , ("M-u", toggleGreedyWS "4:Write")
-        -- , ("M-i", toggleGreedyWS "5:Misc")
-        -- , ("M-g", toggleGreedyWS "6:Chat")
-        -- , ("M-!", toggleGreedyWS "7:Monitor")
+        , ("M-i", swapNextScreen)
 
         , ("M-S-a", windows $ W.shift "1:Web")
         , ("M-S-o", windows $ W.shift "2:FileNav")
@@ -401,6 +389,7 @@ myKeys =
         , ("M-S-i", windows $ W.shift "5:Misc")
         , ("M-S-g", windows $ W.shift "6:Chat")
         , ("M-S-!", windows $ W.shift "7:Monitor")
+
 
     -- Windows navigation
         , ("M-l", windows W.focusMaster)     -- Move focus to the master window
@@ -436,7 +425,9 @@ myKeys =
     -- Special Keys
         , ("M-<F1>", spawn (scriptsFolder ++ "/toggle-mute.sh"))
         , ("M-<F2>", spawn (scriptsFolder ++ "/spotify.sh"))
+        , ("M-<F3>", spawn (myTerminal ++ "-e --class Mixer --title PulseMixer pulsemixer"))
         , ("M-<F4>", spawn (scriptsFolder ++ "/shutdown.sh"))
+        , ("M-<F5>", spawn (scriptsFolder ++ "/nextcloud-sync.sh"))
         , ("M-<F7>", spawn "brightnessctl set 20%-")
         , ("M-<F8>", spawn "brightnessctl set +20%")
         , ("M-<F9>", spawn "$HOME/.magBin/screencf")
@@ -448,11 +439,101 @@ myKeys =
 
         ]
 
+qwertyKeys :: [(String, X ())]
+qwertyKeys =
+    -- Xmonad
+        [ ("M-C-r", spawn "xmonad --recompile && notify-send 'Xmonad Recompiled'")      -- Recompiles xmonad
+        , ("M-S-r", spawn "xmonad --recompile && xmonad --restart && notify-send 'Xmonad Restarted'")        -- Restarts xmonad
+        , ("M-S-q", io exitSuccess)                  -- Quits xmonad
+        , ("M-<Return>", spawn myTerminal)
+        , ("M-S-<Return>", spawn (myTerminal ++ " --override window_margin_width=0"))
+
+    -- Windows
+        , ("M-x", kill1)                           -- Kill the currently focused client
+        , ("M-S-x", killAll)                         -- Kill all windows on current workspace
+        , ("M-<Delete>", withFocused $ windows . W.sink) -- Push floating window back to tile
+        , ("M-S-<Delete>", sinkAll)                      -- Push ALL floating windows to tile
+
+        , ("M-h", spawn "rofi -show run")                 -- App launcher
+
+        
+    -- Change to workspace
+        -- https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/XMonad-Actions-CycleWS.html#g:3
+        , ("M-a", toggleOrView "1:Web")
+        , ("M-s", toggleOrView "2:FileNav")
+        , ("M-d", toggleOrView "3:Code")
+        , ("M-f", toggleOrView "4:Write")
+        , ("M-g", toggleOrView "5:Misc")
+        , ("M-u", toggleOrView "6:Chat")
+        , ("M--", toggleOrView "7:Monitor")
+        , ("M-i", swapNextScreen)
+
+        , ("M-S-a", windows $ W.shift "1:Web")
+        , ("M-S-s", windows $ W.shift "2:FileNav")
+        , ("M-S-d", windows $ W.shift "3:Code")
+        , ("M-S-f", windows $ W.shift "4:Write")
+        , ("M-S-g", windows $ W.shift "5:Misc")
+        , ("M-S-u", windows $ W.shift "6:Chat")
+        , ("M-S--", windows $ W.shift "7:Monitor")
+
+
+    -- Windows navigation
+        , ("M-p", windows W.focusMaster)     -- Move focus to the master window
+        , ("M-j", windows W.focusDown)       -- Move focus to the next window
+        , ("M-v", windows W.focusUp)         -- Move focus to the prev window
+        --, ("M-S-m", windows W.swapMaster)    -- Swap the focused window and the master window
+        , ("M-S-j", windows W.swapDown)      -- Swap focused window with next window
+        , ("M-S-v", windows W.swapUp)        -- Swap focused window with prev window
+        , ("M-<Backspace>", promote)         -- Moves focused window to master, others maintain order
+        -- , ("M1-S-<Tab>", rotSlavesDown)      -- Rotate all windows except master and keep focus in place
+        , ("M-C-j", rotAllDown)         -- Rotate all the windows in the current stack
+        --, ("M-S-s", windows copyToAll)
+
+        -- Layouts
+        , ("M-S-<Tab>", sendMessage NextLayout)                -- Switch to next layout
+        , ("M-C-M1-<Up>", sendMessage Arrange)
+        , ("M-C-M1-<Down>", sendMessage DeArrange)
+        , ("M-y", sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts) -- Toggles noborder/full
+        , ("M-S-<Space>", sendMessage ToggleStruts)         -- Toggles struts
+        -- , ("M-S-n", sendMessage $ MT.Toggle NOBORDERS)      -- Toggles noborder
+        , ("M-<KP_Multiply>", sendMessage (IncMasterN 1))   -- Increase number of clients in master pane
+        , ("M-<KP_Divide>", sendMessage (IncMasterN (-1)))  -- Decrease number of clients in master pane
+        , ("M-S-<KP_Multiply>", increaseLimit)              -- Increase number of windows
+        , ("M-S-<KP_Divide>", decreaseLimit)                -- Decrease number of windows
+        , ("M-<Tab>", nextScreen)  -- Switch focus to next monitor
+
+    -- Apps
+        -- QWERTY
+        , ("M-n", spawn myBrowser)
+        , ("M-k", spawn myEditor)
+        , ("M-l", spawn (myTerminal ++ "-e --class FileManager --title Ranger ranger"))
+        , ("M-S-l", spawn "pcmanfm")
+
+    -- Special Keys
+        , ("M-<F1>", spawn (scriptsFolder ++ "/toggle-mute.sh"))
+        , ("M-<F2>", spawn (scriptsFolder ++ "/spotify.sh"))
+        , ("M-<F3>", spawn (myTerminal ++ "-e --class Mixer --title PulseMixer pulsemixer"))
+        , ("M-<F4>", spawn (scriptsFolder ++ "/shutdown.sh"))
+        , ("M-<F5>", spawn (scriptsFolder ++ "/nextcloud-sync.sh"))
+        , ("M-<F7>", spawn "brightnessctl set 20%-")
+        , ("M-<F8>", spawn "brightnessctl set +20%")
+        , ("M-<F9>", spawn "$HOME/.magBin/screencf")
+        , ("M-<F11>", spawn (scriptsFolder ++ "/lock-suspend.sh"))
+        , ("M-<F12>", spawn (scriptsFolder ++ "/lorem.sh"))
+        , ("M-<Space>", spawn (scriptsFolder ++ "/Touchpad.sh"))
+        , ("<Print>", spawn "scrot --quality 100 --focused && notify-send 'Printed window'")
+        , ("M-<Print>", spawn "scrot --quality 100 --select --freeze --line style=dash && notify-send 'Printed window'")
+
+        ]
+
+
 ------------------------------------------------------------------------
 -- MAIN
 ------------------------------------------------------------------------
 main :: IO ()
 main = do
+
+-----------------------------------
     dbus <- D.connectSession
     D.requestName dbus (D.busName_ "org.xmonad.Log")
         [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
@@ -469,7 +550,6 @@ dbusOutput dbus str = do
     objectPath = D.objectPath_ "/org/xmonad/Log"
     interfaceName = D.interfaceName_ "org.xmonad.Log"
     memberName = D.memberName_ "Update"
-
 defaults = def
     { handleEventHook     = serverModeEventHookCmd
                             <+> serverModeEventHook
@@ -477,11 +557,11 @@ defaults = def
                             <+> docksEventHook
     , modMask             = myModMask
     , terminal            = myTerminal
-    , workspaces          = magWorkspaces
+    , workspaces          = myWorkspaces
     , layoutHook          = smartBorders $ myLayoutHook
     , normalBorderColor   = myNormColor
     , focusedBorderColor  = myFocusColor
     , manageHook          = myManageHook <+> manageHook def
     , borderWidth         = myBorderWidth
     , startupHook         = myStartupHook
-    } `additionalKeysP` myKeys
+    } `additionalKeysP` qwertyKeys
