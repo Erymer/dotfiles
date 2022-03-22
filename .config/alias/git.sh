@@ -19,12 +19,14 @@ gitnb() {
 
 gitmerge(){
     # Merge branch to master
-    branch=$1
+    # branch=$1
+    branch=$(git rev-parse --abbrev-ref HEAD)
 
     git checkout main && # Changes to main/master branch
     git merge --no-ff "${branch}" && # makes sure to create a commit object during merge
     git push origin main && # push merge changes
-    git push origin :"${branch}" # deletes the remote branch
+    git push origin :"${branch}" && # deletes the remote branch
+    git branch -D "${branch}" # Deletes local branch
 }
 
  
