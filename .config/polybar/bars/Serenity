@@ -1,5 +1,5 @@
 [bar/Serenity]
-monitor = eDP1
+monitor = 
 width = 100%
 height = 24
 dpi-x = 96
