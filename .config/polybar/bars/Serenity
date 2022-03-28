@@ -11,9 +11,9 @@ module-margin-right = 0
 override-redirect = true
 font-0 = "Fira Mono: style=Regular:size=10"
 font-1 = "Fira Mono: style=Medium:size=10"
-font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
-font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
-font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
+font-2 = "Font Awesome 6 Free:style=Regular:pixelsize=8;1"
+font-3 = "Font Awesome 6 Free:style=Solid:pixelsize=8;1"
+font-4 = "Font Awesome 6 Brands:pixelsize=8;1"
 wm-restack = i3
 tray-position = right
 tray-detached = true
@@ -25,7 +25,7 @@ background = ${colors.transparent}
 foreground = ${colors.transparent}
 line-size = 1
 module-margin = 5
-modules-left = i3 spacer
+modules-left = xmonad spacer
 modules-center = date
 modules-right = sep wireless-network sep memory1 sep cpu2 sep backlight sep battery sep
 

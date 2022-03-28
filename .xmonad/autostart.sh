@@ -17,7 +17,6 @@
 [ "$(pgrep "gpg-agent")" ] || gpg-agent &
 # [ "$(pgrep "nextcloud")" ] || nextcloud &
 xss-lock --transfer-sleep-lock -- xsecurelock &
-numlockx & # Turns on Num Lk
 
 # In some ocations unclutter can create problems with the mouse.
 # If this happens use "unclutter -grab" or install unclutter-xfixes-git
@@ -41,6 +40,7 @@ fi
 
 if [ "$HOSTNAME" = "Nostromo" ]; then
   polybar Nostromo &
+  numlockx & # Turns on Num Lk
 elif [ "$HOSTNAME" = "Serenity" ]; then
   polybar Serenity &
 fi
