@@ -20,10 +20,10 @@ monitor-exact = true
 ; Note: With this most WMs will no longer reserve space for 
 ; the bar and it will overlap other windows. You need to configure
 ; your WM to add a gap where the bar will be placed.
-override-redirect = false
+override-redirect = true
 
 ; Put the bar at the bottom of the screen
-bottom = false
+bottom = true
 
 ; Prefer fixed center position for the `modules-center` block. 
 ; The center block will stay in the middle of the bar whenever

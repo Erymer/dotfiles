@@ -270,7 +270,7 @@ myManageHook = composeAll
      -- the full name of my clickable workspaces, which would look like:
      -- doShift "<action xdotool super+8>gfx</action>"
      [ className =? "obs"     --> doShift ( workspaceFour )
-     , className =? "Brave-browser" --> doShift ( "/xf0ac" )
+     , className =? "Brave-browser" --> doShift ( workspaceOne )
      , className =? "FileManager"     --> doShift ( workspaceTwo )
      , className =? "Pcmanfm"     --> doShift ( workspaceTwo )
      , className =? "nvim-qt" --> doShift ( workspaceThree )
