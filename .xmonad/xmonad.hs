@@ -295,7 +295,11 @@ myLogHook dbus = def
     , ppVisible = wrap ("%{F" ++ color1 ++ "} ") "%{F-}"
     , ppUrgent  = wrap ("%{F" ++ color3 ++ "} ") "%{F-}"
     , ppHidden  = wrap ("%{F" ++ color1 ++ "} ") "%{F-}"
-    , ppTitle   = shorten 30 . wrap ("%{F" ++ color2 ++ "}")"%{F-}"
+
+    -- Replace 0 for 30 to show window name in polybar. 
+    -- If the number is larger it will show more of the window name, 
+    -- but I think 30 is enough.
+    , ppTitle   = shorten 0 . wrap ("%{F" ++ color2 ++ "}")"%{F-}" 
     , ppSep     = " | "
     }
 

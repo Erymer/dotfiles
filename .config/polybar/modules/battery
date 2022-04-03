@@ -7,7 +7,7 @@ type = internal/battery
 
 battery = BAT1
 adapter = ACAD
-full-at = 100
+full-at = 95
 
 ; Available tags:
 ;   <label-charging> (default)

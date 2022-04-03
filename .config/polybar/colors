@@ -71,7 +71,10 @@ cyan = #A1EFE4
 green = #A6E22E
 
 [colors]
-background = ${monokai.black}
+transparent	= #00000000
+
+; background = ${monokai.black}
+background	= #00000000
 foreground = ${monokai.white}
 underline = ${monokai.gray} 
 prefix = ${monokai.violet}
@@ -87,6 +90,5 @@ aqua = ${nord.aqua}
 gray = ${monokai.gray}
 white = ${monokai.white}
 
-transparent	= #00000000
 
 # vim:ft=dosini
