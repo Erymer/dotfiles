@@ -32,7 +32,7 @@ xrandr --dpi 96
 DOCK_MON_MD5HASH="add29654d7cab036da741bee9fd391fd"
 
 # feh --bg-fill --randomize /home/mag/Images/Wallpapers/vision/*
-feh --bg-fill  "${HOME}"/Images/Wallpapers/weeb/cookie-monster.png
+feh --bg-fill  /home/mag/Images/Wallpapers/Black/1920x1080/andrew-neel-xNiJJHl0WP4-unsplash.png
 
 if [ "$(md5sum /sys/class/drm/card1-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
   dock &

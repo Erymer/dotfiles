@@ -15,8 +15,9 @@ label = %percentage_used%%
 
 format = Mem <label>
 format-prefix = " "
-format-prefix-foreground = #fefefe
-format-foreground = #fefefe
-format-background = #668bd7
+format-prefix-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-underline = ${colors.underline}
 
 # vim:ft=dosini

@@ -110,7 +110,7 @@ myNormColor :: String
 myNormColor   = "#292d3e"  -- Border color of normal windows
 
 myFocusColor :: String
-myFocusColor  = "#bbc5ff"  -- Border color of focused windows
+myFocusColor  = "#f8f8f2"  -- Border color of focused windows
 
 altMask :: KeyMask
 altMask = mod1Mask         -- Setting this for use in xprompts
@@ -120,25 +120,16 @@ scriptsFolder = "$HOME/Scripts"
 
 -- Colors for polybar
 color1, color2, color3, color4 :: String
-color1 = "#7F7F7F"
-color2 = "#c792ea"
-color3 = "#900000"
-color4 = "#2E9AFE"
+color1 = "#7F7F7F" -- grey
+color2 = "#f8f8f2" -- purple
+color3 = "#900000" -- red
+color4 = "#f8f8f2" -- white
 
 ------------------------------------------------------------------------
 -- AUTOSTART
 ------------------------------------------------------------------------
 myStartupHook :: X ()
 myStartupHook = do
-          -- spawnOnce "picom --backend glx&"
-          -- spawnOnce "dunst &"
-          -- spawnOnce "gpg-agent &"
-          -- spawnOnce "polybar Nostromo &"
-          -- spawnOnce "feh --bg-fill $HOME/Images/Wallpapers/weeb/cookie-monster.png"
-          -- spawnOnce "xss-lock --transfer-sleep-lock -- xsecurelock"
-          -- spawnOnce "unclutter &"
-          -- spawnOnce "numlockx &"
-          -- spawnOnce "~/Scripts/nextcloud-sync.sh"
           spawnOnce "~/.xmonad/autostart.sh"
           -- setWMName "LG3D"
 
@@ -252,7 +243,16 @@ dtXPKeymap = M.fromList $
 ------------------------------------------------------------------------
 -- WORKSPACES
 ------------------------------------------------------------------------
-myWorkspaces = ["1:Web", "2:FileNav", "3:Code", "4:Write", "5:Misc", "6:Chat", "7:Monitor", "8", "9"]
+myWorkspaces = ["\xf0ac", "\xf07c", "\xf121", "\xf15c", "\xf001", "\xf086", "\xf26c"]
+
+workspaceOne = myWorkspaces !! 0 -- Web
+workspaceTwo = myWorkspaces !! 1 -- File Navigation/Terminal
+workspaceThree = myWorkspaces !! 2 -- Code
+workspaceFour = myWorkspaces !! 3 -- Write
+workspaceFive = myWorkspaces !! 4 -- Music
+workspaceSix = myWorkspaces !! 5 -- Chat
+workspaceSeven = myWorkspaces !! 6 -- External Monitor
+
 
 ------------------------------------------------------------------------
 -- MANAGEHOOK
@@ -269,11 +269,11 @@ myManageHook = composeAll
      -- I'm doing it this way because otherwise I would have to write out
      -- the full name of my clickable workspaces, which would look like:
      -- doShift "<action xdotool super+8>gfx</action>"
-     [ className =? "obs"     --> doShift ( "4:Write" )
-     , className =? "Brave-browser" --> doShift ( "1:Web" )
-     , className =? "FileManager"     --> doShift ( "2:FileNav" )
-     , className =? "Pcmanfm"     --> doShift ( "2:FileNav" )
-     , className =? "nvim-qt" --> doShift ( "3:Code" )
+     [ className =? "obs"     --> doShift ( workspaceFour )
+     , className =? "Brave-browser" --> doShift ( "/xf0ac" )
+     , className =? "FileManager"     --> doShift ( workspaceTwo )
+     , className =? "Pcmanfm"     --> doShift ( workspaceTwo )
+     , className =? "nvim-qt" --> doShift ( workspaceThree )
      -- , className =? "Gimp"    --> doFloat
      , className =? "Gcr-prompter"    --> doCenterFloat
      , className =? "Brave"    --> doCenterFloat
@@ -373,22 +373,22 @@ dvorakKeys =
         
     -- Change to workspace
         -- https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/XMonad-Actions-CycleWS.html#g:3
-        , ("M-a", toggleOrView "1:Web")
-        , ("M-o", toggleOrView "2:FileNav")
-        , ("M-e", toggleOrView "3:Code")
-        , ("M-u", toggleOrView "4:Write")
-        , ("M-i", toggleOrView "5:Misc")
-        , ("M-g", toggleOrView "6:Chat")
-        , ("M-!", toggleOrView "7:Monitor")
+        , ("M-a", toggleOrView workspaceOne)
+        , ("M-o", toggleOrView workspaceTwo)
+        , ("M-e", toggleOrView workspaceThree)
+        , ("M-u", toggleOrView workspaceFour)
+        , ("M-i", toggleOrView workspaceFive)
+        , ("M-g", toggleOrView workspaceSix)
+        , ("M-!", toggleOrView workspaceSeven)
         , ("M-i", swapNextScreen)
 
-        , ("M-S-a", windows $ W.shift "1:Web")
-        , ("M-S-o", windows $ W.shift "2:FileNav")
-        , ("M-S-e", windows $ W.shift "3:Code")
-        , ("M-S-u", windows $ W.shift "4:Write")
-        , ("M-S-i", windows $ W.shift "5:Misc")
-        , ("M-S-g", windows $ W.shift "6:Chat")
-        , ("M-S-!", windows $ W.shift "7:Monitor")
+        , ("M-S-a", windows $ W.shift workspaceOne)
+        , ("M-S-o", windows $ W.shift workspaceTwo)
+        , ("M-S-e", windows $ W.shift workspaceThree)
+        , ("M-S-u", windows $ W.shift workspaceFour)
+        , ("M-S-i", windows $ W.shift workspaceFive)
+        , ("M-S-g", windows $ W.shift workspaceSix)
+        , ("M-S-!", windows $ W.shift workspaceSeven)
 
 
     -- Windows navigation
@@ -459,22 +459,22 @@ qwertyKeys =
         
     -- Change to workspace
         -- https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/XMonad-Actions-CycleWS.html#g:3
-        , ("M-a", toggleOrView "1:Web")
-        , ("M-s", toggleOrView "2:FileNav")
-        , ("M-d", toggleOrView "3:Code")
-        , ("M-f", toggleOrView "4:Write")
-        , ("M-g", toggleOrView "5:Misc")
-        , ("M-u", toggleOrView "6:Chat")
-        , ("M--", toggleOrView "7:Monitor")
+        , ("M-a", toggleOrView workspaceOne)
+        , ("M-s", toggleOrView workspaceTwo)
+        , ("M-d", toggleOrView workspaceThree)
+        , ("M-f", toggleOrView workspaceFour)
+        , ("M-g", toggleOrView workspaceFive)
+        , ("M-u", toggleOrView workspaceSix)
+        , ("M--", toggleOrView workspaceSeven)
         , ("M-i", swapNextScreen)
 
-        , ("M-S-a", windows $ W.shift "1:Web")
-        , ("M-S-s", windows $ W.shift "2:FileNav")
-        , ("M-S-d", windows $ W.shift "3:Code")
-        , ("M-S-f", windows $ W.shift "4:Write")
-        , ("M-S-g", windows $ W.shift "5:Misc")
-        , ("M-S-u", windows $ W.shift "6:Chat")
-        , ("M-S--", windows $ W.shift "7:Monitor")
+        , ("M-S-a", windows $ W.shift workspaceOne)
+        , ("M-S-s", windows $ W.shift workspaceTwo)
+        , ("M-S-d", windows $ W.shift workspaceThree)
+        , ("M-S-f", windows $ W.shift workspaceFour)
+        , ("M-S-g", windows $ W.shift workspaceFive)
+        , ("M-S-u", windows $ W.shift workspaceSix)
+        , ("M-S--", windows $ W.shift workspaceSeven)
 
 
     -- Windows navigation

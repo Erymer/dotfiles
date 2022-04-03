@@ -44,23 +44,16 @@ SizedBox(width: $1),
 endsnippet
 
 # CREATE WIDGETS
-snippet stles "StatelessWidget"
+snippet stless "StatelessWidget"
 class ${1:name} extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.blue,
-      appBar: AppBar(
-        backgroundColor: Colors.blue.shade900,
-        title: Text('Ask Me Anything'),
-      ),
-      body: Container(),
-    );
+    return Container();
   }
 }
 endsnippet
 
-snippet stful "Statefull Widget"
+snippet stfull "Statefull Widget"
 class ${1:name} extends StatefulWidget {
   @override
   _$1State createState() => _$1State();

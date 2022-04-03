@@ -18,7 +18,7 @@ hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon4/temp1_input
 label = %temperature-c%
 format-prefix = " "
 ; format-prefix-foreground = ${colors.prefix}
-format-prefix-foreground = ${monokai.yellow}
+format-prefix-foreground = ${colors.foreground}
 
 ; format = <ramp> <label>
 format = <label>

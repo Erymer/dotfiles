@@ -11,7 +11,8 @@ label = %output%
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = "  " 
-format-prefix-foreground = ${monokai.cyan}
+; format-prefix-foreground = ${monokai.cyan}
+format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.underline}
 
 # vim:ft=dosini
