@@ -42,6 +42,7 @@ line-size = ${config.lineSize}
 module-margin = ${config.moduleMargin}
 modules-left = xmonad spacer
 modules-center = date
-modules-right = sep internet-check sep wired-network sep memory2 sep cpu2 sep temperature1 sep fan-speed sep battery sep
+modules-right = sep btduroot sep btduhome sep internet-check sep wired-network sep memory2 sep cpu2 sep temperature1 sep fan-speed sep battery sep
+; modules-right = sep internet-check sep wired-network sep memory2 sep cpu2 sep temperature1 sep fan-speed sep battery sep
 
 # vim:ft=dosini

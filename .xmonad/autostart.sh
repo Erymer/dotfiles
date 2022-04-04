@@ -23,8 +23,9 @@ xss-lock --transfer-sleep-lock -- xsecurelock &
 # source: https://wiki.archlinux.org/index.php/unclutter
 [ "$(pgrep "unclutter")" ] || unclutter & # Hides mouse if is not beign used
 
-# Wierd fix that prevents everything to look GIGANTIC
+# Weird fix that prevents everything to look GIGANTIC
 xrandr --dpi 96
+conky
 
 # The value of this constant must be the md5 hash of the file in
 # /sys/class/drm/card1-HDMI-A-1/edid when the monitor that we want to use as
