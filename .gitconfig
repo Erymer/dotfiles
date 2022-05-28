@@ -3,3 +3,5 @@
 	email = erymer@protonmail.com
 [init]
 	defaultBranch = main
+[safe]
+	directory = /opt/flutter

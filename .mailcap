@@ -7,7 +7,7 @@ image/*; sxiv "%s"
 # text
 text/html; w3m "%s"
 text/html; open -a Firefox "%s"
-text/plain; less "%s"
+text/plain; bat "%s"
 
 # fallback to vim
 text/*; vim "%s"

@@ -184,10 +184,6 @@ qn(){
 # alias sp="vim +set\ buftype=nofile +startinsert" ## A quick scratchpad from the shell
 alias sp="nvim +:Goyo + /tmp/scratchpad.md"
 
-acento() {
-  tuxi $1 lleva acento
-}
-
 searchstring() {
   # $1 = String
   # $2 = Location
@@ -203,6 +199,7 @@ alias wallpaper='feh --bg-fill'
 # Package Manager
 alias pacinstall='sudo pacman -S'
 alias pacrm='sudo pacman -Rs'
+alias cacherm='sudo pacman -Scc; yay -Scc'
 
 # Homelab
 alias amberjack='ping -c 2 192.168.100.93 && ssh amberjack'

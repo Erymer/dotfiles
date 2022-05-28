@@ -24,25 +24,6 @@ snippet assetimg "Asset image"
 AssetImage('${1:image_path}'),
 endsnippet
 
-# TEXT
-snippet text "Text with formats"
-Text(
-'${1:text}',
-style: TextStyle(
-	fontFamily: '${2:fontName}',
-	fontSize: ${3:fontSize},
-	color: Colors.$4,
-	fontWeight: FontWeight.$5,
-	letterSpacing: ${6:fontSpacing},
-),
-),
-endsnippet
-
-# SEPARATOR
-snippet sizedbox "Sized Box"
-SizedBox(width: $1),
-endsnippet
-
 # CREATE WIDGETS
 snippet stless "StatelessWidget"
 class ${1:name} extends StatelessWidget {
@@ -77,6 +58,60 @@ ${1:widget} ${2:function_name}(){
 endsnippet
 
 # PRINT
-snippet out "print statement"
+snippet sout "print string"
 print('$1');
+endsnippet
+
+snippet out "print statement"
+print($1);
+endsnippet
+
+# CLASS CREATION
+snippet class "create class"
+class ${1:name} {
+  ${2:dataType} ${3:variableName};
+
+  $1(this.$3);
+}
+endsnippet
+
+# COMMENTS
+snippet todo "create todo"
+// TODO: $1
+endsnippet
+
+# VARIABLE DECLARATION
+snippet str "create string variable"
+String $1 = $2;
+endsnippet
+
+snippet int "create interger variable"
+int $1 = $2;
+endsnippet
+
+# WIDGETS LIFECYCLE
+snippet initstate "Widget initState"
+@override
+void initState() {
+  // This gets called only once when the widget is created
+  super.initState();
+  $1
+}
+endsnippet
+
+snippet build "Widget build"
+@override
+Widget build(BuildContext context) {
+  // This gets called every time the widget is built
+  return ${1:widget}();
+}
+endsnippet
+
+snippet deactivate "Widget build"
+@override
+void deactivate() {
+  // This gets called when the widget is destroyed
+  super.deactivate();
+  $1
+}
 endsnippet

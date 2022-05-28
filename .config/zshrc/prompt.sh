@@ -38,7 +38,7 @@ setopt prompt_subst
 # PROMPT="%B%{$fg[gray]%}%(4~|%-1~/.../%2~|%~)%u%b >%{$fg[gray]%}>%B%(?.%{$fg[gray]%}.%{$fg[red]%})>%{$reset_color%}%b "
 
 # Current prompt
-PROMPT="%(!.%#.%{$fg[magenta]%}[%n@%m %1~]%{$reset_color%}$ "
+PROMPT="%(!.%#.%{$fg[white]%}[%n@%m %1~]%{$reset_color%}$ "
 
 # Base16 Shell
 # For more info:

@@ -11,8 +11,9 @@ imap <c>j <c>h| "Escape character
 vmap cg <Esc>| "Escape character
 vnoremap <leader>p "_dP| "Delete line and paste implicit register
 nnoremap <leader>p V"_dP| "Delete line and paste implicit register
-nnoremap y- yg_| "Yank from cursor position until last character
-nnoremap y_ ^yg_| "Yank from first to last character
+nnoremap y- "zyg_| "Yank from cursor position until last character
+nnoremap Y "zyg_| "Yank from cursor position until last character
+nnoremap y_ ^"zyg_| "Yank from first to last character
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 " nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 " nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>

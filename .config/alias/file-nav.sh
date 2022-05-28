@@ -12,6 +12,12 @@ alias P='cd ~/Projects && exa --icons'
 alias Ps='cd ~/Projects/ShellScript && exa --icons'
 alias Pp='cd ~/Projects/Python && exa --icons'
 
-alias audiocow='cd ~/Documents/audiocow && exa --icons'
-
 alias wifiscan='nmcli device wifi list'
+
+push(){
+  pushd "$@" && exa --icons
+}
+
+pop(){
+  popd "$@" && exa --icons
+}

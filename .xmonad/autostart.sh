@@ -1,6 +1,21 @@
 #!/usr/bin/bash
 # Change permissions so it can be executed withot beign root
 
+# The value of this constant must be the md5 hash of the file in
+# /sys/class/drm/card1-HDMI-A-1/edid when the monitor that we want to use as
+# dock monitor is connected
+DOCK_MON_MD5HASH="add29654d7cab036da741bee9fd391fd"
+WallpaperDirectory="${HOME}/Images/Wallpapers"
+
+wallpaper(){
+  feh --bg-fill "${WallpaperDirectory}/${1}"
+}
+
+randomWallpaper(){
+  # Randomize wallpaper from directory
+  feh --bg-fill --randomize "${WallpaperDirectory}/${1}/*"
+}
+
 # PICOM
 # picom must be runned with --backend glx flag so that xsecurelock can work correctly
 # otherwhise shows an error saying that the compositor doesn't work.
@@ -15,7 +30,6 @@
 [ "$(pgrep "picom")" ] || picom --backend glx & 
 [ "$(pgrep "dunst")" ] || dunst &
 [ "$(pgrep "gpg-agent")" ] || gpg-agent &
-# [ "$(pgrep "nextcloud")" ] || nextcloud &
 xss-lock --transfer-sleep-lock -- xsecurelock &
 
 # In some ocations unclutter can create problems with the mouse.
@@ -25,15 +39,8 @@ xss-lock --transfer-sleep-lock -- xsecurelock &
 
 # Weird fix that prevents everything to look GIGANTIC
 xrandr --dpi 96
-conky
 
-# The value of this constant must be the md5 hash of the file in
-# /sys/class/drm/card1-HDMI-A-1/edid when the monitor that we want to use as
-# dock monitor is connected
-DOCK_MON_MD5HASH="add29654d7cab036da741bee9fd391fd"
-
-# feh --bg-fill --randomize /home/mag/Images/Wallpapers/vision/*
-feh --bg-fill  /home/mag/Images/Wallpapers/Black/1920x1080/andrew-neel-xNiJJHl0WP4-unsplash.png
+wallpaper Black/1920x1080/andrew-neel-xNiJJHl0WP4-unsplash.png
 
 if [ "$(md5sum /sys/class/drm/card1-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
   dock &
@@ -46,7 +53,27 @@ elif [ "$HOSTNAME" = "Serenity" ]; then
   polybar Serenity &
 fi
 
-choice=$(echo "Sync nextcloud? (y/N): "| xargs -0 -I{} rofi -l 1 -dmenu -p "{}")
-if [[ "${choice}" = "y" ]] || [[ "${choice}" = "Y" ]]; then
-  source "$HOME/Scripts/nextcloud-sync.sh"
+# Only sync files if we are connected to a trusted network
+sleep 2
+currentNetwork=$(nmcli device | grep connected | awk '{print$4}')
+acceptedNetworks=$(cat << EOF
+Tenda_2CB810
+Tenda_2CB810_5G
+EOF
+)
+
+echo "${acceptedNetworks}" | grep -q "${currentNetwork}"
+
+if [ $? -eq 0 ]; then
+  notify-send "Valid sync network"
+  source "$HOME/Scripts/nextcloud-sync.sh" &
+else
+  notify-send "invalid network"
 fi
+
+# choice=$(echo "Sync nextcloud? (y/N): "| xargs -0 -I{} rofi -l 1 -dmenu -p "{}")
+# if [[ "${choice}" = "y" ]] || [[ "${choice}" = "Y" ]]; then
+#   source "$HOME/Scripts/nextcloud-sync.sh" &
+# fi
+
+conky &
