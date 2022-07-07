@@ -109,7 +109,7 @@ nnoremap <F5> :UndotreeToggle<cr>
 "Temporal Keybindings
 " map ,r :w<CR>:wincmd j<CR>:startinsert<CR><C-l>zsh<CR><C-\><C-n><CR>:wincmd k<CR>
 " nnoremap <leader>wt :rightbelow new<CR>:resize 10<CR>:terminal<CR>:startinsert<CR>| "New terminal window
-nnoremap ,r :w<CR>:!xmonad --recompile<CR>| "Run all
+" nnoremap ,r :w<CR>:!xmonad --recompile<CR>| "Run all
 " map ,s :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
 " map <leader>Ga :Goyo 120<CR>| "width
 " map <leader>Go :Goyo x30<CR>| "height
@@ -220,7 +220,8 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+" nmap <leader>rn <Plug>(coc-rename)
+nmap ,r <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)

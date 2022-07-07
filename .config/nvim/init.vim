@@ -23,6 +23,7 @@ set incsearch
 set nocompatible "Recomended config for vim-polyglot
 set conceallevel=2
 set foldmethod=indent
+set foldlevel=99
 " set clipboard+=unnamedplus "Always yank to Primary register
 autocmd FileType markdown setlocal textwidth=80
 autocmd FileType markdown setlocal commentstring=//%s
@@ -93,6 +94,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'vim-utils/vim-man'
 Plug 'lyuts/vim-rtags'
 Plug 'junegunn/fzf.vim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'mbbill/undotree'
 Plug 'jiangmiao/auto-pairs' "quote and bracket completion
 Plug 'tpope/vim-commentary' "More simple comment command
@@ -263,51 +265,86 @@ let g:dart_style_guide = 2
 let g:dart_format_on_save = 1
 
 " dashboard-nvimo
-let g:dashboard_default_executive ='fzf'
-let g:dashboard_custom_header = [
-      \' *:::::::::::::::::::::::::::::::::::::::::::::::*::::::::::::::::::::::::::::::::::::::::::::::::::: ',
-      \' :................................................................................................... ',
-      \' :................................................................................................... ',
-      \' :...................................:**IFV$MMMMMNNMMMM$$VI**:....................................... ',
-      \' :..............................:*I$MNNNNNNNNNNNNNNNNNNNNNNNNNN$VI*:................................. ',
-      \' :...........................:I$MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMV*:.............................. ',
-      \' :........................*FMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$I:........................... ',
-      \' :.....................:*$NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMV*......................... ',
-      \' :...................:IMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$*....................... ',
-      \' :..................IMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$:..................... ',
-      \' :................*$NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMI:................... ',
-      \' :...............IMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$:.................. ',
-      \' :.............:VNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNM*................. ',
-      \' :............:VNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMI................ ',
-      \' :...........:$NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$VNNNNNNNNNNNNNNNNNNNNNNNN*............... ',
-      \' :...........FNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNFV$$NNN$..INNNNNNNNNNNNNNNNNNNNNNNM:.............. ',
-      \' :..........*MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNM:.IM$M$:...$MNNNNNNNNNNM$MNNNNNNNNN$.............. ',
-      \' :.........:$NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNM*..$NV:....::::*IF$MN$*:.VMNNNNNNNNM*............. ',
-      \' :.........*MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$:.*$*.........*NMVI*....$NNNNNNNNNN$............. ',
-      \' :.........VNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$:.............INNNNNV*.:$F****VNNNNM*............ ',
-      \' :.........MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNV:..............:$NNNNNN$:.....:$NNNNMI............ ',
-      \' :........:MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNI.................:$NNNNNN$....*$NNNNNMF............ ',
-      \' :........:MNNNNNNNNNNNNN$I*$NNNNNNNNNNNNNNNNNNNV....................*VMNNNNI.I$NNNNNNNMF............ ',
-      \' :.........MNNNNNNNNNNNNV..:MNNNNNNNNNNNNNNNMM$$:.......................:****.MNNNNNNNNMI............ ',
-      \' :.........$NNNNNNNNNNNNF..:MNNNNNNNNNM$F**::.................................MNNNNNNNNM*............ ',
-      \' :.........IMNNNNNNNNNNN$.:$NNNNNNMV*:........................................MNNNNNNNN$:............ ',
-      \' :.........:$NNNNNNNNNNN$.*MNNNN$I:............::............................*MNNNNNNNN*............. ',
-      \' :..........*MNNNNNNNNNNM*.IMN$*:*:...:::......I:............................VNNNNNNNN$.............. ',
-      \' :...........$NNNNNNNNNNNMI:*I:IMV...FMNN$:...:$F...........................*MNNNNNNNM*.............. ',
-      \' :...........:MNNNNNNNNNNNNM**MNN*..*NNNNNM$V$MNN$*..........................VNNNNNNNI............... ',
-      \' :............*$NNNNNNNNNNNV*NNNN$:.:$MNNNNNNNNNNNN$*:.......................FNNNNNMV................ ',
-      \' :.............:$NNNNNNNNNM:V$IF$NMVI***::::*I$NNNNNNN$I*:..................*MNNNNMI................. ',
-      \' :..............:VNNNNNNNNM......VNNNNNNMF.....*MNNNN$IIV$VI*:.............*MNNNNM*.................. ',
-      \' :................IMNNNNNNM.....:MNNNNNNNM......INNV:...:::**F$$$FII***IF$MNNNNNV:................... ',
-      \' :.................:VNNNNNM:....:VNNNNNN$:......VNF...*$MN$:...I$********MNNNNM*..................... ',
-      \' :...................*VMNNNF......:*II*:.......*NV...:NNNNN$***MNM:......*MN$I:...................... ',
-      \' :.....................*VMNM:...................*:...FNNNNNNNNNNNNI......F$I:........................ ',
-      \' :.......................:*$$:.......................INNNNMI**VNNN*......:........................... ',
-      \' :..........................::........................I$$V:...*NMI................................... ',
-      \' :............................................................**:.................................... ',
-      \' :................................................................................................... ',
-      \' :................................................................................................... ',
-     \ ]
+" let g:dashboard_default_executive ='fzf'
+" let g:dashboard_custom_header = [
+"       \' *:::::::::::::::::::::::::::::::::::::::::::::::*::::::::::::::::::::::::::::::::::::::::::::::::::: ',
+"       \' :................................................................................................... ',
+"       \' :................................................................................................... ',
+"       \' :...................................:**IFV$MMMMMNNMMMM$$VI**:....................................... ',
+"       \' :..............................:*I$MNNNNNNNNNNNNNNNNNNNNNNNNNN$VI*:................................. ',
+"       \' :...........................:I$MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMV*:.............................. ',
+"       \' :........................*FMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$I:........................... ',
+"       \' :.....................:*$NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMV*......................... ',
+"       \' :...................:IMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$*....................... ',
+"       \' :..................IMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$:..................... ',
+"       \' :................*$NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMI:................... ',
+"       \' :...............IMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$:.................. ',
+"       \' :.............:VNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNM*................. ',
+"       \' :............:VNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMI................ ',
+"       \' :...........:$NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$VNNNNNNNNNNNNNNNNNNNNNNNN*............... ',
+"       \' :...........FNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNFV$$NNN$..INNNNNNNNNNNNNNNNNNNNNNNM:.............. ',
+"       \' :..........*MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNM:.IM$M$:...$MNNNNNNNNNNM$MNNNNNNNNN$.............. ',
+"       \' :.........:$NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNM*..$NV:....::::*IF$MN$*:.VMNNNNNNNNM*............. ',
+"       \' :.........*MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$:.*$*.........*NMVI*....$NNNNNNNNNN$............. ',
+"       \' :.........VNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$:.............INNNNNV*.:$F****VNNNNM*............ ',
+"       \' :.........MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNV:..............:$NNNNNN$:.....:$NNNNMI............ ',
+"       \' :........:MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNI.................:$NNNNNN$....*$NNNNNMF............ ',
+"       \' :........:MNNNNNNNNNNNNN$I*$NNNNNNNNNNNNNNNNNNNV....................*VMNNNNI.I$NNNNNNNMF............ ',
+"       \' :.........MNNNNNNNNNNNNV..:MNNNNNNNNNNNNNNNMM$$:.......................:****.MNNNNNNNNMI............ ',
+"       \' :.........$NNNNNNNNNNNNF..:MNNNNNNNNNM$F**::.................................MNNNNNNNNM*............ ',
+"       \' :.........IMNNNNNNNNNNN$.:$NNNNNNMV*:........................................MNNNNNNNN$:............ ',
+"       \' :.........:$NNNNNNNNNNN$.*MNNNN$I:............::............................*MNNNNNNNN*............. ',
+"       \' :..........*MNNNNNNNNNNM*.IMN$*:*:...:::......I:............................VNNNNNNNN$.............. ',
+"       \' :...........$NNNNNNNNNNNMI:*I:IMV...FMNN$:...:$F...........................*MNNNNNNNM*.............. ',
+"       \' :...........:MNNNNNNNNNNNNM**MNN*..*NNNNNM$V$MNN$*..........................VNNNNNNNI............... ',
+"       \' :............*$NNNNNNNNNNNV*NNNN$:.:$MNNNNNNNNNNNN$*:.......................FNNNNNMV................ ',
+"       \' :.............:$NNNNNNNNNM:V$IF$NMVI***::::*I$NNNNNNN$I*:..................*MNNNNMI................. ',
+"       \' :..............:VNNNNNNNNM......VNNNNNNMF.....*MNNNN$IIV$VI*:.............*MNNNNM*.................. ',
+"       \' :................IMNNNNNNM.....:MNNNNNNNM......INNV:...:::**F$$$FII***IF$MNNNNNV:................... ',
+"       \' :.................:VNNNNNM:....:VNNNNNN$:......VNF...*$MN$:...I$********MNNNNM*..................... ',
+"       \' :...................*VMNNNF......:*II*:.......*NV...:NNNNN$***MNM:......*MN$I:...................... ',
+"       \' :.....................*VMNM:...................*:...FNNNNNNNNNNNNI......F$I:........................ ',
+"       \' :.......................:*$$:.......................INNNNMI**VNNN*......:........................... ',
+"       \' :..........................::........................I$$V:...*NMI................................... ',
+"       \' :............................................................**:.................................... ',
+"       \' :................................................................................................... ',
+"       \' :................................................................................................... ',
+"      \ ]
+
+lua << EOF
+  local home = os.getenv('HOME')
+  local db = require('dashboard')
+  db.preview_command = 'cat | lolcat -F 0.3'
+  db.preview_file_path = home .. '/.config/nvim/static/neovim.cat'
+  db.preview_file_height = 12
+  db.preview_file_width = 80
+  db.custom_center = {
+      {icon = '  ',
+      desc = 'Recently latest session                  ',
+      shortcut = 'SPC s l',
+      action ='SessionLoad'},
+      {icon = '  ',
+      desc = 'Recently opened files                   ',
+      action =  'DashboardFindHistory',
+      shortcut = 'SPC f h'},
+      {icon = '  ',
+      desc = 'Find  File                              ',
+      action = 'Telescope find_files find_command=rg,--hidden,--files',
+      shortcut = 'SPC f f'},
+      {icon = '  ',
+      desc ='File Browser                            ',
+      action =  'Telescope file_browser',
+      shortcut = 'SPC f b'},
+      {icon = '  ',
+      desc = 'Find  word                              ',
+      action = 'Telescope live_grep',
+      shortcut = 'SPC f w'},
+      {icon = '  ',
+      desc = 'Open Personal dotfiles                  ',
+      action = 'Telescope dotfiles path=' .. home ..'/.dotfiles',
+      shortcut = 'SPC f d'},
+    }
+EOF
 
 " nvim-orgmode
 lua << EOF

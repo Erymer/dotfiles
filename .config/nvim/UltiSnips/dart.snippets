@@ -57,6 +57,10 @@ ${1:widget} ${2:function_name}(){
 }
 endsnippet
 
+snippet arrow "Arrow function"
+${1:dataType} ${2:functionName}() => ${3:body};
+endsnippet
+
 # PRINT
 snippet sout "print string"
 print('$1');
@@ -75,6 +79,10 @@ class ${1:name} {
 }
 endsnippet
 
+snippet getter "Create getter"
+${1:dataType} get ${2:variableName} => ${3:method};
+endsnippet
+
 # COMMENTS
 snippet todo "create todo"
 // TODO: $1
@@ -85,7 +93,7 @@ snippet str "create string variable"
 String $1 = $2;
 endsnippet
 
-snippet int "create interger variable"
+snippet i "create interger variable"
 int $1 = $2;
 endsnippet
 

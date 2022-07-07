@@ -7,7 +7,7 @@ alias du1='du --human-readable --max-depth=1 --all | sort -hr 2> /dev/null | les
 alias rm='rm -I'  # Prevents epic mistakes
 alias free='free -m'  # Show sizes in MB
 alias l='exa --icons'
-alias ls='exa --icons'
+# alias ls='exa --icons'
 # alias la='exa --long --all --icons --no-permissions --no-user'
 # alias ll='exa --long --icons --no-permissions --no-user'
 alias la='exa --long --all --icons'

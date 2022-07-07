@@ -103,6 +103,10 @@ myEditor :: String
 -- myEditor = "neovide"
 myEditor = "kitty --override window_margin_width=0 nvim"
 
+myAppLauncher :: String
+myAppLauncher = "dmenu_run"
+-- myAppLauncher = "rofi -show run"
+
 myBorderWidth :: Dimension
 myBorderWidth = 2          -- Sets border width for windows
 
@@ -372,7 +376,7 @@ dvorakKeys =
         , ("M-<Delete>", withFocused $ windows . W.sink) -- Push floating window back to tile
         , ("M-S-<Delete>", sinkAll)                      -- Push ALL floating windows to tile
 
-        , ("M-d", spawn "rofi -show run")                 -- App launcher
+        , ("M-d", spawn myAppLauncher)                 -- App launcher
 
         
     -- Change to workspace
@@ -458,7 +462,7 @@ qwertyKeys =
         , ("M-<Delete>", withFocused $ windows . W.sink) -- Push floating window back to tile
         , ("M-S-<Delete>", sinkAll)                      -- Push ALL floating windows to tile
 
-        , ("M-h", spawn "rofi -show run")                 -- App launcher
+        , ("M-h", spawn myAppLauncher)                 -- App launcher
 
         
     -- Change to workspace
