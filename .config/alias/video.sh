@@ -32,12 +32,14 @@ encodeconcat() {
 
 alias stress='ffmpeg -i ~/Videos/video-tests/justice-league-wo-rencode.mp4 -c:v libx264 -preset veryfast -crf 14 -y foo.mp4'
 
-#ffmpeg
-trim() {
-    # 1 = archivo
-    # 2 = donde empieza
-    # 3 = donde termina
-    # 4 = archivo de salida
-    ffmpeg -ss $2 -i $1 -t $3 -c copy $4
-}
+encode(){
+  # Encode file using nvidia gpu instead of cpu.
+  # To check more encoding options use this command
+  # ffmpeg -help encoder=h264_nvenc
+  # source: https://wiki.archlinux.org/title/FFmpeg#NVIDIA_NVENC/NVDEC
 
+  input="${1}"
+  output="${2}"
+  
+  ffmpeg -i "${input}" -c:v h264_nvenc "${output}" 
+}
