@@ -321,21 +321,45 @@ mySpacing' :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spac
 mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
 -- Defining a bunch of layouts, many that I don't use.
-tall     = renamed [Replace "tall"]
+tall     = renamed [Replace "Tall"]
            $ limitWindows 12
            $ mySpacing 5
            $ ResizableTall 1 (3/100) (1/2) []
-magnify  = renamed [Replace "magnify"]
+
+magnified  = renamed [Replace "Magnify"]
            $ magnifier
            $ limitWindows 12
            $ mySpacing 5
            $ ResizableTall 1 (3/100) (1/2) []
-monocle  = renamed [Replace "monocle"]
+
+monocle  = renamed [Replace "Monocle"]
            $ limitWindows 20 Full
-floats   = renamed [Replace "floats"]
+
+floats   = renamed [Replace "Floats"]
            $ limitWindows 20 simplestFloat
-coding   = reflectHoriz $ tall
-codingMagnify   = reflectHoriz $ magnify
+
+flutter   = renamed [Replace "Flutter"]
+           $ limitWindows 3
+           $ mySpacing 5
+           $ ThreeCol 1 (3/100) (1/4)
+
+coding   = renamed [Replace "Coding"]
+           $ reflectHoriz 
+           $ limitWindows 3
+           $ mySpacing 5
+           $ ResizableTall 1 (3/100) (1/2) []
+
+codingMagnify   = renamed [Replace "Coding Magnify"]
+           $ magnifier
+           $ reflectHoriz 
+           $ limitWindows 3
+           $ mySpacing 5
+           $ ResizableTall 1 (3/100) (1/2) []
+
+codingWide   = renamed [Replace "Coding Wide"]
+           $ limitWindows 3
+           $ mySpacing 5
+           $ ThreeColMid 1 (3/100) (1/3)
 
   where
     myTabConfig = def { fontName            = "xft:Mononoki Nerd Font:regular:pixelsize=11"
@@ -352,11 +376,13 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                mkToggle (NBFULL ?? NOBORDERS ?? EOT) myDefaultLayout
              where
                myDefaultLayout =     tall
-                                 ||| magnify
                                  ||| noBorders monocle
+                                 ||| flutter
+                                 ||| magnified
+                                 ||| floats
                                  ||| coding
                                  ||| codingMagnify
-                                 ||| floats
+                                 ||| codingWide
                                  --
                                  --
 ------------------------------------------------------------------------
@@ -545,7 +571,7 @@ main = do
     dbus <- D.connectSession
     D.requestName dbus (D.busName_ "org.xmonad.Log")
         [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
-    xmonad $ ewmh $ docks $ defaults { logHook = dynamicLogWithPP (myLogHook dbus) }
+    xmonad $ ewmh . docks $ defaults { logHook = dynamicLogWithPP (myLogHook dbus) }
 
 -- Emit a DBus signal on log updates
 dbusOutput :: D.Client -> String -> IO ()
@@ -562,7 +588,6 @@ defaults = def
     { handleEventHook     = serverModeEventHookCmd
                             <+> serverModeEventHook
                             <+> serverModeEventHookF "XMONAD_PRINT" (io . putStrLn)
-                            <+> docksEventHook
     , modMask             = myModMask
     , terminal            = myTerminal
     , workspaces          = myWorkspaces

@@ -21,6 +21,10 @@
 
 (add-hook 'text-mode-hook #'mag-text-mode)
 
+(require 'ledger-mode)
+(add-to-list 'auto-mode-alist '("\\.led\\'" . ledger-mode))
+
+
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Marcelo Galvan"
