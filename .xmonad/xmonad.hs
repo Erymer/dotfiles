@@ -28,6 +28,10 @@ import Data.Maybe (isJust)
 import Data.Tree
 import qualified Data.Tuple.Extra as TE
 import qualified Data.Map as M
+import Data.List (sortBy)
+import Data.Function (on)
+import Control.Monad (forM_, join)
+import XMonad.Util.NamedWindows (getName)
 
     -- Hooks
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
@@ -248,7 +252,7 @@ dtXPKeymap = M.fromList $
 ------------------------------------------------------------------------
 -- WORKSPACES
 ------------------------------------------------------------------------
-myWorkspaces = ["\xf0ac", "\xf07c", "\xf121", "\xf15c", "\xf001", "\xf086", "\xf26c"]
+myWorkspaces = ["1: \xf0ac", "2: \xf07c", "3: \xf121", "4: \xf15c", "5: \xf001", "6: \xf086", "7: \xf26c"]
 
 workspaceOne = myWorkspaces !! 0 -- Web
 workspaceTwo = myWorkspaces !! 1 -- File Navigation/Terminal
@@ -290,23 +294,22 @@ myManageHook = composeAll
 ------------------------------------------------------------------------
 -- LOGHOOK
 ------------------------------------------------------------------------
--- Override the PP values as you would otherwise, adding colors etc depending
--- on the statusbar used
-myLogHook :: D.Client -> PP
-myLogHook dbus = def
-    { ppOutput  = dbusOutput dbus
-    , ppCurrent = wrap ("%{F" ++ color4 ++ "} ") "%{F-}"
-    , ppLayout = wrap ("%{F" ++ color4 ++ "} ") "%{F-}"
-    , ppVisible = wrap ("%{F" ++ color1 ++ "} ") "%{F-}"
-    , ppUrgent  = wrap ("%{F" ++ color3 ++ "} ") "%{F-}"
-    , ppHidden  = wrap ("%{F" ++ color1 ++ "} ") "%{F-}"
+eventLogHook = do
+  winset <- gets windowset
+  title <- maybe (return "") (fmap show . getName) . W.peek $ winset
+  let currentLayout = description . W.layout . W.workspace . W.current $ winset
+  let currWs = W.currentTag winset
+  let wss = map W.tag $ W.workspaces winset
+  let wsStr = join $ map (fmt currWs) $ sort' wss
 
-    -- Replace 0 for 30 to show window name in polybar. 
-    -- If the number is larger it will show more of the window name, 
-    -- but I think 30 is enough.
-    , ppTitle   = shorten 0 . wrap ("%{F" ++ color2 ++ "}")"%{F-}" 
-    , ppSep     = " | "
-    }
+  io $ appendFile "/tmp/.xmonad-title-log" (title ++ "\n")
+  io $ appendFile "/tmp/.xmonad-workspace-log" (wsStr ++ "\n")
+  io $ appendFile "/tmp/.xmonad-layout-log" (currentLayout ++ "\n")
+
+  where fmt currWs ws
+          | currWs == ws = "[" ++ ws ++ "]"
+          | otherwise    = " " ++ ws ++ " "
+        sort' = sortBy (compare `on` (!! 0))
 
 ------------------------------------------------------------------------
 -- LAYOUTS
@@ -569,22 +572,9 @@ main :: IO ()
 main = do
 
 -----------------------------------
-    dbus <- D.connectSession
-    D.requestName dbus (D.busName_ "org.xmonad.Log")
-        [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
-    xmonad $ ewmh . docks $ defaults { logHook = dynamicLogWithPP (myLogHook dbus) }
+    xmonad $ ewmh . docks $ defaults { logHook = eventLogHook }
 
--- Emit a DBus signal on log updates
-dbusOutput :: D.Client -> String -> IO ()
-dbusOutput dbus str = do
-    let signal = (D.signal objectPath interfaceName memberName) {
-            D.signalBody = [D.toVariant $ UTF8.decodeString str]
-        }
-    D.emit dbus signal
-  where
-    objectPath = D.objectPath_ "/org/xmonad/Log"
-    interfaceName = D.interfaceName_ "org.xmonad.Log"
-    memberName = D.memberName_ "Update"
+
 defaults = def
     { handleEventHook     = serverModeEventHookCmd
                             <+> serverModeEventHook

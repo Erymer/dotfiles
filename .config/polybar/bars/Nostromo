@@ -40,7 +40,7 @@ foreground = ${colors.transparent}
 line-size = ${config.lineSize}
 ; line-color = ${colors.red}
 module-margin = ${config.moduleMargin}
-modules-left = xmonad spacer
+modules-left = xmonad-workspaces spacer xmonad-layout spacer
 modules-center = date
 modules-right = sep btduroot sep btduhome sep internet-check sep wireless-network sep memory2 sep cpu2 sep temperature1 sep battery sep
 

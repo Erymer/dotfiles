@@ -1,0 +1,14 @@
+[module/xmonad-workspaces]
+type = custom/script
+exec = tail -F /tmp/.xmonad-workspace-log
+tail = true
+
+label = %output%
+; label = %output:10%
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix-foreground = ${colors.foreground}
+format-underline = ${colors.underline}
+
+# vim:ft=dosini
