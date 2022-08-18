@@ -1,6 +1,21 @@
 #!/usr/bin/bash
 # Change permissions so it can be executed withot beign root
 
+# The value of this constant must be output of the following command when the
+# monitor you want to use as dock is connected to the HDMI port
+# md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -f 1 -d " "
+DOCK_MON_MD5HASH="8ce2f2999715042dbc42bc4bc9cf35ab"
+WallpaperDirectory="${HOME}/Images/Wallpapers"
+
+wallpaper(){
+  feh --bg-fill "${WallpaperDirectory}/${1}"
+}
+
+randomWallpaper(){
+  # Randomize wallpaper from directory
+  feh --bg-fill --randomize "${WallpaperDirectory}/${1}/*"
+}
+
 # PICOM
 # picom must be runned with --backend glx flag so that xsecurelock can work correctly
 # otherwhise shows an error saying that the compositor doesn't work.
@@ -13,41 +28,52 @@
 # export XSECURELOCK_NO_COMPOSITE=1
 # If there's any issue you can take any of this actions.
 [ "$(pgrep "picom")" ] || picom --backend glx & 
-
-[ "$(pgrep "dunst")" ] || dunst & # Notification server
-
+[ "$(pgrep "dunst")" ] || dunst &
 [ "$(pgrep "gpg-agent")" ] || gpg-agent &
+xss-lock --transfer-sleep-lock -- xsecurelock &
 
-# [ "$(pgrep "nextcloud")" ] || nextcloud &
-
-
-# In some ocations unclutter can create problems with the mouse
+# In some ocations unclutter can create problems with the mouse.
 # If this happens use "unclutter -grab" or install unclutter-xfixes-git
 # source: https://wiki.archlinux.org/index.php/unclutter
 [ "$(pgrep "unclutter")" ] || unclutter & # Hides mouse if is not beign used
 
-# Wierd fix that prevents everything to look GIGANTIC
+# Weird fix that prevents everything to look GIGANTIC
 xrandr --dpi 96
 
-# The value of this constant must be the md5 hash of the file in
-# /sys/class/drm/card1-HDMI-A-1/edid when the monitor that we want to use as
-# dock monitor is connected
-DOCK_MON_MD5HASH="add29654d7cab036da741bee9fd391fd"
+wallpaper Black/1920x1080/andrew-neel-xNiJJHl0WP4-unsplash.png
 
-sed -i 's/size: 9/size: 7/' ~/.config/alacritty/alacritty.yml
-
-# feh --bg-fill --randomize /home/mag/Images/Wallpapers/vision/*
-# feh --bg-fill --randomize /home/mag/Images/Wallpapers/formula-one/*
-feh --bg-fill  $HOME/Images/Wallpapers/weeb/cookie-monster.png
-
-# if [ "$(xrandr | grep -i "hdmi" | cut -d " " -f 2)" = "connected" ]; then
-if [ "$(md5sum /sys/class/drm/card0-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
+if [ "$(md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
   dock &
 fi
-# fi
 
 if [ "$HOSTNAME" = "Nostromo" ]; then
   polybar Nostromo &
+  numlockx & # Turns on Num Lk
 elif [ "$HOSTNAME" = "Serenity" ]; then
   polybar Serenity &
 fi
+
+# Only sync files if we are connected to a trusted network
+sleep 2
+currentNetwork=$(nmcli device | grep connected | awk '{print$4}')
+acceptedNetworks=$(cat << EOF
+Tenda_2CB810
+Tenda_2CB810_5G
+EOF
+)
+
+echo "${acceptedNetworks}" | grep -q "${currentNetwork}"
+
+if [ $? -eq 0 ]; then
+  notify-send "Valid sync network"
+  source "${HOME}/Scripts/nextcloud-sync.sh" &
+else
+  notify-send "invalid network"
+fi
+
+# choice=$(echo "Sync nextcloud? (y/N): "| xargs -0 -I{} rofi -l 1 -dmenu -p "{}")
+# if [[ "${choice}" = "y" ]] || [[ "${choice}" = "Y" ]]; then
+#   source "$HOME/Scripts/nextcloud-sync.sh" &
+# fi
+
+conky &

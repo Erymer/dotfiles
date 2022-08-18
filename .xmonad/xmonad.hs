@@ -30,7 +30,8 @@ import qualified Data.Tuple.Extra as TE
 import qualified Data.Map as M
 
     -- Hooks
-import XMonad.Hooks.DynamicLog (shorten, dynamicLogWithPP, wrap, PP(..))
+import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
+
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks (avoidStruts, docks, docksEventHook, ToggleStruts(..))
@@ -104,8 +105,8 @@ myEditor :: String
 myEditor = "kitty --override window_margin_width=0 nvim"
 
 myAppLauncher :: String
-myAppLauncher = "dmenu_run"
--- myAppLauncher = "rofi -show run"
+-- myAppLauncher = "dmenu_run"
+myAppLauncher = "rofi -show run"
 
 myBorderWidth :: Dimension
 myBorderWidth = 2          -- Sets border width for windows
@@ -597,4 +598,4 @@ defaults = def
     , manageHook          = myManageHook <+> manageHook def
     , borderWidth         = myBorderWidth
     , startupHook         = myStartupHook
-    } `additionalKeysP` qwertyKeys
+    } `additionalKeysP` dvorakKeys

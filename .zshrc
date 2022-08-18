@@ -26,6 +26,7 @@ SAVEHIST=500
 # Seleccionar editor para editar linea de comandos con C-e
 export EDITOR=nvim
 export VISUAL=nvim
+export PREDGER_ID="Marcelo"
 # export PAGER=bat
 
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word

@@ -106,6 +106,7 @@ Plug 'easymotion/vim-easymotion' "Jump to specific location
 Plug 'junegunn/goyo.vim' "Minimalistic writting
 Plug 'junegunn/limelight.vim' "Adds trasparency to pharagraphs that are not being used
 Plug 'mboughaba/i3config.vim' "i3 config file sintax highlight
+Plug 'ledger/vim-ledger'
 
 Plug 'godlygeek/tabular' "vim-markdown dependency
 Plug 'plasticboy/vim-markdown' "Markdown
@@ -162,7 +163,9 @@ colorscheme monokai
 set background=dark
 " highlight ColorColumn ctermbg=0 guibg=grey
 highlight ColorColumn ctermbg=0 guibg=Gray
-call matchadd('ColorColumn', '\%81v', 100) "Only shows colorcolumn when line overextende
+autocmd FileType sh call matchadd('ColorColumn', '\%81v', 100) "Only shows colorcolumn when line overextende
+autocmd FileType markdown call matchadd('ColorColumn', '\%81v', 100) "Only shows colorcolumn when line overextende
+autocmd FileType python call matchadd('ColorColumn', '\%81v', 100) "Only shows colorcolumn when line overextende
 " set colorcolumn=88
 
 "==============================================================================
@@ -319,30 +322,12 @@ lua << EOF
   db.preview_file_height = 12
   db.preview_file_width = 80
   db.custom_center = {
-      {icon = '  ',
-      desc = 'Recently latest session                  ',
-      shortcut = 'SPC s l',
-      action ='SessionLoad'},
       {icon = '  ',
       desc = 'Recently opened files                   ',
-      action =  'DashboardFindHistory',
-      shortcut = 'SPC f h'},
+      shortcut = 'SPC f r'},
       {icon = '  ',
       desc = 'Find  File                              ',
-      action = 'Telescope find_files find_command=rg,--hidden,--files',
-      shortcut = 'SPC f f'},
-      {icon = '  ',
-      desc ='File Browser                            ',
-      action =  'Telescope file_browser',
-      shortcut = 'SPC f b'},
-      {icon = '  ',
-      desc = 'Find  word                              ',
-      action = 'Telescope live_grep',
-      shortcut = 'SPC f w'},
-      {icon = '  ',
-      desc = 'Open Personal dotfiles                  ',
-      action = 'Telescope dotfiles path=' .. home ..'/.dotfiles',
-      shortcut = 'SPC f d'},
+      shortcut = 'SPC f o'},
     }
 EOF
 

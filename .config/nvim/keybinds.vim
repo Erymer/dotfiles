@@ -5,7 +5,7 @@ let mapleader=" "
 nnoremap <leader>fs :w<CR>| "Save file
 nnoremap X <c-v>
 nnoremap <leader>fS :w !sudo tee %<CR>| "Save file
-nnoremap <leader>fr :DashboardFindHistory<CR>| "Save file
+nnoremap <leader>fr :History<CR>| "Open recent file
 imap cg <Esc>| "Escape character
 imap <c>j <c>h| "Escape character
 vmap cg <Esc>| "Escape character

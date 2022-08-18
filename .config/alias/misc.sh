@@ -213,6 +213,8 @@ alias ddusbb='sudo dd status=progress if=/dev/sdb of=/home/mag/usbb.dd bs=8M'
 
 #Tar
 ctar() {
+  local file
+  local tarball
   file=$1
   tarball="$1.tgz"
   tar -zvcf ${tarball} ${file}

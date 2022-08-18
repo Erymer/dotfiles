@@ -1,10 +1,10 @@
 #!/usr/bin/bash
 # Change permissions so it can be executed withot beign root
 
-# The value of this constant must be the md5 hash of the file in
-# /sys/class/drm/card1-HDMI-A-1/edid when the monitor that we want to use as
-# dock monitor is connected
-DOCK_MON_MD5HASH="add29654d7cab036da741bee9fd391fd"
+# The value of this constant must be output of the following command when the
+# monitor you want to use as dock is connected to the HDMI port
+# md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -f 1 -d " "
+DOCK_MON_MD5HASH="8ce2f2999715042dbc42bc4bc9cf35ab"
 WallpaperDirectory="${HOME}/Images/Wallpapers"
 
 wallpaper(){
@@ -42,7 +42,7 @@ xrandr --dpi 96
 
 wallpaper Black/1920x1080/andrew-neel-xNiJJHl0WP4-unsplash.png
 
-if [ "$(md5sum /sys/class/drm/card1-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
+if [ "$(md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
   dock &
 fi
 
@@ -66,7 +66,7 @@ echo "${acceptedNetworks}" | grep -q "${currentNetwork}"
 
 if [ $? -eq 0 ]; then
   notify-send "Valid sync network"
-  source "$HOME/Scripts/nextcloud-sync.sh" &
+  source "${HOME}/Scripts/nextcloud-sync.sh" &
 else
   notify-send "invalid network"
 fi
