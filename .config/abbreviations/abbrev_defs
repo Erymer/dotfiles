@@ -722,6 +722,7 @@
     ("italica" "itálica" nil :count 1)
     ("italicas" "itálicas" nil :count 1)
     ("iteracion" "iteración" nil :count 14)
+    ("japon" "japón" nil :count 1)
     ("jardin" "jardín" nil :count 1)
     ("jerarquia" "jerarquía" nil :count 13)
     ("jerarquico" "jerárquico" nil :count 1)
