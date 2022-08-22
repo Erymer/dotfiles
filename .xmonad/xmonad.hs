@@ -474,6 +474,7 @@ dvorakKeys =
         , ("M-<Space>", spawn (scriptsFolder ++ "/Touchpad.sh"))
         , ("<Print>", spawn "scrot --quality 100 --focused && notify-send 'Printed window'")
         , ("M-<Print>", spawn "scrot --quality 100 --select --freeze --line style=dash && notify-send 'Printed window'")
+        , ("M-<KP_Enter>", spawn (scriptsFolder ++ "/calculator.sh"))
 
         ]
 
@@ -561,6 +562,7 @@ qwertyKeys =
         , ("M-<Space>", spawn (scriptsFolder ++ "/Touchpad.sh"))
         , ("<Print>", spawn "scrot --quality 100 --focused && notify-send 'Printed window'")
         , ("M-<Print>", spawn "scrot --quality 100 --select --freeze --line style=dash && notify-send 'Printed window'")
+        , ("M-<KP_Enter>", spawn (scriptsFolder ++ "/calculator.sh"))
 
         ]
 
