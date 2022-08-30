@@ -16,7 +16,7 @@
 (defun mag-text-mode () ;; auto wrap
   (setq fill-column 80)
   (setq flyspell-mode t)
-  (setq flyspell-default-dictionary "espanol")
+  (setq flyspell-default-dictionary "spanish")
   (auto-fill-mode t))
 
 (add-hook 'text-mode-hook #'mag-text-mode)
