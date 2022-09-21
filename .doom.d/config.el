@@ -3,15 +3,38 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+;; Para saber que variables están disponibles C-h v
+;; Para activar funciones en buffer M-x
+
 (setq-default evil-escape-key-sequence "cg")
 (setq abbrev-file-name "~/.config/abbreviations/abbrev_defs")
 (setq-default abbrev-mode t) ;; abbrev-mode activado
-(setq org-startup-folded t) ;; Abre archivos org con los temas fold
-;; (setq ispell-dictionary  t)
-;; (setq flyspell-default-dictionary "spanish")
 
-;; Para saber que variables están disponibles C-h v
-;; Para activar funciones en buffer M-x
+;; Different size for different header levels in org mode
+(custom-set-faces
+  '(org-level-1 ((t (:inherit outline-1 :height 1.15))))
+  '(org-level-2 ((t (:inherit outline-2 :height 1.13))))
+  '(org-level-3 ((t (:inherit outline-3 :height 1.1))))
+  '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
+  '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
+)
+(setq-default org-startup-folded t) ;; Abre archivos org con los temas fold
+(setq org-hide-emphasis-markers t)
+(setq org-hide-leading-stars t)
+
+(global-set-key (kbd "C-c h") 'unexpand-abbrev)
+
+(use-package org-roam
+  :ensure t
+  :custom
+  ;; (org-roam-directory "~/tests/roam")
+  (org-roam-directory "~/Documents/DnD/stars-without-numbers/Wiki")
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n i" . org-roam-node-insert))
+  :config
+  (org-roam-setup))
+
 
 (defun mag-text-mode () ;; auto wrap
   (setq fill-column 80)
@@ -42,16 +65,14 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
-(setq doom-font (font-spec :family "Roboto Mono" :size 13 :weight 'normal)
+(setq doom-font (font-spec :family "Fira Mono" :size 13 :weight 'light)
        doom-variable-pitch-font (font-spec :family "sans" :size 10))
-;; (setq doom-font (font-spec :family "Roboto Mono" :size 15 :weight 'normal)
-;;        doom-variable-pitch-font (font-spec :family "sans" :size 15))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;; Mas temas en https://github.com/hlissner/emacs-doom-themes
-(setq doom-theme 'doom-molokai)
+(setq doom-theme 'doom-gruvbox)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!

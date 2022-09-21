@@ -20,15 +20,18 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
-set nocompatible "Recomended config for vim-polyglot
 set conceallevel=2
 set foldmethod=indent
 set foldlevel=99
 " set clipboard+=unnamedplus "Always yank to Primary register
 autocmd FileType markdown setlocal textwidth=80
-autocmd FileType markdown setlocal commentstring=//%s
 
-autocmd FileType org setlocal textwidth=80
+" Abolish only works if abolish.vim is sourced after all plugins are loaded
+" Since I only use this abbreviations in markdown this works fine
+" An alternative to this is to put abolish.vim file in 
+" ~/.config/nvim/after/plugin/abolish.vim
+" This would allow to use Abolish in all filetypes
+autocmd FileType markdown source ~/.config/abbreviations/abolish.vim
 
 autocmd FileType arduino setlocal commentstring=//%s
 
@@ -38,7 +41,6 @@ autocmd FileType python setlocal shiftwidth=4
 
 
 set guifont=Fira\ Mono:h10.5:n
-source ~/.config/abbreviations/vimAbbrev.vim
 source ~/.config/nvim/keybinds.vim
 
 "==============================================================================
@@ -75,57 +77,60 @@ let g:molokai_original = 0
 call plug#begin('~/.vim/plugged')
 
 " COLOR THEMES
-Plug 'morhetz/gruvbox' "Gruvbox Color Theme
-Plug 'sainnhe/sonokai' "Sonokai Color Theme
-Plug 'junegunn/seoul256.vim' "Seoul256 Color Theme
-Plug 'arcticicestudio/nord-vim' "Nord Color Theme https://www.nordtheme.com/docs/ports/vim/installation 
-Plug 'altercation/vim-colors-solarized'
-Plug 'kaicataldo/material.vim'
-Plug 'sjl/badwolf'
-Plug 'NLKNguyen/papercolor-theme' "PaperColor
-Plug 'tomasr/molokai'
+" Plug 'morhetz/gruvbox' "Gruvbox Color Theme
+" Plug 'sainnhe/sonokai' "Sonokai Color Theme
+" Plug 'junegunn/seoul256.vim' "Seoul256 Color Theme
+" Plug 'arcticicestudio/nord-vim' "Nord Color Theme https://www.nordtheme.com/docs/ports/vim/installation 
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'kaicataldo/material.vim'
+" Plug 'sjl/badwolf'
+" Plug 'NLKNguyen/papercolor-theme' "PaperColor
+" Plug 'tomasr/molokai'
 Plug 'sickill/vim-monokai'
 
 Plug 'vim-airline/vim-airline'
 Plug 'glepnir/dashboard-nvim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jremmen/vim-ripgrep'
-Plug 'leafgarland/typescript-vim'
-Plug 'vim-utils/vim-man'
+" Plug 'vim-utils/vim-man'
 Plug 'lyuts/vim-rtags'
 Plug 'junegunn/fzf.vim'
+
+" Image Preview
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'mbbill/undotree'
+Plug 'nvim-telescope/telescope-media-files.nvim'
+
+" Plug 'mbbill/undotree'
 Plug 'jiangmiao/auto-pairs' "quote and bracket completion
 Plug 'tpope/vim-commentary' "More simple comment command
 Plug 'tmhedberg/SimpylFold' "Code folding
 Plug 'tpope/vim-surround'
-Plug 'preservim/nerdtree'
-Plug 'sheerun/vim-polyglot' "Language packs. Recomended by Sonokai Color Theme
+" Plug 'preservim/nerdtree'
+" Plug 'sheerun/vim-polyglot' "Language packs. Recomended by Sonokai Color Theme
 Plug 'easymotion/vim-easymotion' "Jump to specific location
 Plug 'junegunn/goyo.vim' "Minimalistic writting
 Plug 'junegunn/limelight.vim' "Adds trasparency to pharagraphs that are not being used
 Plug 'mboughaba/i3config.vim' "i3 config file sintax highlight
-Plug 'ledger/vim-ledger'
+" Plug 'ledger/vim-ledger'
 
 Plug 'godlygeek/tabular' "vim-markdown dependency
-Plug 'plasticboy/vim-markdown' "Markdown
-Plug 'dmoerner/vim-markdownfootnotes'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } "Used to previe Markdown files
-Plug 'lervag/vimtex' "LaTex
-Plug 'chrisbra/csv.vim'
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } "Used to previe Markdown files
+" Plug 'lervag/vimtex' "LaTex
+" Plug 'chrisbra/csv.vim'
 Plug 'ap/vim-css-color' "Highlight hex color codes their respective color
 Plug 'machakann/vim-highlightedyank'
 Plug 'SirVer/ultisnips' "Code snippets
-Plug 'nvim-treesitter/nvim-treesitter' "Better Sintax Highlighting. Recomended by Sonokai Color Theme
-Plug 'nvim-orgmode/orgmode'
+" Plug 'nvim-treesitter/nvim-treesitter' "Better Sintax Highlighting. Recomended by Sonokai Color Theme
+Plug 'preservim/vim-markdown'
 " Plug 'vim-scripts/AutoComplPop'
 " Plug 'vim-syntastic/syntastic'
 " Plug 'nvie/vim-flake8' 
 " Plug 'python-mode/python-mode' 
-Plug 'sudar/vim-arduino-syntax'
-Plug 'pangloss/vim-javascript'
-Plug 'mattn/emmet-vim'
+" Plug 'sudar/vim-arduino-syntax'
+" Plug 'pangloss/vim-javascript'
+" Plug 'mattn/emmet-vim'
 
 " Flutter
 Plug 'dart-lang/dart-vim-plugin'
@@ -138,7 +143,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Plug 'ervandew/supertab'
 " Plug 'stevearc/vim-arduino'
-" Plug 'tpope/vim-abolish' "Autocorrector
+Plug 'tpope/vim-abolish' "Autocorrector
 " Plug 'kien/rainbow_parentheses.vim' 
 " Plug 'michaelb/sniprun', { 'do': 'bash install.sh' }
 " if has('nvim')
@@ -153,6 +158,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'Konfekt/FastFold' "Faster folding. Recomended by SimpylFold
 " Plug 'davidhalter/jedi-vim' "Code jump (go to)
 Plug 'tpope/vim-fugitive'
+Plug 'renerocksai/telekasten.nvim'
 
 call plug#end()
 
@@ -225,8 +231,6 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 let g:tex_conceal='abdm'
 
-"Abolish
-"let g:abolish_save_file='.dotfiles/abbreviations/abolish.vim'
 
 " Syntastic
 " set statusline+=%#warningmsg#
@@ -266,6 +270,10 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " dart-vim-plugin
 let g:dart_style_guide = 2
 let g:dart_format_on_save = 1
+
+
+" " Abolish
+let g:abolish_save_file='/home/mag/.config/abbreviations/abolish.vim'
 
 " dashboard-nvimo
 " let g:dashboard_default_executive ='fzf'
@@ -331,25 +339,160 @@ lua << EOF
     }
 EOF
 
-" nvim-orgmode
+
 lua << EOF
-
--- Load custom tree-sitter grammar for org filetype
-require('orgmode').setup_ts_grammar()
-
--- Tree-sitter configuration
-require'nvim-treesitter.configs'.setup {
-  -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
-  highlight = {
-    enable = true,
-    disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
-    additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
+require('telescope').load_extension('media_files')
+require'telescope'.setup {
+  extensions = {
+    media_files = {
+      -- filetypes whitelist
+      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+      filetypes = {"png", "webp", "jpg", "jpeg"},
+      find_cmd = "rg" -- find command (defaults to `fd`)
+    }
   },
-  ensure_installed = {'org'}, -- Or run :TSUpdate org
 }
-
-require('orgmode').setup({
-  org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
-  org_default_notes_file = '~/Dropbox/org/refile.org',
-})
 EOF
+
+lua << END
+local home = vim.fn.expand("~/tests/vim-zettelcasten")
+require('telekasten').setup({
+    home         = home,
+
+    -- if true, telekasten will be enabled when opening a note within the configured home
+    take_over_my_home = true,
+
+    -- auto-set telekasten filetype: if false, the telekasten filetype will not be used
+    --                               and thus the telekasten syntax will not be loaded either
+    auto_set_filetype = true,
+
+    -- dir names for special notes (absolute path or subdir name)
+    dailies      = home .. '/' .. 'daily',
+    weeklies     = home .. '/' .. 'weekly',
+    templates    = home .. '/' .. 'templates',
+
+    -- image (sub)dir for pasting
+    -- dir name (absolute path or subdir name)
+    -- or nil if pasted images shouldn't go into a special subdir
+    image_subdir = "img",
+
+    -- markdown file extension
+    extension    = ".md",
+
+    -- Generate note filenames. One of:
+    -- "title" (default) - Use title if supplied, uuid otherwise
+    -- "uuid" - Use uuid
+    -- "uuid-title" - Prefix title by uuid
+    -- "title-uuid" - Suffix title with uuid
+    new_note_filename = "title",
+    -- file uuid type ("rand" or input for os.date()")
+    uuid_type = "%Y%m%d%H%M",
+    -- UUID separator
+    uuid_sep = "-",
+
+    -- following a link to a non-existing note will create it
+    follow_creates_nonexisting = true,
+    dailies_create_nonexisting = true,
+    weeklies_create_nonexisting = true,
+
+    -- skip telescope prompt for goto_today and goto_thisweek
+    journal_auto_open = false,
+
+    -- template for new notes (new_note, follow_link)
+    -- set to `nil` or do not specify if you do not want a template
+    template_new_note = home .. '/' .. 'templates/new_note.md',
+
+    -- template for newly created daily notes (goto_today)
+    -- set to `nil` or do not specify if you do not want a template
+    template_new_daily = home .. '/' .. 'templates/daily.md',
+
+    -- template for newly created weekly notes (goto_thisweek)
+    -- set to `nil` or do not specify if you do not want a template
+    template_new_weekly= home .. '/' .. 'templates/weekly.md',
+
+    -- image link style
+    -- wiki:     ![[image name]]
+    -- markdown: ![](image_subdir/xxxxx.png)
+    image_link_style = "markdown",
+
+    -- default sort option: 'filename', 'modified'
+    sort = "filename",
+
+    -- integrate with calendar-vim
+    plug_into_calendar = true,
+    calendar_opts = {
+        -- calendar week display mode: 1 .. 'WK01', 2 .. 'WK 1', 3 .. 'KW01', 4 .. 'KW 1', 5 .. '1'
+        weeknm = 4,
+        -- use monday as first day of week: 1 .. true, 0 .. false
+        calendar_monday = 1,
+        -- calendar mark: where to put mark for marked days: 'left', 'right', 'left-fit'
+        calendar_mark = 'left-fit',
+    },
+
+    -- telescope actions behavior
+    close_after_yanking = false,
+    insert_after_inserting = true,
+
+    -- tag notation: '#tag', ':tag:', 'yaml-bare'
+    tag_notation = "#tag",
+
+    -- command palette theme: dropdown (window) or ivy (bottom panel)
+    command_palette_theme = "ivy",
+
+    -- tag list theme:
+    -- get_cursor: small tag list at cursor; ivy and dropdown like above
+    show_tags_theme = "ivy",
+
+    -- when linking to a note in subdir/, create a [[subdir/title]] link
+    -- instead of a [[title only]] link
+    subdirs_in_links = true,
+
+    -- template_handling
+    -- What to do when creating a new note via `new_note()` or `follow_link()`
+    -- to a non-existing note
+    -- - prefer_new_note: use `new_note` template
+    -- - smart: if day or week is detected in title, use daily / weekly templates (default)
+    -- - always_ask: always ask before creating a note
+    template_handling = "smart",
+
+    -- path handling:
+    --   this applies to:
+    --     - new_note()
+    --     - new_templated_note()
+    --     - follow_link() to non-existing note
+    --
+    --   it does NOT apply to:
+    --     - goto_today()
+    --     - goto_thisweek()
+    --
+    --   Valid options:
+    --     - smart: put daily-looking notes in daily, weekly-looking ones in weekly,
+    --              all other ones in home, except for notes/with/subdirs/in/title.
+    --              (default)
+    --
+    --     - prefer_home: put all notes in home except for goto_today(), goto_thisweek()
+    --                    except for notes with subdirs/in/title.
+    --
+    --     - same_as_current: put all new notes in the dir of the current note if
+    --                        present or else in home
+    --                        except for notes/with/subdirs/in/title.
+    new_note_location = "smart",
+
+    -- should all links be updated when a file is renamed
+    rename_update_links = true,
+
+    vaults = {
+        vault2 = {
+            -- alternate configuration for vault2 here. Missing values are defaulted to
+            -- default values from telekasten.
+            -- e.g.
+            -- home = "/home/user/vaults/personal",
+        },
+    },
+
+    -- how to preview media files
+    -- "telescope-media-files" if you have telescope-media-files.nvim installed
+    -- "catimg-previewer" if you have catimg installed
+    media_previewer = "telescope-media-files",
+})
+END

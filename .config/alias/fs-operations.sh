@@ -2,7 +2,7 @@ alias usb='cd /run/media/mag/'
 alias cp="cp --interactive"  # Confirm before overwriting something
 alias copy="rsync -avi --info=progress1"  # Confirm before overwriting something
 alias df='df --human-readable'
-alias du='du -h'
+alias duh='du -h'
 alias du1='du --human-readable --max-depth=1 --all | sort -hr 2> /dev/null | less'
 alias rm='rm -I'  # Prevents epic mistakes
 alias free='free -m'  # Show sizes in MB

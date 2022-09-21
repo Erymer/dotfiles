@@ -105,8 +105,8 @@ myBrowser :: String
 myBrowser = "brave"                 -- Sets brave as browser for tree select
 
 myEditor :: String
--- myEditor = "neovide"
-myEditor = "kitty --override window_margin_width=0 nvim"
+myEditor = "neovide"
+-- myEditor = "kitty --override window_margin_width=0 nvim"
 
 myAppLauncher :: String
 -- myAppLauncher = "dmenu_run"
@@ -324,7 +324,6 @@ mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
 mySpacing' :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
 mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
--- Defining a bunch of layouts, many that I don't use.
 tall     = renamed [Replace "Tall"]
            $ limitWindows 12
            $ mySpacing 5
@@ -379,14 +378,14 @@ codingWide   = renamed [Replace "Coding Wide"]
 myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts floats $
                mkToggle (NBFULL ?? NOBORDERS ?? EOT) myDefaultLayout
              where
-               myDefaultLayout =     tall
+               myDefaultLayout =     coding
+                                 ||| codingMagnify
+                                 ||| codingWide
+                                 ||| tall
                                  ||| noBorders monocle
                                  ||| flutter
                                  ||| magnified
                                  ||| floats
-                                 ||| coding
-                                 ||| codingMagnify
-                                 ||| codingWide
                                  --
                                  --
 ------------------------------------------------------------------------
@@ -418,7 +417,7 @@ dvorakKeys =
         , ("M-i", toggleOrView workspaceFive)
         , ("M-g", toggleOrView workspaceSix)
         , ("M-!", toggleOrView workspaceSeven)
-        , ("M-i", swapNextScreen)
+        , ("M-c", swapNextScreen)
 
         , ("M-S-a", windows $ W.shift workspaceOne)
         , ("M-S-o", windows $ W.shift workspaceTwo)

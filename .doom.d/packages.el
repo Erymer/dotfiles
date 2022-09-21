@@ -14,6 +14,8 @@
 (package! olivetti) ;; https://github.com/rnkn/olivetti
 (package! perfect-margin) ;; https://github.com/mpwang/perfect-margin
 (package! darkroom) ;; https://github.com/joaotavora/darkroom
+(package! org-superstar) ;; https://github.com/integral-dw/org-superstar-mode
+(package! org-roam)
 
 
 ;; To install a package directly from a remote git repo, you must specify a

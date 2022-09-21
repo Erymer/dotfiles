@@ -55,14 +55,18 @@ searchname(){
   sudo find / -iname "$1" 2> /dev/null
 }
 
-searchdir(){
-  sudo find / -type d -iname "*$1*" 2> /dev/null
-}
-
 zerodisk(){
   sudo sgdisk --zap-all /dev/$1
   sudo wipefs --all --force /dev/$1
   sudo dd status=progress bs=8192 if=/dev/zero of=/dev/$1
+}
+
+searchstring() {
+  # $1 = String
+  # $2 = Location
+
+  grep --recursive --files-with-matches --word-regexp "$1" "$2" 2> /dev/null
+
 }
 
 randomdisk(){
@@ -184,12 +188,6 @@ qn(){
 # alias sp="vim +set\ buftype=nofile +startinsert" ## A quick scratchpad from the shell
 alias sp="nvim +:Goyo + /tmp/scratchpad.md"
 
-searchstring() {
-  # $1 = String
-  # $2 = Location
-
-  grep --recursive --files-with-matches --word-regexp "$1" $2
-}
 
 py() {
   touch $1.py && chmod +x $1.py
@@ -217,7 +215,7 @@ ctar() {
   local tarball
   file=$1
   tarball="$1.tgz"
-  tar -zvcf ${tarball} ${file}
+  tar -vcf "${tarball}" "${file}" && gzip -9 "${tarball}"
 }
 
 alias untar="tar -zxvf" # Unpack tarball
