@@ -7,20 +7,21 @@ setopt prompt_subst
 # PROMPT="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b >%{$fg[cyan]%}>%B%(?.%{$fg[cyan]%}.%{$fg[red]%})>%{$reset_color%}%b " # Print some system information when the shell is first started
 # Print a greeting message when shell is started
 # echo $USER@$HOST  $(uname -srm) $(lsb_release -rcs)
+# echo $USER@$HOST  $(uname -srm)
 ## Prompt on right side:
 #  - shows status of git when in git repository (code adapted from https://techanic.net/2012/12/30/my_git_prompt_for_zsh.html)
 #  - shows exit status of previous command (if previous command finished with an error)
  
 # Original prompt 
-#PS1="%B\
-#%{$fg[blue]%}[\
-#%{$fg[blue]%}%n\
-#%{$fg[yellow]%}@\
-#%{$fg[yellow]%}%M \
-#%{$fg[yellow]%}%~\
-#%{$fg[yellow]%}]\
-#%{$reset_color%}$\
-#%b "
+# PS1="%B\
+# %{$fg[blue]%}[\
+# %{$fg[blue]%}%n\
+# %{$fg[yellow]%}@\
+# %{$fg[yellow]%}%M \
+# %{$fg[yellow]%}%~\
+# %{$fg[yellow]%}]\
+# %{$reset_color%}$\
+# %b "
 
 #Prompt example tha allows to use more colors
 #PS1="%F{202}%K{000}%m\
@@ -37,8 +38,19 @@ setopt prompt_subst
 # Fedora prompt
 # PROMPT="%B%{$fg[gray]%}%(4~|%-1~/.../%2~|%~)%u%b >%{$fg[gray]%}>%B%(?.%{$fg[gray]%}.%{$fg[red]%})>%{$reset_color%}%b "
 
+# PROMPT="%(!.%#.%{$fg[white]%}[%n@%m %1~]%{$reset_color%}$ "
+
 # Current prompt
-PROMPT="%(!.%#.%{$fg[white]%}[%n@%m %1~]%{$reset_color%}$ "
+PS1="%B\
+%{$fg[white]%}[\
+%{$fg[white]%}%n\
+%{$fg[white]%}@\
+%{$fg[white]%}%M \
+%{$fg[white]%}%~\
+%{$fg[white]%}]\
+%{$reset_color%}$\
+%b "
+
 
 # Base16 Shell
 # For more info:
@@ -69,8 +81,8 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
 #		#Possible variants: dark and light
 		shade="dark"
 		# BASE16_SHELL="/usr/share/zsh/scripts/base16-shell/base16-$theme.$shade.sh"
-		BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-$theme.$shade.sh"
-		[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+		# BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-$theme.$shade.sh"
+		# [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 #		# Use autosuggestion
     # PS1="%F{yellow}%K{000}%n%F{yellow}%K{000}@%F{white}%K{000}%~%F{yellow}%K{000}:%F{yellow}%K{000}\$ "
 		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

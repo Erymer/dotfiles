@@ -40,7 +40,7 @@ xss-lock --transfer-sleep-lock -- xsecurelock &
 # Weird fix that prevents everything to look GIGANTIC
 xrandr --dpi 96
 
-wallpaper Black/1920x1080/andrew-neel-xNiJJHl0WP4-unsplash.png
+wallpaper weeb/minimalist-hollow-1.png
 
 if [ "$(md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
   dock &

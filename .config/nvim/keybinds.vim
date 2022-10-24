@@ -103,6 +103,10 @@ autocmd FileType markdown map <leader>B  S*gvS*
 autocmd FileType markdown map <leader>I  S*
 autocmd FileType markdown map <leader>u  <esc>b~gi
 
+" Vim-Zettekasten
+autocmd FileType markdown map <leader>Zo :ZettelOpen<CR>
+
+
 " Undotree
 nnoremap <F5> :UndotreeToggle<cr>
 
