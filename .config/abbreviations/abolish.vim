@@ -1338,3 +1338,6 @@ Abolish conectandola conectándola
 Abolish {catastr}o{fica,fico,ficas,ficos} {}ó{}
 Abolish {acad}e{mico,micos} {}é{}
 Abolish tomaria tomaría
+Abolish habras habrás
+Abolish traducelas tradúcelas
+Abolish {bibliogr}a{fica,ficas} {}á{}

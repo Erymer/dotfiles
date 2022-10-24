@@ -112,10 +112,17 @@ export LESS=-r
 
 
 ## Plugins section: Enable fish style features
-# Use syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Use history substring search
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+CURRENT_OS=$(grep -e '^NAME' </etc/os-release | sed 's/NAME=//')
+
+if [ "${CURRENT_OS}" = '"Arch Linux"' ] ; then
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+elif [ "${CURRENT_OS}" = '"Fedora Linux"' ] ; then
+  source /usr/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source /usr/share/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+fi
+
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up

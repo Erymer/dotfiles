@@ -41,8 +41,8 @@ autocmd FileType python setlocal tabstop=4
 autocmd FileType python setlocal softtabstop=4
 autocmd FileType python setlocal shiftwidth=4
 
-" set guifont=Fira\ Mono:h10.5:n "PC
-set guifont=Fira\ Mono:h7:n "Laptop
+set guifont=Fira\ Mono:h10.5:n "PC
+" set guifont=Fira\ Mono:h7:n "Laptop
 source ~/.config/nvim/keybinds.vim
 
 "==============================================================================
