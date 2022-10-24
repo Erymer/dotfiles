@@ -119,8 +119,8 @@ if [ "${CURRENT_OS}" = '"Arch Linux"' ] ; then
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 elif [ "${CURRENT_OS}" = '"Fedora Linux"' ] ; then
-  source /usr/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source /usr/share/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 fi
 
 # bind UP and DOWN arrow keys to history substring search
