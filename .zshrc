@@ -115,12 +115,15 @@ export LESS=-r
 
 CURRENT_OS=$(grep -e '^NAME' </etc/os-release | sed 's/NAME=//')
 
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 if [ "${CURRENT_OS}" = '"Arch Linux"' ] ; then
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 elif [ "${CURRENT_OS}" = '"Fedora Linux"' ] ; then
   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # bind UP and DOWN arrow keys to history substring search
