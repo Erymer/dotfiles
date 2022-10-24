@@ -1,0 +1,73 @@
+snippet character "New character template"
+# ${1:charaterName}
+
+- Primera aparición: $2
+- Alineación actual: ${3:friendOrFoe}
+- Estado actual: ${4:deadAliveorMIA}
+- Ubicación actual: $5
+
+${6:firstMeetDescription}
+
+# Descripción
+
+- Edad: $7
+- Raza: $8
+- Profesión: $9
+
+${10:personality}
+
+# Notas
+
+$11
+
+endsnippet
+
+snippet zettelnote "Zettel note"
+
+$1
+
+---
+
+Referencia: $2
+Tag Link: $3
+
+endsnippet
+
+snippet zetteltag "Zettel tag"
+---
+:Index:Tag:
+
+title: $1
+date: $2
+id: $3
+tags: Index Tag
+category: Tag
+
+---
+
+$4
+
+[Index](index.md)
+endsnippet
+
+
+snippet zettelref "Zettel refererence"
+---
+:Referencia:
+
+title: $1
+date: $2
+id: $3
+tags: Referencia $4
+category: Referencia
+---
+
+
+# Bibliografía
+endsnippet
+
+snippet	bashcb "Bash codeblock"
+```bash
+$1
+```
+endsnippet
