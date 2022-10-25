@@ -456,7 +456,7 @@ dvorakKeys =
     -- Apps
         , ("M-b", spawn myBrowser)
         , ("M-t", spawn myEditor)
-        , ("M-n", spawn (myTerminal ++ "-e --class FileManager --title Ranger ranger"))
+        , ("M-n", spawn ( "kitty -e --class FileManager --title Ranger ranger"))
         , ("M-S-n", spawn "pcmanfm")
 
     -- Special Keys
@@ -545,7 +545,7 @@ qwertyKeys =
         -- QWERTY
         , ("M-n", spawn myBrowser)
         , ("M-k", spawn myEditor)
-        , ("M-l", spawn (myTerminal ++ "-e --class FileManager --title Ranger ranger"))
+        , ("M-l", spawn ("kitty -e --class FileManager --title Ranger ranger"))
         , ("M-S-l", spawn "pcmanfm")
 
     -- Special Keys
