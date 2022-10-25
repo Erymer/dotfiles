@@ -9,11 +9,22 @@ border-color = ${config.borderColor}
 module-margin-left = ${config.moduleMarginLeft}
 module-margin-right = ${config.moduleMarginRight}
 override-redirect = true
+
 font-0 = ${config.font0}
 font-1 = ${config.font1}
-font-2 = ${config.font2}
-font-3 = ${config.font3}
-font-4 = ${config.font4}
+
+; This bar is used in Fedora, which at this time doesnt have Font Awesome 6
+; Arch uses Font Awesome 6.
+; If fedora changes to Font Awesome 6, uncomment the following lines and delete
+; the other ones.
+
+; font-2 = ${config.font2}
+; font-3 = ${config.font3}
+; font-4 = ${config.font4}
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=9;1"
+font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=9;1"
+font-4 = "Font Awesome 5 Brands:pixelsize=9;1"
+
 wm-restack = i3
 tray-position = ${config.trayPosition}
 tray-detached = ${config.trayDetached}
