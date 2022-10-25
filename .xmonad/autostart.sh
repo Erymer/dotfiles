@@ -53,23 +53,7 @@ elif [ "$HOSTNAME" = "Serenity" ]; then
   polybar Serenity &
 fi
 
-# Only sync files if we are connected to a trusted network
-sleep 2
-currentNetwork=$(nmcli device | grep connected | awk '{print$4}')
-acceptedNetworks=$(cat << EOF
-Tenda_2CB810
-Tenda_2CB810_5G
-EOF
-)
-
-echo "${acceptedNetworks}" | grep -q "${currentNetwork}"
-
-if [ $? -eq 0 ]; then
-  notify-send "Valid sync network"
-  source "${HOME}/Scripts/nextcloud-sync.sh" &
-else
-  notify-send "invalid network"
-fi
+source "${HOME}/Scripts/nextcloud-sync.sh" &
 
 # choice=$(echo "Sync nextcloud? (y/N): "| xargs -0 -I{} rofi -l 1 -dmenu -p "{}")
 # if [[ "${choice}" = "y" ]] || [[ "${choice}" = "Y" ]]; then
