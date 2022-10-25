@@ -1,5 +1,5 @@
 [bar/Serenity]
-monitor = 
+; monitor = 
 width = ${config.width}
 height = ${config.height}
 dpi-x = ${config.dpiX}
@@ -26,7 +26,7 @@ foreground = ${colors.transparent}
 line-size = ${config.lineSize}
 ; line-color = ${colors.red}
 module-margin = ${config.moduleMargin}
-modules-left = xmonad spacer
+modules-left = xmonad-workspaces spacer xmonad-layout spacer
 modules-center = date
 modules-right = sep wireless-network sep memory1 sep cpu2 sep backlight sep battery sep
 
