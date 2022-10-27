@@ -1341,3 +1341,7 @@ Abolish tomaria tomaría
 Abolish habras habrás
 Abolish traducelas tradúcelas
 Abolish {bibliogr}a{fica,ficas} {}á{}
+Abolish programacion programación
+Abolish jamas jamás
+Abolish {bas}a{ndome,ndonos,ndose} {}á{}
+Abolish automaticamente automáticamente
