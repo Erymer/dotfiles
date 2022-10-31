@@ -20,8 +20,8 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set conceallevel=0
-set foldmethod=indent
-set foldlevel=99
+" set foldmethod=indent
+" set foldlevel=99
 " set clipboard+=unnamedplus "Always yank to Primary register
 autocmd FileType markdown setlocal textwidth=80
 
@@ -256,6 +256,8 @@ let g:vimwiki_conceallevel = 0
 let g:zettel_format = "%y%m%d-%title"
 let g:zettel_link_format = "[%title](%link.md)"
 let g:vimwiki_key_mappings = { 'all_maps': 0, }
+let g:vimwiki_hl_headers = 1
+let g:vimwiki_folding = 'expr'
 
 function! s:insert_id()
   if exists("g:zettel_current_id")
@@ -289,9 +291,7 @@ let zettel.ext = '.md'
 let zettel.syntax = 'markdown'
 let zettel.links_space_char = '_'
 let zettel_options = {}
-let zettel_options.front_matter = [["id", function("s:insert_id")], ["tags", ""], ["category", "Nota"]]
-
-
+let zettel_options.front_matter = [[":*****:"], ["id", function("s:insert_id")], ["tags", ""], ["category", "Nota"]]
 
 let g:vimwiki_list = [foo, onyon, zettel]
 let g:zettel_options = [foo_options, {}, zettel_options]

@@ -1345,3 +1345,5 @@ Abolish programacion programación
 Abolish jamas jamás
 Abolish {bas}a{ndome,ndonos,ndose} {}á{}
 Abolish automaticamente automáticamente
+Abolish ocaciones ocasiones
+Abolish {d}a{ndonos,ndose} {}á{}
