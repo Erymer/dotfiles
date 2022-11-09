@@ -12,6 +12,8 @@ alias P='cd ~/Projects && exa --icons'
 alias Ps='cd ~/Projects/ShellScript && exa --icons'
 alias Pp='cd ~/Projects/Python && exa --icons'
 
+alias Z='cd ~/Documents/Zettel && exa --icons'
+
 alias wifiscan='nmcli device wifi list'
 
 push(){

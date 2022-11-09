@@ -9,6 +9,14 @@ gitu() {
     git push
 }
 
+zgitu() {
+  # Making a commit to Zettelkasten repository
+  git pull
+  git add . &&
+  git commit -m "$(date +%Y-%m-%d)" &&
+  git push
+}
+
 gitnb() {
     # Creates new branch
     name=$1
