@@ -1347,3 +1347,5 @@ Abolish {bas}a{ndome,ndonos,ndose} {}á{}
 Abolish automaticamente automáticamente
 Abolish ocaciones ocasiones
 Abolish {d}a{ndonos,ndose} {}á{}
+Abolish clasificacion clasificación
+Abolish {p}a{gina,ginas} {}á{}
