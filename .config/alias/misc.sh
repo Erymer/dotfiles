@@ -245,3 +245,14 @@ alias mp3="youtube-dl -f 140"
 alias ytls="youtube-dl -F"
 
 alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
+web() {
+  query=$(echo $1 | tr " " "+")
+
+  if command -v w3m &> /dev/null; then
+    w3m "duckduckgo.com/?q=${query}"
+  else
+    echo "w3m not installed"
+  fi
+
+}
