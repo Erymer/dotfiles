@@ -2,8 +2,6 @@
 alias B='cd ~/.magBin && exa --icons'
 
 alias D='cd ~/Documents && exa --icons'
-alias n='cd ~/Documents/Notes && exa --icons'
-alias N='cd ~/Documents/Notebooks && exa --icons'
 
 alias C='cd ~/.config && exa --icons --all'
 alias S='cd ~/Scripts && exa --icons'

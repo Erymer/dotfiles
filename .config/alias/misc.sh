@@ -34,6 +34,8 @@ alias pls='sudo bash -c "$(fc -ln -1)"'
 alias pager='bash -c "$(fc -ln -1)" | bat'
 alias pg='bash -c "$(fc -ln -1)" | bat'
 alias todolinux='todo new -l linux'
+alias nnn='nnn -e'
+alias n='nnn -e'
 
 rpg () {
   rpg-cli "$@"
