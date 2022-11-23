@@ -215,7 +215,8 @@ ctar() {
   local tarball
   file=$1
   tarball="$1.tgz"
-  tar -vcf "${tarball}" "${file}" && gzip -9 "${tarball}"
+  # tar -vcf "${tarball}" "${file}" && gzip -9 "${tarball}"
+  tar -zvcf "${tarball}" "${file}"
 }
 
 alias untar="tar -zxvf" # Unpack tarball
