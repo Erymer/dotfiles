@@ -1,0 +1,9 @@
+#!/usr/bin/zsh
+
+export NNN_PLUG='f:autojump;p:preview-tui;i:imgview'
+# export NNN_FCOLORS='0000E6310000000000000000'
+# set --export NNN_FIFO "/tmp/nnn.fifo"
+export NNN_FIFO="/tmp/nnn.fifo"
+
+# https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
+# https://www.rapidtables.com/convert/number/decimal-to-hex.html

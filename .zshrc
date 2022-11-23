@@ -143,6 +143,7 @@ source $HOME/.config/zshrc/git-prompt.sh
 source $HOME/.config/zshrc/constant-definition.sh
 source $HOME/.config/zshrc/prompt.sh
 source $HOME/.config/zshrc/zoxide # cd replacement
+source $HOME/.config/zshrc/nnn
 
 # source all files in alias directory
 for file in $ALIAS_DIRECTORY/* ; do
