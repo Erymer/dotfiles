@@ -394,7 +394,7 @@ dvorakKeys :: [(String, X ())]
 dvorakKeys =
     -- Xmonad
         [ ("M-C-r", spawn "xmonad --recompile && notify-send 'Xmonad Recompiled'")      -- Recompiles xmonad
-        , ("M-S-r", spawn "xmonad --restart")        -- Restarts xmonad
+        , ("M-S-r", spawn "xmonad --recompile && xmonad --restart && notify-send 'Xmonad Restarted'")        -- Restarts xmonad
         , ("M-S-q", io exitSuccess)                  -- Quits xmonad
         , ("M-<Return>", spawn myTerminal)
         , ("M-S-<Return>", spawn (myTerminal ++ " --override window_margin_width=0"))
@@ -456,7 +456,7 @@ dvorakKeys =
     -- Apps
         , ("M-b", spawn myBrowser)
         , ("M-t", spawn myEditor)
-        , ("M-n", spawn ( "kitty -e --class FileManager --title Ranger ranger"))
+        , ("M-n", spawn ( "kitty -e --class FileManager --title nnn nnn -e"))
         , ("M-S-n", spawn "pcmanfm")
 
     -- Special Keys
@@ -545,7 +545,7 @@ qwertyKeys =
         -- QWERTY
         , ("M-n", spawn myBrowser)
         , ("M-k", spawn myEditor)
-        , ("M-l", spawn ("kitty -e --class FileManager --title Ranger ranger"))
+        , ("M-l", spawn ("kitty -e --class FileManager --title nnn nnn -e"))
         , ("M-S-l", spawn "pcmanfm")
 
     -- Special Keys
