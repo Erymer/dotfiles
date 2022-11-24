@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+partition_selection=$(lsblk --output Name,path,size,label,mountpoint,fstype | \
+                      fzf --reverse --header="Pick a partition") 
+
+# Checking if the selection is a partition or a the full drive
+while echo "${partition_selection}" | grep -q --extended-regexp '^[a-z]' ; do
+  echo "Select a partition inside a drive, not the full drive."
+  sleep 2
+  partition_selection=$(lsblk --output Name,path,size,label | \
+                        fzf --reverse --header="Pick a partition") 
+done
+
+partition_path=$(echo "$partition_selection" | awk '{print$2}')
+
+if ! udisksctl mount -b "${partition_path}" ; then
+  # Give time to show error message
+  sleep 2
+fi
