@@ -1,8 +1,9 @@
 [module/internet-check]
 type = custom/script
-exec = ~/Scripts/internet-check.sh
+exec = if ping -c 1 google.com > /dev/null 2>&1; then echo "  "; else echo ""; fi
 ; interval = 2
 tail = true
+
 
 ;HOW TO SET IT MINIMAL 10 CHARACTERS - HIDDEN BEHIND SYSTEM ICONS
 label = %output%

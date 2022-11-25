@@ -24,10 +24,10 @@ setopt prompt_subst
 # %b "
 
 #Prompt example tha allows to use more colors
-#PS1="%F{202}%K{000}%m\
-#%F{015}%K{000}:\
-#%F{039}%K{000}%~\
-#%F{015}%K{000}\$ "
+# PS1="%F{202}%K{000}%m\
+# %F{015}%K{000}:\
+# %F{039}%K{000}%~\
+# %F{015}%K{000}\$ "
 
 # PS1="%F{202}%K{000}%n\
 # %F{202}%K{000}@\
@@ -40,16 +40,27 @@ setopt prompt_subst
 
 # PROMPT="%(!.%#.%{$fg[white]%}[%n@%m %1~]%{$reset_color%}$ "
 
-# Current prompt
+# PS1="%B\
+# %{$fg[white]%}[\
+# %{$fg[white]%}%n\
+# %{$fg[white]%}@\
+# %{$fg[white]%}%M \
+# %{$fg[white]%}%~\
+# %{$fg[white]%}]\
+# %{$reset_color%}$\
+# %b "
+
+# Current prompt (only shows last part of dir path)
 PS1="%B\
 %{$fg[white]%}[\
 %{$fg[white]%}%n\
 %{$fg[white]%}@\
 %{$fg[white]%}%M \
-%{$fg[white]%}%~\
+%{$fg[white]%}%1~\
 %{$fg[white]%}]\
 %{$reset_color%}$\
 %b "
+
 
 
 # Base16 Shell
