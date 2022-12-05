@@ -20,6 +20,7 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set conceallevel=0
+set autochdir
 " set foldmethod=indent
 " set foldlevel=99
 " set clipboard+=unnamedplus "Always yank to Primary register
@@ -279,7 +280,7 @@ let foo_options.front_matter = [["id", function("s:insert_id")], ["tags", ""], [
 
 " Onyon Chronicles
 let onyon = {}
-let onyon.path = '~/Documents/DnD/stars-without-numbers/'
+let onyon.path = '~/Documents/DnD/stars-without-numbers/Wiki/'
 let onyon.ext = '.md'
 let onyon.syntax = 'markdown'
 let onyon.links_space_char = '_'

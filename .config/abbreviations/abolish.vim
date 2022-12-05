@@ -1349,3 +1349,6 @@ Abolish ocaciones ocasiones
 Abolish {d}a{ndonos,ndose} {}á{}
 Abolish clasificacion clasificación
 Abolish {p}a{gina,ginas} {}á{}
+Abolish {autom}a{tica,ticas,tico,ticos} {}á{}
+Abolish {r}a{pido,pidos} {}á{}
+Abolish {huir}i{a,amos} {}í{}

@@ -37,6 +37,10 @@ nnoremap <leader>wj :wincmd j<CR>| "Move cursor to below window
 nnoremap <C-Space> :wincmd p<CR>| "Move cursor to previous window
 nnoremap <leader>qq :confirm qall<CR>| "Close Vim
 
+" Git
+nnoremap <leader>gs :Git status<CR>| "Git status
+nnoremap <leader>ga :Git add .<CR>| "Git add files
+
 "Buffer Commands
 nnoremap <leader><tab> :b!#<CR>| "Go to last edited buffer
 nnoremap <leader>bl :ls<CR>| "List buffers
