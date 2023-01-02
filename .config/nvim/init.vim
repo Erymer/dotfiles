@@ -127,7 +127,9 @@ Plug 'easymotion/vim-easymotion' "Jump to specific location
 Plug 'junegunn/goyo.vim' "Minimalistic writting
 Plug 'junegunn/limelight.vim' "Adds trasparency to pharagraphs that are not being used
 Plug 'mboughaba/i3config.vim' "i3 config file sintax highlight
+
 " Plug 'ledger/vim-ledger'
+Plug 'nathangrigg/vim-beancount'
 
 Plug 'godlygeek/tabular' "vim-markdown dependency
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } "Used to previe Markdown files
@@ -285,6 +287,12 @@ let onyon.ext = '.md'
 let onyon.syntax = 'markdown'
 let onyon.links_space_char = '_'
 
+let serpentKing = {}
+let serpentKing.path = '~/Documents/DnD/tomb-of-the-serpent-king/'
+let serpentKing.ext = '.md'
+let serpentKing.syntax = 'markdown'
+let serpentKing.links_space_char = '_'
+
 " Zettelcasten
 let zettel = {}
 let zettel.path = '~/Documents/Zettel/'
@@ -294,12 +302,15 @@ let zettel.links_space_char = '_'
 let zettel_options = {}
 let zettel_options.front_matter = [[":*****:"], ["id", function("s:insert_id")], ["tags", ""], ["category", "Nota"]]
 
-let g:vimwiki_list = [foo, onyon, zettel]
-let g:zettel_options = [foo_options, {}, zettel_options]
+let g:vimwiki_list = [foo, onyon, zettel, serpentKing]
+let g:zettel_options = [foo_options, {}, zettel_options, {}]
 
 
-" " Abolish
+" Abolish
 let g:abolish_save_file='/home/mag/.config/abbreviations/abolish.vim'
+
+" Beancount
+let g:beancount_separator_col=70
 
 " dashboard-nvimo
 " let g:dashboard_default_executive ='fzf'

@@ -47,6 +47,7 @@
 (require 'ledger-mode)
 (add-to-list 'auto-mode-alist '("\\.ldg\\'" . ledger-mode))
 
+(add-to-list 'auto-mode-alist '("\\.beancount\\'" . org-mode))
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.

@@ -42,15 +42,15 @@ xrandr --dpi 96
 
 wallpaper weeb/minimalist-hollow-1.png
 
-if [ "$(md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
-  dock &
-fi
-
 if [ "$HOSTNAME" = "Nostromo" ]; then
   polybar Nostromo &
   numlockx & # Turns on Num Lk
 elif [ "$HOSTNAME" = "Serenity" ]; then
   polybar Serenity &
+fi
+
+if [ "$(md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
+  dock &
 fi
 
 source "${HOME}/Scripts/nextcloud-sync.sh" &

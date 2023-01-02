@@ -1352,3 +1352,5 @@ Abolish {p}a{gina,ginas} {}á{}
 Abolish {autom}a{tica,ticas,tico,ticos} {}á{}
 Abolish {r}a{pido,pidos} {}á{}
 Abolish {huir}i{a,amos} {}í{}
+Abolish abrio abrió
+Abolish desaparecio desapareció
