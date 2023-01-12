@@ -1,5 +1,6 @@
 alias sudo='sudo ' # Recomended in https://wiki.archlinux.org/title/Sudo#Tips_and_tricks
 alias magg='sudo '
+alias mag='sudo '
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
