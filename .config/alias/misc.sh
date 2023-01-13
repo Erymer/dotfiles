@@ -59,9 +59,9 @@ searchname(){
 }
 
 zerodisk(){
-  sudo sgdisk --zap-all /dev/$1
-  sudo wipefs --all --force /dev/$1
-  sudo dd status=progress bs=8192 if=/dev/zero of=/dev/$1
+  sudo sgdisk --zap-all "$1"
+  sudo wipefs --all --force "$1"
+  sudo dd status=progress bs=8192 if=/dev/zero of="$1"
 }
 
 searchstring() {
@@ -75,7 +75,7 @@ searchstring() {
 randomdisk(){
   # source https://www.linuxglobal.com/quickly-fill-a-disk-with-random-bits-without-dev-urandom/
   local password=$(sudo dd if=/dev/urandom bs=1 count=60)
-  local blk_device="/dev/${1}"
+  local blk_device="${1}"
   local blk_device_size
   local choice
 
