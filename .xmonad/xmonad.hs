@@ -458,6 +458,7 @@ dvorakKeys =
         , ("M-t", spawn myEditor)
         , ("M-n", spawn ( "kitty -e --class FileManager --title nnn nnn -e"))
         , ("M-S-n", spawn "pcmanfm")
+        , ("M-m", spawn (scriptsFolder ++ "/quick-todo.sh"))
 
     -- Special Keys
         , ("M-<F1>", spawn (scriptsFolder ++ "/toggle-mute.sh"))

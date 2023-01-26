@@ -64,7 +64,8 @@ nnoremap <C-V> "*p| "Paste text from primary register witch is accesed with midd
 "let g:NERDTreeMapActivateNode="l"
 map <leader>ft :NERDTreeToggle<CR>
 " map <leader>ff :NERDTreeFocus<CR>
-map <leader>ff :NERDTreeFind<CR>
+" map <leader>ff :NERDTreeFind<CR>
+map <leader>ff :Files<CR>
 map <leader>fo :Files<CR>
 map <leader>fcv :e ~/.config/nvim/init.vim<CR>
 map <leader>fci :e ~/.config/i3/config<CR>

@@ -1354,3 +1354,10 @@ Abolish {r}a{pido,pidos} {}á{}
 Abolish {huir}i{a,amos} {}í{}
 Abolish abrio abrió
 Abolish desaparecio desapareció
+Abolish cuidandolo cuidándolo
+Abolish cronografo cronógrafo
+Abolish latio latió
+Abolish fotografo fotógrafo
+Abolish carton cartón
+Abolish silicon silicón
+Abolish borraramos borráramos

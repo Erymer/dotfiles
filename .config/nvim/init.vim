@@ -300,7 +300,7 @@ let zettel.ext = '.md'
 let zettel.syntax = 'markdown'
 let zettel.links_space_char = '_'
 let zettel_options = {}
-let zettel_options.front_matter = [[":*****:"], ["id", function("s:insert_id")], ["tags", ""], ["category", "Nota"]]
+let zettel_options.front_matter = [["id", function("s:insert_id")], ["tags", ""], ["category", "Nota"]]
 
 let g:vimwiki_list = [foo, onyon, zettel, serpentKing]
 let g:zettel_options = [foo_options, {}, zettel_options, {}]
