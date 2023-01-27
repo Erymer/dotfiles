@@ -5,15 +5,14 @@
 # monitor you want to use as dock is connected to the HDMI port
 # md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -f 1 -d " "
 DOCK_MON_MD5HASH="8ce2f2999715042dbc42bc4bc9cf35ab"
-WallpaperDirectory="${HOME}/Images/Wallpapers"
 
 wallpaper(){
-  feh --bg-fill "${WallpaperDirectory}/${1}"
+  feh --bg-fill "${1}" 
 }
 
 randomWallpaper(){
   # Randomize wallpaper from directory
-  feh --bg-fill --randomize "${WallpaperDirectory}/${1}/*"
+  feh --bg-fill --randomize "${1}"
 }
 
 # PICOM
@@ -40,7 +39,7 @@ xss-lock --transfer-sleep-lock -- xsecurelock &
 # Weird fix that prevents everything to look GIGANTIC
 xrandr --dpi 96
 
-wallpaper weeb/minimalist-hollow-1.png
+wallpaper ~/Images/Wallpapers/weeb/minimalist-shark.png
 
 if [ "$HOSTNAME" = "Nostromo" ]; then
   polybar Nostromo &
@@ -51,6 +50,7 @@ fi
 
 if [ "$(md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
   dock &
+  wallpaper ~/Images/Wallpapers/weeb/minimalist-shark_2560x1080.png ~/Images/Wallpapers/weeb/minimalist-shark.png
 fi
 
 source "${HOME}/Scripts/nextcloud-sync.sh" &

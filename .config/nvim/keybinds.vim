@@ -46,6 +46,7 @@ nnoremap <leader><tab> :b!#<CR>| "Go to last edited buffer
 nnoremap <leader>bl :ls<CR>| "List buffers
 nnoremap <leader>bo :Buffer<CR>| "Open buffer
 nnoremap <leader>bd :bd<CR>| "Delete current buffer
+nnoremap <leader>bc :Bdelete hidden<CR>| "Delete current buffer
 
 "Run Scripts
 " nnoremap <leader>rt :rightbelow split term:// %<CR>| "Run in terminal

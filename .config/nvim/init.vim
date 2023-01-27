@@ -173,6 +173,7 @@ Plug 'tpope/vim-abolish' "Autocorrector
 "Plug 'preservim/nerdcommenter' "comment character
 "Plug 'Konfekt/FastFold' "Faster folding. Recomended by SimpylFold
 Plug 'tpope/vim-fugitive'
+Plug 'Asheq/close-buffers.vim'
 
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf'
@@ -300,7 +301,7 @@ let zettel.ext = '.md'
 let zettel.syntax = 'markdown'
 let zettel.links_space_char = '_'
 let zettel_options = {}
-let zettel_options.front_matter = [["id", function("s:insert_id")], ["tags", ""], ["category", "Nota"]]
+let zettel_options.front_matter = [[":*****", ""], ["id", function("s:insert_id")], ["tags", ""], ["category", "Nota"]]
 
 let g:vimwiki_list = [foo, onyon, zettel, serpentKing]
 let g:zettel_options = [foo_options, {}, zettel_options, {}]
@@ -311,53 +312,6 @@ let g:abolish_save_file='/home/mag/.config/abbreviations/abolish.vim'
 
 " Beancount
 let g:beancount_separator_col=70
-
-" dashboard-nvimo
-" let g:dashboard_default_executive ='fzf'
-" let g:dashboard_custom_header = [
-"       \' *:::::::::::::::::::::::::::::::::::::::::::::::*::::::::::::::::::::::::::::::::::::::::::::::::::: ',
-"       \' :................................................................................................... ',
-"       \' :................................................................................................... ',
-"       \' :...................................:**IFV$MMMMMNNMMMM$$VI**:....................................... ',
-"       \' :..............................:*I$MNNNNNNNNNNNNNNNNNNNNNNNNNN$VI*:................................. ',
-"       \' :...........................:I$MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMV*:.............................. ',
-"       \' :........................*FMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$I:........................... ',
-"       \' :.....................:*$NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMV*......................... ',
-"       \' :...................:IMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$*....................... ',
-"       \' :..................IMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$:..................... ',
-"       \' :................*$NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMI:................... ',
-"       \' :...............IMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$:.................. ',
-"       \' :.............:VNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNM*................. ',
-"       \' :............:VNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMI................ ',
-"       \' :...........:$NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$VNNNNNNNNNNNNNNNNNNNNNNNN*............... ',
-"       \' :...........FNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNFV$$NNN$..INNNNNNNNNNNNNNNNNNNNNNNM:.............. ',
-"       \' :..........*MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNM:.IM$M$:...$MNNNNNNNNNNM$MNNNNNNNNN$.............. ',
-"       \' :.........:$NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNM*..$NV:....::::*IF$MN$*:.VMNNNNNNNNM*............. ',
-"       \' :.........*MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$:.*$*.........*NMVI*....$NNNNNNNNNN$............. ',
-"       \' :.........VNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN$:.............INNNNNV*.:$F****VNNNNM*............ ',
-"       \' :.........MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNV:..............:$NNNNNN$:.....:$NNNNMI............ ',
-"       \' :........:MNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNI.................:$NNNNNN$....*$NNNNNMF............ ',
-"       \' :........:MNNNNNNNNNNNNN$I*$NNNNNNNNNNNNNNNNNNNV....................*VMNNNNI.I$NNNNNNNMF............ ',
-"       \' :.........MNNNNNNNNNNNNV..:MNNNNNNNNNNNNNNNMM$$:.......................:****.MNNNNNNNNMI............ ',
-"       \' :.........$NNNNNNNNNNNNF..:MNNNNNNNNNM$F**::.................................MNNNNNNNNM*............ ',
-"       \' :.........IMNNNNNNNNNNN$.:$NNNNNNMV*:........................................MNNNNNNNN$:............ ',
-"       \' :.........:$NNNNNNNNNNN$.*MNNNN$I:............::............................*MNNNNNNNN*............. ',
-"       \' :..........*MNNNNNNNNNNM*.IMN$*:*:...:::......I:............................VNNNNNNNN$.............. ',
-"       \' :...........$NNNNNNNNNNNMI:*I:IMV...FMNN$:...:$F...........................*MNNNNNNNM*.............. ',
-"       \' :...........:MNNNNNNNNNNNNM**MNN*..*NNNNNM$V$MNN$*..........................VNNNNNNNI............... ',
-"       \' :............*$NNNNNNNNNNNV*NNNN$:.:$MNNNNNNNNNNNN$*:.......................FNNNNNMV................ ',
-"       \' :.............:$NNNNNNNNNM:V$IF$NMVI***::::*I$NNNNNNN$I*:..................*MNNNNMI................. ',
-"       \' :..............:VNNNNNNNNM......VNNNNNNMF.....*MNNNN$IIV$VI*:.............*MNNNNM*.................. ',
-"       \' :................IMNNNNNNM.....:MNNNNNNNM......INNV:...:::**F$$$FII***IF$MNNNNNV:................... ',
-"       \' :.................:VNNNNNM:....:VNNNNNN$:......VNF...*$MN$:...I$********MNNNNM*..................... ',
-"       \' :...................*VMNNNF......:*II*:.......*NV...:NNNNN$***MNM:......*MN$I:...................... ',
-"       \' :.....................*VMNM:...................*:...FNNNNNNNNNNNNI......F$I:........................ ',
-"       \' :.......................:*$$:.......................INNNNMI**VNNN*......:........................... ',
-"       \' :..........................::........................I$$V:...*NMI................................... ',
-"       \' :............................................................**:.................................... ',
-"       \' :................................................................................................... ',
-"       \' :................................................................................................... ',
-"      \ ]
 
 lua << EOF
   local home = os.getenv('HOME')

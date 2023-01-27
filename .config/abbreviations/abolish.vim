@@ -1361,3 +1361,4 @@ Abolish fotografo fotógrafo
 Abolish carton cartón
 Abolish silicon silicón
 Abolish borraramos borráramos
+Abolish magnificacion magnificación
