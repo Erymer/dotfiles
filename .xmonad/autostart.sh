@@ -7,7 +7,7 @@
 DOCK_MON_MD5HASH="8ce2f2999715042dbc42bc4bc9cf35ab"
 
 wallpaper(){
-  feh --bg-fill "${1}" 
+  feh --bg-fill "${@}" 
 }
 
 randomWallpaper(){
