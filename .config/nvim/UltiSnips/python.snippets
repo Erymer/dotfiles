@@ -383,3 +383,18 @@ $1 = ${2:canvas_name}.create_text(${3:x_position}, ${4:y_position}, text=$5, fil
 									font=(${7:font_name}, ${8:font_size}, ${9:bold_italic_etc}))
 endsnippet
 
+#------------------------------------------------------------------------------
+# DJANGO
+#------------------------------------------------------------------------------
+
+snippet model "Model class"
+class $1(models.Model):
+    ${2:data_types}
+endsnippet
+
+snippet simpleview "Creates a simple view function"
+from django.http import HttpResponse
+
+def hello(requests):
+    return HttpResponse('Do not gentle into that good night.')
+endsnippet

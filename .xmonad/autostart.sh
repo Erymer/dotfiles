@@ -50,14 +50,10 @@ fi
 
 if [ "$(md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
   dock &
+  sleep 2
   wallpaper ~/Images/Wallpapers/weeb/minimalist-shark_2560x1080.png ~/Images/Wallpapers/weeb/minimalist-shark.png
 fi
 
 source "${HOME}/Scripts/nextcloud-sync.sh" &
-
-# choice=$(echo "Sync nextcloud? (y/N): "| xargs -0 -I{} rofi -l 1 -dmenu -p "{}")
-# if [[ "${choice}" = "y" ]] || [[ "${choice}" = "Y" ]]; then
-#   source "$HOME/Scripts/nextcloud-sync.sh" &
-# fi
 
 conky &
