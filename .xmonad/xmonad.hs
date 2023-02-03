@@ -125,7 +125,7 @@ altMask :: KeyMask
 altMask = mod1Mask         -- Setting this for use in xprompts
 
 scriptsFolder :: String
-scriptsFolder = "$HOME/Scripts"
+scriptsFolder = "$HOME/Scripts/"
 
 -- Colors for polybar
 color1, color2, color3, color4 :: String
@@ -394,7 +394,7 @@ dvorakKeys :: [(String, X ())]
 dvorakKeys =
     -- Xmonad
         [ ("M-C-r", spawn "xmonad --recompile && notify-send 'Xmonad Recompiled'")      -- Recompiles xmonad
-        , ("M-S-r", spawn "xmonad --recompile && xmonad --restart && notify-send 'Xmonad Restarted'")        -- Restarts xmonad
+        , ("M-S-r", spawn "xmonad --recompile && xmonad --restart && notify-send 'Xmonad Recompiled & Restarted'")        -- Restarts xmonad
         , ("M-S-q", io exitSuccess)                  -- Quits xmonad
         , ("M-<Return>", spawn myTerminal)
         , ("M-S-<Return>", spawn (myTerminal ++ " --override window_margin_width=0"))
@@ -458,24 +458,27 @@ dvorakKeys =
         , ("M-t", spawn myEditor)
         , ("M-n", spawn ( "kitty -e --class FileManager --title nnn nnn -e"))
         , ("M-S-n", spawn "pcmanfm")
-        , ("M-m", spawn (scriptsFolder ++ "/quick-todo.sh"))
+        , ("M-m", spawn (scriptsFolder ++ "quick-todo.sh"))
+        , ("M-s", spawn (scriptsFolder ++ "web-search.sh"))
 
     -- Special Keys
-        , ("M-<F1>", spawn (scriptsFolder ++ "/toggle-mute.sh"))
-        , ("M-<F2>", spawn (scriptsFolder ++ "/spotify.sh"))
+        , ("M-<F1>", spawn (scriptsFolder ++ "toggle-mute.sh"))
+        , ("M-<F2>", spawn (scriptsFolder ++ "spotify.sh"))
         , ("M-<F3>", spawn (myTerminal ++ "-e --class Mixer --title PulseMixer pulsemixer"))
-        , ("M-<F4>", spawn (scriptsFolder ++ "/shutdown.sh"))
-        , ("M-<F5>", spawn (scriptsFolder ++ "/quick-todo.sh"))
-        , ("M-<F6>", spawn (scriptsFolder ++ "/long-todo.sh"))
+        , ("M-<F4>", spawn (scriptsFolder ++ "shutdown.sh"))
+        , ("M-<F5>", spawn (scriptsFolder ++ "quick-todo.sh"))
+        , ("M-<F6>", spawn (scriptsFolder ++ "long-todo.sh"))
         , ("M-<F7>", spawn "brightnessctl set 20%-")
         , ("M-<F8>", spawn "brightnessctl set +20%")
         , ("M-<F9>", spawn "$HOME/.magBin/screencf")
-        , ("M-<F11>", spawn (scriptsFolder ++ "/lock-suspend.sh"))
-        , ("M-<F12>", spawn (scriptsFolder ++ "/lorem.sh"))
-        , ("M-<Space>", spawn (scriptsFolder ++ "/Touchpad.sh"))
+        , ("M-<F11>", spawn (scriptsFolder ++ "lock-suspend.sh"))
+        , ("M-<F12>", spawn (scriptsFolder ++ "lorem.sh"))
+        , ("M-<Space>", spawn (scriptsFolder ++ "Touchpad.sh"))
         , ("<Print>", spawn "scrot --quality 100 --focused && notify-send 'Printed window'")
         , ("M-<Print>", spawn "scrot --quality 100 --select --freeze --line style=dash && notify-send 'Printed window'")
-        , ("M-<KP_Enter>", spawn (scriptsFolder ++ "/calculator.sh"))
+        , ("M-<KP_Enter>", spawn (scriptsFolder ++ "calculator.sh"))
+        , ("M-<Insert>", spawn "grep -v '^#' ~/Documents/bookmarks | dmenu -i -l 50 | cut -d ' ' -f 1 | xclip -selection clipboard")
+        , ("M-S-<Insert>", spawn (scriptsFolder ++ "browser-session.sh"))
 
         ]
 
@@ -550,20 +553,20 @@ qwertyKeys =
         , ("M-S-l", spawn "pcmanfm")
 
     -- Special Keys
-        , ("M-<F1>", spawn (scriptsFolder ++ "/toggle-mute.sh"))
-        , ("M-<F2>", spawn (scriptsFolder ++ "/spotify.sh"))
+        , ("M-<F1>", spawn (scriptsFolder ++ "toggle-mute.sh"))
+        , ("M-<F2>", spawn (scriptsFolder ++ "spotify.sh"))
         , ("M-<F3>", spawn (myTerminal ++ "-e --class Mixer --title PulseMixer pulsemixer"))
-        , ("M-<F4>", spawn (scriptsFolder ++ "/shutdown.sh"))
-        , ("M-<F5>", spawn (scriptsFolder ++ "/nextcloud-sync.sh"))
+        , ("M-<F4>", spawn (scriptsFolder ++ "shutdown.sh"))
+        , ("M-<F5>", spawn (scriptsFolder ++ "nextcloud-sync.sh"))
         , ("M-<F7>", spawn "brightnessctl set 20%-")
         , ("M-<F8>", spawn "brightnessctl set +20%")
         , ("M-<F9>", spawn "$HOME/.magBin/screencf")
-        , ("M-<F11>", spawn (scriptsFolder ++ "/lock-suspend.sh"))
-        , ("M-<F12>", spawn (scriptsFolder ++ "/lorem.sh"))
-        , ("M-<Space>", spawn (scriptsFolder ++ "/Touchpad.sh"))
+        , ("M-<F11>", spawn (scriptsFolder ++ "lock-suspend.sh"))
+        , ("M-<F12>", spawn (scriptsFolder ++ "lorem.sh"))
+        , ("M-<Space>", spawn (scriptsFolder ++ "Touchpad.sh"))
         , ("<Print>", spawn "scrot --quality 100 --focused && notify-send 'Printed window'")
         , ("M-<Print>", spawn "scrot --quality 100 --select --freeze --line style=dash && notify-send 'Printed window'")
-        , ("M-<KP_Enter>", spawn (scriptsFolder ++ "/calculator.sh"))
+        , ("M-<KP_Enter>", spawn (scriptsFolder ++ "calculator.sh"))
 
         ]
 
