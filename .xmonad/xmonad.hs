@@ -479,6 +479,7 @@ dvorakKeys =
         , ("M-<KP_Enter>", spawn (scriptsFolder ++ "calculator.sh"))
         , ("M-<Insert>", spawn "grep -v '^#' ~/Documents/bookmarks | dmenu -i -l 50 | cut -d ' ' -f 1 | xclip -selection clipboard")
         , ("M-S-<Insert>", spawn (scriptsFolder ++ "browser-session.sh"))
+        , ("M-<Page_Up>", spawn "brave https://eyeplus.closeli.com/device/list")
 
         ]
 

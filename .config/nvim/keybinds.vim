@@ -111,6 +111,7 @@ autocmd FileType markdown map <leader>u  <esc>b~gi
 
 " Vim-Zettekasten
 autocmd FileType markdown map <leader>Zo :ZettelOpen<CR>
+autocmd FileType markdown nnoremap <leader>l <Insert>[]()<Esc>h"*p :s/https:\/\///g<CR> :s/http:\/\///g<CR>
 
 
 " Undotree
