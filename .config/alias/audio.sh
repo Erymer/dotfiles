@@ -15,16 +15,28 @@ if [ $HOST = "Dreadnought" ]; then
 # Nostromo
 # Tiene varias tarjetas por donde puede salir el audio y se puede hacer que tenga varias salidas al mismo tiempo. Para evitar esta complicacion se apagan las demás tarjetas y solo se deja activada una
 elif [ $HOST = "Nostromo" ]; then
+    # Headphones
+    alias atp='pactl set-card-profile 0 off &&\
+                pactl set-card-profile 1 off &&\
+                pactl set-card-profile 2 output:analog-stereo+input:analog-stereo &&\
+                pactl set-card-profile 3 off'
+    # HDMI
+    alias ath='pactl set-card-profile 0 off &&\
+                pactl set-card-profile 1 output:hdmi-stereo &&\
+                pactl set-card-profile 2 off &&\
+                pactl set-card-profile 3 off'
+
+    # Laptop Speakers
     alias ata='pactl set-card-profile 0 off &&\
                 pactl set-card-profile 1 off &&\
-                pactl set-card-profile 2 output:analog-stereo'
-    alias ath='pactl set-card-profile 0 output:hdmi-stereo &&\
-                pactl set-card-profile 1 output:hdmi-stereo &&\
-                pactl set-card-profile 2 off'
+                pactl set-card-profile 2 off &&\
+                pactl set-card-profile 3 output:analog-stereo'
+
     # Este comando activa todas las salidas para poder controlarlas con pavucontrol
     alias audioall='pactl set-card-profile 0 output:hdmi-stereo &&\
                     pactl set-card-profile 1 output:hdmi-stereo &&\
-                    pactl set-card-profile 2 output:analog-stereo'
+                    pactl set-card-profile 2 output:analog-stereo &&\
+                    pactl set-card-profile 3 output:analog-stereo'
 fi
 
 alias mute='pamixer --mute'
