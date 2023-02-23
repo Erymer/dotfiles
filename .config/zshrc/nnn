@@ -2,6 +2,6 @@
 
 
 export NNN_PLUG="u:udisksunmount;m:udisksmount;f:autojump;p:preview-tui;i:imgview"
-export NNN_BMS="r:/;h:$HOME;d:$HOME/Documents;s:$HOME/Scripts;c:$HOME/.config;H:/run/media/$USER;z:$HOME/Documents/Zettel"
+export NNN_BMS="r:/;h:$HOME;d:$HOME/Documents;s:$HOME/Scripts;c:$HOME/.config;H:/run/media/$USER;z:$HOME/Documents/Zettel;l:$HOME/Local"
 export NNN_FIFO="/tmp/nnn.fifo"
 export NNN_TMPFILE='/tmp/.lastd'

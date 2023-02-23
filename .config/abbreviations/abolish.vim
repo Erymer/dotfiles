@@ -1364,3 +1364,5 @@ Abolish borraramos borráramos
 Abolish magnificacion magnificación
 Abolish apareceria aparecería
 Abolish renovacion renovación
+Abolish pseudocodigo pseudocódigo
+Abolish matematico matemático

@@ -181,9 +181,9 @@ t(){
 qn(){
   local file_path
   if [ -z "$1" ]; then
-      file_path="quick-note-$(date +%d-%m).org"
+      file_path="quick-note-$(date +%d-%m).md"
   else
-      file_path="${1}.org"
+      file_path="${1}.md"
   fi
   nvim +:Goyo +startinsert "$HOME"/Documents/Notes/"${file_path}"
 }
