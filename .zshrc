@@ -33,8 +33,12 @@ WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider
 
 
 # ## Keybindings Originales
+
+# To know the name of a key use comand cat -v then type desired key or
+# combination of keys. The console will output the string for the typed key
+
 # bindkey -e
-bindkey '^[[7~' beginning-of-line                               # Home key
+# bindkey '^[[7~' beginning-of-line                               # Home key
 # bindkey '^[[H' beginning-of-line                                # Home key
 # if [[ "${terminfo[khome]}" != "" ]]; then
 #   bindkey "${terminfo[khome]}" beginning-of-line                # [Home] - Go to beginning of line
@@ -48,8 +52,8 @@ bindkey '^[[7~' beginning-of-line                               # Home key
 # bindkey '^[[3~' delete-char                                     # Delete key
 # bindkey '^[[C'  forward-char                                    # Right key
 # bindkey '^[[D'  backward-char                                   # Left key
-# bindkey '^[[5~' history-beginning-search-backward               # Page up key
-# bindkey '^[[6~' history-beginning-search-forward                # Page down key
+bindkey '^[[5~' history-beginning-search-backward               # Page up key
+bindkey '^[[6~' history-beginning-search-forward                # Page down key
 
 # # Navigate words with ctrl+arrow keys
 # bindkey '^[Oc' forward-word                                     #

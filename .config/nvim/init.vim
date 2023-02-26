@@ -35,6 +35,7 @@ autocmd FileType vimwiki let b:AutoPairs = {"(": ")", "'": "'", "`": "`", '"': '
 " ~/.config/nvim/after/plugin/abolish.vim
 " This would allow to use Abolish in all filetypes
 autocmd FileType markdown source ~/.config/abbreviations/abolish.vim
+autocmd FileType markdown source ~/.config/abbreviations/steno.vim
 
 autocmd FileType arduino setlocal commentstring=//%s
 

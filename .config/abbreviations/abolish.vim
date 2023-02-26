@@ -1134,7 +1134,6 @@ Abolish saldra saldrá
 Abolish salio salió
 Abolish saltate Sáltate
 Abolish saturacion saturación
-Abolish sb sin embargo
 Abolish seccion sección
 Abolish seduccion seducción
 Abolish seguia seguía
@@ -1217,7 +1216,6 @@ Abolish tamano tamaño
 Abolish tamanos tamaños
 Abolish tambien también
 Abolish taparia taparía
-Abolish tb también
 Abolish tecnica técnica
 Abolish tecnicamente técnicamente
 Abolish tecnicas técnicas
@@ -1366,3 +1364,8 @@ Abolish apareceria aparecería
 Abolish renovacion renovación
 Abolish pseudocodigo pseudocódigo
 Abolish matematico matemático
+Abolish finl final
+Abolish plbra palabra
+Abolish usra usara
+Abolish encontre encontré
+Abolish ra{pido,pida} rá{}

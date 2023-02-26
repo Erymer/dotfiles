@@ -13,7 +13,9 @@ if [ $HOST = "Dreadnought" ]; then
     alias ata='pactl set-card-profile 0 output:analog-stereo'
 
 # Nostromo
-# Tiene varias tarjetas por donde puede salir el audio y se puede hacer que tenga varias salidas al mismo tiempo. Para evitar esta complicacion se apagan las demás tarjetas y solo se deja activada una
+# Tiene varias tarjetas por donde puede salir el audio y se puede hacer que
+# tenga varias salidas al mismo tiempo. Para evitar esta complicacion se apagan
+# las demás tarjetas y solo se deja activada una.
 elif [ $HOST = "Nostromo" ]; then
     # Headphones
     alias atp='pactl set-card-profile 0 off &&\

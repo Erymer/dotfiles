@@ -460,6 +460,7 @@ dvorakKeys =
         , ("M-S-n", spawn "pcmanfm")
         , ("M-m", spawn (scriptsFolder ++ "quick-todo.sh"))
         , ("M-s", spawn (scriptsFolder ++ "web-search.sh"))
+        , ("M-z", spawn (myTerminal ++ " --override window_margin_width=0 -e --class TextEditor --title Zettel nvim $HOME/Documents/Zettel/00-index.md"))
 
     -- Special Keys
         , ("M-<F1>", spawn (scriptsFolder ++ "toggle-mute.sh"))

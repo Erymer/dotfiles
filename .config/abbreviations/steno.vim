@@ -1,0 +1,43 @@
+Abolish d de
+Abolish menz menos
+Abolish l el
+Abolish tod todo
+Abolish ste este
+Abolish m me
+Abolish man mano
+Abolish s es
+Abolish er era
+Abolish ch mucho
+Abolish lent lento
+Abolish n en
+Abolish dms además
+Abolish n en
+Abolish ler leer
+Abolish star estar
+Abolish yq ya que
+Abolish tenr tener
+Abolish busq busque
+Abolish na una
+Abolish naz unas
+Abolish encriptags encriptación
+Abolish ncriptags encriptación
+Abolish cmo como
+Abolish staz estas
+Abolish b bien
+Abolish pr pero
+Abolish p para
+Abolish scribir escribir
+Abolish scribirlo escribirlo
+Abolish tons entonces
+Abolish not nota
+Abolish notz notas
+Abolish ncontre encontré
+Abolish alg algo
+Abolish aunq aunque
+Abolish aunk aunque
+Abolish xq porque
+Abolish sob sobre
+Abolish nl en el
+Abolish facl fácil
+Abolish tb también
+Abolish sb sin embargo
