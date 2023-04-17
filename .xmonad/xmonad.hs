@@ -252,15 +252,21 @@ dtXPKeymap = M.fromList $
 ------------------------------------------------------------------------
 -- WORKSPACES
 ------------------------------------------------------------------------
-myWorkspaces = ["1: \xf0ac", "2: \xf07c", "3: \xf121", "4: \xf15c", "5: \xf001", "6: \xf086", "7: \xf26c"]
+-- For more icons: https://fontawesome.com/v4/cheatsheet/
+-- myWorkspaces = ["1: \xf0ac", "2: \xf07c", "3: \xf121", "4: \xf15c", "5: \xf001", "6: \xf086", "7: \xf26c", "8: \xf188", "9: \xf26c", "10: \xf26c"]
+myWorkspaces = ["0: Browser", "1: Chat", "2: Notion", "3: Ext Monitor", "4: ?", "5: Terminal", "6: File Nav", "7: Work", "8: Info", "9: BG"]
 
-workspaceOne = myWorkspaces !! 0 -- Web
-workspaceTwo = myWorkspaces !! 1 -- File Navigation/Terminal
-workspaceThree = myWorkspaces !! 2 -- Code
-workspaceFour = myWorkspaces !! 3 -- Write
-workspaceFive = myWorkspaces !! 4 -- Music
-workspaceSix = myWorkspaces !! 5 -- Chat
-workspaceSeven = myWorkspaces !! 6 -- External Monitor
+
+workspaceZero = myWorkspaces !! 0
+workspaceOne = myWorkspaces !! 1
+workspaceTwo = myWorkspaces !! 2
+workspaceThree = myWorkspaces !! 3
+workspaceFour = myWorkspaces !! 4
+workspaceFive = myWorkspaces !! 5
+workspaceSix = myWorkspaces !! 6
+workspaceSeven = myWorkspaces !! 7
+workspaceEight = myWorkspaces !! 8
+workspaceNine = myWorkspaces !! 9
 
 
 ------------------------------------------------------------------------
@@ -278,14 +284,14 @@ myManageHook = composeAll
      -- I'm doing it this way because otherwise I would have to write out
      -- the full name of my clickable workspaces, which would look like:
      -- doShift "<action xdotool super+8>gfx</action>"
-     [ className =? "obs"     --> doShift ( workspaceFour )
-     , className =? "Brave-browser" --> doShift ( workspaceOne )
-     , className =? "FileManager"     --> doShift ( workspaceTwo )
-     , className =? "Pcmanfm"     --> doShift ( workspaceTwo )
-     , className =? "nvim-qt" --> doShift ( workspaceThree )
+     [ className =? "Brave-browser" --> doShift ( workspaceZero )
+     , className =? "FileManager"     --> doShift ( workspaceSix )
+     , className =? "Pcmanfm"     --> doShift ( workspaceSix )
+     , className =? "nvim-qt" --> doShift ( workspaceSeven )
      -- , className =? "Gimp"    --> doFloat
      , className =? "Gcr-prompter"    --> doCenterFloat
      , className =? "Brave"    --> doCenterFloat
+     , className =? "CalcResult"    --> doCenterFloat
      , className =? "dzen"    --> doFloat
      , title =? "Oracle VM VirtualBox Manager"     --> doFloat
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
@@ -364,6 +370,12 @@ codingWide   = renamed [Replace "Coding Wide"]
            $ mySpacing 5
            $ ThreeColMid 1 (3/100) (1/3)
 
+codingWideMagnify   = renamed [Replace "Coding Wide Magnify"]
+           $ magnifier
+           $ limitWindows 3
+           $ mySpacing 5
+           $ ThreeColMid 1 (3/100) (1/3)
+
   where
     myTabConfig = def { fontName            = "xft:Mononoki Nerd Font:regular:pixelsize=11"
                       , activeColor         = "#292d3e"
@@ -381,11 +393,8 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                myDefaultLayout =     coding
                                  ||| codingMagnify
                                  ||| codingWide
-                                 ||| tall
+                                 ||| codingWideMagnify
                                  ||| noBorders monocle
-                                 ||| flutter
-                                 ||| magnified
-                                 ||| floats
                                  --
                                  --
 ------------------------------------------------------------------------
@@ -410,31 +419,37 @@ dvorakKeys =
         
     -- Change to workspace
         -- https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/XMonad-Actions-CycleWS.html#g:3
-        , ("M-a", toggleOrView workspaceOne)
-        , ("M-o", toggleOrView workspaceTwo)
-        , ("M-e", toggleOrView workspaceThree)
-        , ("M-u", toggleOrView workspaceFour)
-        , ("M-i", toggleOrView workspaceFive)
-        , ("M-g", toggleOrView workspaceSix)
-        , ("M-!", toggleOrView workspaceSeven)
-        , ("M-c", swapNextScreen)
+        , ("M-;", toggleOrView workspaceZero)
+        , ("M-,", toggleOrView workspaceOne)
+        , ("M-.", toggleOrView workspaceTwo)
+        , ("M-p", toggleOrView workspaceThree)
+        , ("M-!", toggleOrView workspaceFour)
+        , ("M-a", toggleOrView workspaceFive)
+        , ("M-o", toggleOrView workspaceSix)
+        , ("M-e", toggleOrView workspaceSeven)
+        , ("M-u", toggleOrView workspaceEight)
+        , ("M-i", toggleOrView workspaceNine)
+        , ("M-g", swapNextScreen)
 
-        , ("M-S-a", windows $ W.shift workspaceOne)
-        , ("M-S-o", windows $ W.shift workspaceTwo)
-        , ("M-S-e", windows $ W.shift workspaceThree)
-        , ("M-S-u", windows $ W.shift workspaceFour)
-        , ("M-S-i", windows $ W.shift workspaceFive)
-        , ("M-S-g", windows $ W.shift workspaceSix)
-        , ("M-S-!", windows $ W.shift workspaceSeven)
+        , ("M-S-;", windows $ W.shift workspaceZero)
+        , ("M-S-,", windows $ W.shift workspaceOne)
+        , ("M-S-.", windows $ W.shift workspaceTwo)
+        , ("M-S-p", windows $ W.shift workspaceThree)
+        , ("M-S-!", windows $ W.shift workspaceFour)
+        , ("M-S-a", windows $ W.shift workspaceFive)
+        , ("M-S-o", windows $ W.shift workspaceSix)
+        , ("M-S-e", windows $ W.shift workspaceSeven)
+        , ("M-S-u", windows $ W.shift workspaceEight)
+        , ("M-S-i", windows $ W.shift workspaceNine)
 
 
     -- Windows navigation
-        , ("M-l", windows W.focusMaster)     -- Move focus to the master window
+        -- , ("M-g", windows W.focusMaster)     -- Move focus to the master window
         , ("M-h", windows W.focusDown)       -- Move focus to the next window
-        , ("M-k", windows W.focusUp)         -- Move focus to the prev window
-        --, ("M-S-m", windows W.swapMaster)    -- Swap the focused window and the master window
+        , ("M-l", windows W.focusUp)         -- Move focus to the prev window
+        , ("M-S-g", windows W.swapMaster)    -- Swap the focused window and the master window
         , ("M-S-h", windows W.swapDown)      -- Swap focused window with next window
-        , ("M-S-k", windows W.swapUp)        -- Swap focused window with prev window
+        , ("M-S-l", windows W.swapUp)        -- Swap focused window with prev window
         , ("M-<Backspace>", promote)         -- Moves focused window to master, others maintain order
         -- , ("M1-S-<Tab>", rotSlavesDown)      -- Rotate all windows except master and keep focus in place
         , ("M-C-h", rotAllDown)         -- Rotate all the windows in the current stack
@@ -456,11 +471,12 @@ dvorakKeys =
     -- Apps
         , ("M-b", spawn myBrowser)
         , ("M-t", spawn myEditor)
-        , ("M-n", spawn ( "kitty -e --class FileManager --title nnn nnn -e"))
+        , ("M-n", spawn ( "kitty -e --class FileManager --title nnn nnn"))
         , ("M-S-n", spawn "pcmanfm")
         , ("M-m", spawn (scriptsFolder ++ "quick-todo.sh"))
         , ("M-s", spawn (scriptsFolder ++ "web-search.sh"))
-        , ("M-z", spawn (myTerminal ++ " --override window_margin_width=0 -e --class TextEditor --title Zettel nvim $HOME/Documents/Zettel/00-index.md"))
+        , ("M-z", spawn (myEditor ++ " $HOME/Documents/Zettel/00-index.md"))
+        , ("M-v", spawn (myTerminal ++ "-e --title ScratchPad nvim -c 'normal G' +:Goyo +startinsert! /tmp/scratchpad.md"))
 
     -- Special Keys
         , ("M-<F1>", spawn (scriptsFolder ++ "toggle-mute.sh"))
@@ -475,100 +491,14 @@ dvorakKeys =
         , ("M-<F11>", spawn (scriptsFolder ++ "lock-suspend.sh"))
         , ("M-<F12>", spawn (scriptsFolder ++ "lorem.sh"))
         , ("M-<Space>", spawn (scriptsFolder ++ "Touchpad.sh"))
-        , ("<Print>", spawn "scrot --quality 100 --focused && notify-send 'Printed window'")
-        , ("M-<Print>", spawn "scrot --quality 100 --select --freeze --line style=dash && notify-send 'Printed window'")
+        , ("<Print>", spawn "scrot --focused --quality 100 --file '%Y-%m-%dT%TCT.jpg' -e 'mv $f /tmp/'&& notify-send 'Printed window'")
+        , ("M-<Print>", spawn "scrot --quality 100 --file '%Y-%m-%dT%TCT.jpg' -e 'mv $f /tmp/' --select --line style=dash && notify-send 'Printed window'")
         , ("M-<KP_Enter>", spawn (scriptsFolder ++ "calculator.sh"))
+        , ("M-<End>", spawn (scriptsFolder ++ "addAbolish.sh"))
         , ("M-<Insert>", spawn "grep -v '^#' ~/Documents/bookmarks | dmenu -i -l 50 | cut -d ' ' -f 1 | xclip -selection clipboard")
+        , ("M-<Page_Down>", spawn (scriptsFolder ++ "translate.sh"))
         , ("M-S-<Insert>", spawn (scriptsFolder ++ "browser-session.sh"))
         , ("M-<Page_Up>", spawn "brave https://eyeplus.closeli.com/device/list")
-
-        ]
-
-qwertyKeys :: [(String, X ())]
-qwertyKeys =
-    -- Xmonad
-        [ ("M-C-r", spawn "xmonad --recompile && notify-send 'Xmonad Recompiled'")      -- Recompiles xmonad
-        , ("M-S-r", spawn "xmonad --recompile && xmonad --restart && notify-send 'Xmonad Restarted'")        -- Restarts xmonad
-        , ("M-S-q", io exitSuccess)                  -- Quits xmonad
-        , ("M-<Return>", spawn myTerminal)
-        , ("M-S-<Return>", spawn (myTerminal ++ " --override window_margin_width=0"))
-
-    -- Windows
-        , ("M-x", kill1)                           -- Kill the currently focused client
-        , ("M-S-x", killAll)                         -- Kill all windows on current workspace
-        , ("M-<Delete>", withFocused $ windows . W.sink) -- Push floating window back to tile
-        , ("M-S-<Delete>", sinkAll)                      -- Push ALL floating windows to tile
-
-        , ("M-h", spawn myAppLauncher)                 -- App launcher
-
-        
-    -- Change to workspace
-        -- https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/XMonad-Actions-CycleWS.html#g:3
-        , ("M-a", toggleOrView workspaceOne)
-        , ("M-s", toggleOrView workspaceTwo)
-        , ("M-d", toggleOrView workspaceThree)
-        , ("M-f", toggleOrView workspaceFour)
-        , ("M-g", toggleOrView workspaceFive)
-        , ("M-u", toggleOrView workspaceSix)
-        , ("M--", toggleOrView workspaceSeven)
-        , ("M-i", swapNextScreen)
-
-        , ("M-S-a", windows $ W.shift workspaceOne)
-        , ("M-S-s", windows $ W.shift workspaceTwo)
-        , ("M-S-d", windows $ W.shift workspaceThree)
-        , ("M-S-f", windows $ W.shift workspaceFour)
-        , ("M-S-g", windows $ W.shift workspaceFive)
-        , ("M-S-u", windows $ W.shift workspaceSix)
-        , ("M-S--", windows $ W.shift workspaceSeven)
-
-
-    -- Windows navigation
-        , ("M-p", windows W.focusMaster)     -- Move focus to the master window
-        , ("M-j", windows W.focusDown)       -- Move focus to the next window
-        , ("M-v", windows W.focusUp)         -- Move focus to the prev window
-        --, ("M-S-m", windows W.swapMaster)    -- Swap the focused window and the master window
-        , ("M-S-j", windows W.swapDown)      -- Swap focused window with next window
-        , ("M-S-v", windows W.swapUp)        -- Swap focused window with prev window
-        , ("M-<Backspace>", promote)         -- Moves focused window to master, others maintain order
-        -- , ("M1-S-<Tab>", rotSlavesDown)      -- Rotate all windows except master and keep focus in place
-        , ("M-C-j", rotAllDown)         -- Rotate all the windows in the current stack
-        --, ("M-S-s", windows copyToAll)
-
-        -- Layouts
-        , ("M-S-<Tab>", sendMessage NextLayout)                -- Switch to next layout
-        , ("M-C-M1-<Up>", sendMessage Arrange)
-        , ("M-C-M1-<Down>", sendMessage DeArrange)
-        , ("M-y", sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts) -- Toggles noborder/full
-        , ("M-S-<Space>", sendMessage ToggleStruts)         -- Toggles struts
-        -- , ("M-S-n", sendMessage $ MT.Toggle NOBORDERS)      -- Toggles noborder
-        , ("M-<KP_Multiply>", sendMessage (IncMasterN 1))   -- Increase number of clients in master pane
-        , ("M-<KP_Divide>", sendMessage (IncMasterN (-1)))  -- Decrease number of clients in master pane
-        , ("M-S-<KP_Multiply>", increaseLimit)              -- Increase number of windows
-        , ("M-S-<KP_Divide>", decreaseLimit)                -- Decrease number of windows
-        , ("M-<Tab>", nextScreen)  -- Switch focus to next monitor
-
-    -- Apps
-        -- QWERTY
-        , ("M-n", spawn myBrowser)
-        , ("M-k", spawn myEditor)
-        , ("M-l", spawn ("kitty -e --class FileManager --title nnn nnn -e"))
-        , ("M-S-l", spawn "pcmanfm")
-
-    -- Special Keys
-        , ("M-<F1>", spawn (scriptsFolder ++ "toggle-mute.sh"))
-        , ("M-<F2>", spawn (scriptsFolder ++ "spotify.sh"))
-        , ("M-<F3>", spawn (myTerminal ++ "-e --class Mixer --title PulseMixer pulsemixer"))
-        , ("M-<F4>", spawn (scriptsFolder ++ "shutdown.sh"))
-        , ("M-<F5>", spawn (scriptsFolder ++ "nextcloud-sync.sh"))
-        , ("M-<F7>", spawn "brightnessctl set 20%-")
-        , ("M-<F8>", spawn "brightnessctl set +20%")
-        , ("M-<F9>", spawn "$HOME/.magBin/screencf")
-        , ("M-<F11>", spawn (scriptsFolder ++ "lock-suspend.sh"))
-        , ("M-<F12>", spawn (scriptsFolder ++ "lorem.sh"))
-        , ("M-<Space>", spawn (scriptsFolder ++ "Touchpad.sh"))
-        , ("<Print>", spawn "scrot --quality 100 --focused && notify-send 'Printed window'")
-        , ("M-<Print>", spawn "scrot --quality 100 --select --freeze --line style=dash && notify-send 'Printed window'")
-        , ("M-<KP_Enter>", spawn (scriptsFolder ++ "calculator.sh"))
 
         ]
 

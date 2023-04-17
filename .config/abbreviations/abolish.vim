@@ -970,7 +970,6 @@ Abolish pestana pestaña
 Abolish peticion petición
 Abolish pidio pidió
 Abolish piramide pirámide
-Abolish pj por ejemplo
 Abolish planeacion planeación
 Abolish plastico plástico
 Abolish plasticos plásticos
@@ -1369,3 +1368,8 @@ Abolish plbra palabra
 Abolish usra usara
 Abolish encontre encontré
 Abolish ra{pido,pida} rá{}
+Abolish animacion animación
+Abolish {est}e{tico,tica} {}é{}
+Abolish melancolic{o,a} melancólic{}
+Abolish pantalon pantalón
+Abolish perdi perdí

@@ -167,3 +167,25 @@ endsnippet
 snippet jslink "JS script"
 <script src="${1:script/path.js}" charset="utf-8"></script>
 endsnippet
+
+snippet boilerplate "HTML5 boileplate"
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onegai Muscle</title>
+  </head>
+  <body>
+
+  </body>
+</html>
+endsnippet
+
+
+snippet djangoform "Form with csrf_token"
+<form method="POST">{% csrf_token %}
+	{{ form }}
+	<button>Send</button>
+</form>
+endsnippet

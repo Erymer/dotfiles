@@ -1,0 +1,45 @@
+# Copy this file as root in /etc/g13/default.bind
+
+bind G1 F1
+bind G2 F2
+bind G3 F3
+bind G4 F4
+bind G5 F5
+bind G6 F6
+bind G7 F7
+bind G8 F8
+bind G9 F9
+bind G10 F10
+bind G11 F11
+bind G12 F12
+bind G13 KEY_G
+bind G14 KEY_I
+bind G15 KEY_LEFTSHIFT
+bind G16 KEY_M
+bind G17 KEY_T
+bind G18 KEY_L
+bind G19 KEY_H
+bind G20 KEY_A
+bind G21 KEY_S
+bind G22 KEY_LEFTCTRL
+bind BD KEY_F1
+bind L1 KEY_N
+bind L2 KEY_R
+bind L3 KEY_P
+bind L4 KEY_K
+bind M1 KEY_D
+bind M2 KEY_X
+bind M3 KEY_Y
+bind MR KEY_Z
+bind LEFT KEY_TAB
+bind DOWN KEY_W
+bind TOP KEY_BACKSPACE
+bind STICK_LEFT KEY_LEFT
+bind STICK_RIGHT KEY_RIGHT
+bind STICK_UP KEY_UP
+bind STICK_DOWN KEY_DOWN
+
+rgb 0 0 255
+
+out SAGE
+pos 8 70

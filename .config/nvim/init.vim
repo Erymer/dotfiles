@@ -26,6 +26,9 @@ set autochdir
 " set clipboard+=unnamedplus "Always yank to Primary register
 autocmd FileType markdown setlocal textwidth=80
 
+" Autosave
+autocmd TextChanged,TextChangedI <buffer> silent write
+
 " This is to avoid pairing square brakets when adding links using vim-zettel shorcut
 autocmd FileType vimwiki let b:AutoPairs = {"(": ")", "'": "'", "`": "`", '"': '"', "```": "```"}
 
@@ -45,7 +48,6 @@ autocmd FileType python setlocal shiftwidth=4
 
 set guifont=Fira\ Mono:h10.5:n "PC
 " set guifont=Fira\ Mono:h7:n "Laptop
-source ~/.config/nvim/keybinds.vim
 
 "==============================================================================
 " THEMES CONFIGURATION
@@ -123,6 +125,8 @@ Plug 'tpope/vim-commentary' "More simple comment command
 Plug 'tmhedberg/SimpylFold' "Code folding
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
+
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'sheerun/vim-polyglot' "Language packs. Recomended by Sonokai Color Theme
 Plug 'easymotion/vim-easymotion' "Jump to specific location
 Plug 'junegunn/goyo.vim' "Minimalistic writting
@@ -134,7 +138,7 @@ Plug 'nathangrigg/vim-beancount'
 
 Plug 'godlygeek/tabular' "vim-markdown dependency
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } "Used to previe Markdown files
-Plug 'lervag/vimtex' "LaTex
+" Plug 'lervag/vimtex' "LaTex
 Plug 'chrisbra/csv.vim'
 Plug 'ap/vim-css-color' "Highlight hex color codes their respective color
 Plug 'machakann/vim-highlightedyank'
@@ -243,9 +247,9 @@ let g:arduino_dir='/usr/share/arduino/'
 let g:arduino_home_dir='/home/mag/Arduino/'
 
 " UltiSnips
-" let g:UltiSnipsJumpForwardTrigger="<c-h>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsExpandTrigger="<c-space>"
+let g:UltiSnipsJumpForwardTrigger="<c-space>"
+let g:UltiSnipsJumpBackwardTrigger="<c-s-space>"
 
 " Markdown preview
 " let g:mkdp_browser = 'Brave'
@@ -313,6 +317,8 @@ let g:abolish_save_file='/home/mag/.config/abbreviations/abolish.vim'
 
 " Beancount
 let g:beancount_separator_col=70
+
+source ~/.config/nvim/keybinds.vim
 
 lua << EOF
   local home = os.getenv('HOME')

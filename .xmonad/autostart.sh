@@ -6,7 +6,9 @@
 # md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -f 1 -d " "
 DOCK_MON_MD5HASH="8ce2f2999715042dbc42bc4bc9cf35ab"
 
-wallpaper(){
+WALLPAPER=~/Images/Wallpapers/weeb/minimalist-shark.png
+
+setWallpaper(){
   feh --bg-fill "${@}" 
 }
 
@@ -29,7 +31,11 @@ randomWallpaper(){
 [ "$(pgrep "picom")" ] || picom --backend glx & 
 [ "$(pgrep "dunst")" ] || dunst &
 [ "$(pgrep "gpg-agent")" ] || gpg-agent &
-xss-lock --transfer-sleep-lock -- xsecurelock &
+
+# if lsusb | grep -q 'Logitech, Inc. G13 Advanced Gameboard'; then
+#   notify-send "trying g13"
+#   sudo g13d --config ~/.config/g13/g13.bind &
+# fi
 
 # In some ocations unclutter can create problems with the mouse.
 # If this happens use "unclutter -grab" or install unclutter-xfixes-git
@@ -39,7 +45,7 @@ xss-lock --transfer-sleep-lock -- xsecurelock &
 # Weird fix that prevents everything to look GIGANTIC
 xrandr --dpi 96
 
-wallpaper ~/Images/Wallpapers/weeb/minimalist-shark.png
+setWallpaper "${WALLPAPER}" 
 
 if [ "$HOSTNAME" = "Nostromo" ]; then
   polybar Nostromo &
@@ -51,8 +57,10 @@ fi
 if [ "$(md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
   dock &
   sleep 2
-  wallpaper ~/Images/Wallpapers/weeb/minimalist-shark_2560x1080.png ~/Images/Wallpapers/weeb/minimalist-shark.png
+  setWallpaper ~/Images/Wallpapers/weeb/minimalist-shark_2560x1080.png ~/Images/Wallpapers/weeb/minimalist-shark.png
 fi
+
+setxkbmap -layout mag # For some reason plover needs this to work properly.
 
 source "${HOME}/Scripts/nextcloud-sync.sh" &
 

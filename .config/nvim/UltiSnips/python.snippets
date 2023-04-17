@@ -63,12 +63,18 @@ endsnippet
 #------------------------------------------------------------------------------
 snippet m "Method with no parameters"
 def $1(self):
+	'''
 	$2
+	'''
+	pass
 endsnippet
 
 snippet mm "Method with one parameter"
 def $1(self, $2):
+	'''
 	$3
+	'''
+	pass
 endsnippet
 
 #------------------------------------------------------------------------------
@@ -266,124 +272,6 @@ ${1:new_dict} = {${2:new_key}:${3:new_value} for ${4:item} in ${5:list} if ${6:t
 endsnippet
 
 #------------------------------------------------------------------------------
-# TKINTER
-#------------------------------------------------------------------------------
-
-snippet tkinit "Tkinter create window"
-from tkinter import *
-
-window = Tk()
-window.title(${1:window_name})
-window.minsize(width=$2, height=$3)
-window.config(padx=$4, pady=$4)
-
-$5
-
-window.mainloop()
-endsnippet
-
-snippet tklabel "Tkinter label"
-$1 = Label(text=$2, font=(${3:font_name}, ${4:font_size}, ${5:type}))
-$1.grid(column=$6, row=$7, columnspan=$8)
-endsnippet
-
-snippet tkbutton "Tkinter button"
-def ${6:exec_func}():
-    my_label.config(text=input.get())
-
-
-$1 = Button(text=$2, font=(${3:font_name}, ${4:font_size}, ${5:type}), command=${6:exec_func})
-$1.grid(column=$7, row=$8, columnspan=$9)
-endsnippet
-
-snippet tkentry "Tkinter entry"
-$1 = Entry(width=$2)
-$1.insert(END, string="$3")
-$1.grid(column=$4, row=$5, columnspan=$6))
-print($1.get())
-endsnippet
-
-snippet tktext "Tkinter text"
-$1 = Text(height=$2, width=$3)
-$1.focus()
-$1.insert(END, "${4:text}")
-print(text.get("1.0", END))
-$1.grid(column=$5, row=$6, columnspan=$7)
-endsnippet
-
-snippet tkspinbox "Tkinter Spinbox"
-def ${4:exec_func}():
-    print($1.get())
-
-$1 = Spinbox(from_=0, to=$2, width=$3, command=${4:exec_func})
-$1.grid(column=$5, row=$6, columnspan=$7)
-endsnippet
-
-snippet tkscale "Tkinter Scale"
-def ${4:exec_func}(value):
-    print(value)
-
-$1 = Scale(from_=0, to=$2, width=$3, command=${4:exec_func})
-$1.grid(column=$5, row=$6, columnspan=$7)
-endsnippet
-
-snippet tkcheckbutton "Tkinter Check Button"
-def checkbutton_used():
-    # imprime 1 si checkbox esta palomeada, 0 si no
-    print(checked_state.get())
-
-
-checked_state = IntVar()
-$1 = Checkbutton(text="$2", variable=checked_state, command=${3:exec_func})
-checked_state.get()
-$1.grid(column=$4, row=$5, columnspan=$6)
-endsnippet
-
-
-snippet tkradio "Tkinter Radio Button"
-def ${3:exec_func}():
-    print(radio_state.get())
-
-
-radio_state = IntVar()
-$1 = Radiobutton(text="$2", value=1, variable=radio_state, command=${3:exec_func})
-
-$4 = Radiobutton(text="$5", value=2, variable=radio_state, command=${3:exec_func})
-$1.grid(column=$6, row=$7, columnspan=$10)
-$4.grid(column=$8, row=$9, columnspan=$11)
-endsnippet
-
-snippet tklsbox "Tkinter List Box"
-def ${4:exec_func}(event):
-    print($1.get($1.curselection()))
-
-
-$2 = [$3]
-$1 = Listbox(height=len($3))
-
-for item in $2:
-    $1.insert($2.index(item), item)
-
-$1.bind("<<ListboxSelect>>", ${4:exec_func})
-$1.grid(column=$5, row=$6, columnspan=$7)
-endsnippet
-
-snippet tkcanvas "Tkinter canvas"
-$1 = Canvas(width=$2, height=$3, bg=$4, highlightthickness=0)
-$1.grid(column=$5, row=$6, columnspan=$7)
-endsnippet
-
-snippet tkcanvasimg "Add backgroud image to a tkcanvas"
-$1 = PhotoImage(file=$2)
-${3:canvas_name}.create_image(${4:x_position}, ${5:y_position}, image=$1)
-endsnippet
-
-snippet tkcanvastext "Adds text to tk canvas"
-$1 = ${2:canvas_name}.create_text(${3:x_position}, ${4:y_position}, text=$5, fill=${6:color},
-									font=(${7:font_name}, ${8:font_size}, ${9:bold_italic_etc}))
-endsnippet
-
-#------------------------------------------------------------------------------
 # DJANGO
 #------------------------------------------------------------------------------
 
@@ -398,3 +286,44 @@ from django.http import HttpResponse
 def hello(requests):
     return HttpResponse('Do not gentle into that good night.')
 endsnippet
+
+snippet urlspy "Url file"
+from django.urls import path
+from . import views
+
+urlpatterns = [
+		path("", views.$1)
+]
+endsnippet
+
+#---------------------------
+# Unit test
+#---------------------------
+snippet inittest "Basic unit test file"
+import unittest
+from ${1:module} import ${2:class}
+
+
+class Test${3:name}(unittest.TestCase):
+
+    def setUp(self):
+        '''
+        This will be runned before every test
+        '''
+				pass
+
+
+    def tearDown(self):
+        '''
+        This will be runned after every test
+        '''
+				pass
+
+
+    def test_${4:name}(self):
+				pass
+
+if __name__ == '__main__':
+    unittest.main()
+endsnippet
+

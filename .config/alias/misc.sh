@@ -4,15 +4,8 @@ alias mag='sudo '
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias fdisk='sudo fdisk'
-alias sgdisk='sudo sgdisk'
-alias sfdisk='sudo sfdisk'
-alias losetup='sudo losetup'
 alias mkfs.vfat='sudo mkfs.vfat'
-alias mkfs.ext4='sudo mkfs.ext4'
 alias lynx='lynx -vikeys -scrollbar -accept_all_cookies duckduckgo.com'
-alias org='nvim -R +:Goyo +:%foldopen! -u ~/.magBin/org -'
-alias scrot='scrot --quality 100 --select'
 alias printscreen='scrot --quality 100 --select'
 alias printscr='scrot --quality 100 --select'
 alias pk='pkill'
@@ -28,15 +21,14 @@ alias vmumount='sudo umount /dev/loop0'
 alias fontsls='fc-list | less'
 alias traducir='trans :es -brief'
 alias y='yay'
-alias mkarchiso='sudo mkarchiso'
-alias docker='sudo docker'
 alias please='sudo bash -c "$(fc -ln -1)"'
 alias pls='sudo bash -c "$(fc -ln -1)"'
 alias pager='bash -c "$(fc -ln -1)" | bat'
 alias pg='bash -c "$(fc -ln -1)" | bat'
-alias todolinux='todo new -l linux'
-alias nnn='nnn -e'
-alias n='nnn -e'
+alias n='nnn'
+alias open='xdg-open'
+alias o='xdg-open'
+alias b='bat'
 
 rpg () {
   rpg-cli "$@"
@@ -189,7 +181,8 @@ qn(){
 }
 
 # alias sp="vim +set\ buftype=nofile +startinsert" ## A quick scratchpad from the shell
-alias sp="nvim +:Goyo + /tmp/scratchpad.md"
+# alias sp="nvim +:Goyo +$ +startinsert + /tmp/scratchpad.md"
+alias sp='nvim -c "normal G" +:Goyo +startinsert! /tmp/scratchpad.md'
 
 
 py() {
@@ -250,7 +243,9 @@ alias ytls="youtube-dl -F"
 
 alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
+
 web() {
+  local query
   query=$(echo $1 | tr " " "+")
 
   if command -v w3m &> /dev/null; then
@@ -258,5 +253,14 @@ web() {
   else
     echo "w3m not installed"
   fi
+}
 
+jpg(){
+  # Transforms file to jpg
+  local input_file output_file
+
+  input_file="${1}" 
+  output_file="${2}" 
+
+  ffmpeg -i "${input_file}" "${output_file}".jpg
 }
