@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 # Change permissions so it can be executed withot beign root
+export XSECURELOCK_PASSWORD_PROMPT=kaomoji
 
 # The value of this constant must be output of the following command when the
 # monitor you want to use as dock is connected to the HDMI port
@@ -31,6 +32,11 @@ randomWallpaper(){
 [ "$(pgrep "picom")" ] || picom --backend glx & 
 [ "$(pgrep "dunst")" ] || dunst &
 [ "$(pgrep "gpg-agent")" ] || gpg-agent &
+
+# Autolock
+# https://github.com/google/xsecurelock
+xset s 300 5 &
+xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 
 # if lsusb | grep -q 'Logitech, Inc. G13 Advanced Gameboard'; then
 #   notify-send "trying g13"

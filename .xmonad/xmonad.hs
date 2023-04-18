@@ -404,7 +404,7 @@ dvorakKeys =
     -- Xmonad
         [ ("M-C-r", spawn "xmonad --recompile && notify-send 'Xmonad Recompiled'")      -- Recompiles xmonad
         , ("M-S-r", spawn "xmonad --recompile && xmonad --restart && notify-send 'Xmonad Recompiled & Restarted'")        -- Restarts xmonad
-        , ("M-S-q", io exitSuccess)                  -- Quits xmonad
+        -- , ("M-S-q", io exitSuccess)                  -- Quits xmonad
         , ("M-<Return>", spawn myTerminal)
         , ("M-S-<Return>", spawn (myTerminal ++ " --override window_margin_width=0"))
 
