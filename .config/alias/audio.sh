@@ -8,7 +8,7 @@ alias audiols='pacmd list-cards | grep "index:\|output:\|off:\|active profile:"'
 
 # Dreadnought
 # Esta solo tiene una tarjeta que envia audio por salida analoga y hdmi. Por eso no es necesario apagar las demás
-if [ $HOST = "Dreadnought" ]; then
+if [ $HOST = "Serenity" ]; then
     alias ath='pactl set-card-profile 0 output:hdmi-stereo'
     alias ata='pactl set-card-profile 0 output:analog-stereo'
 
