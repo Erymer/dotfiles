@@ -26,6 +26,9 @@ set autochdir
 " set clipboard+=unnamedplus "Always yank to Primary register
 autocmd FileType markdown setlocal textwidth=80
 
+" Automatically change working directory to the root of the project
+autocmd BufEnter * if isdirectory('gitroot()') | lcd gitroot() | endif
+
 " Autosave
 autocmd TextChanged,TextChangedI <buffer> silent write
 
@@ -154,7 +157,7 @@ Plug 'preservim/vim-markdown'
 Plug 'mattn/emmet-vim'
 
 " Flutter
-Plug 'dart-lang/dart-vim-plugin'
+" Plug 'dart-lang/dart-vim-plugin'
 " Plug 'thosakwe/vim-flutter'
 " Plug 'natebosch/vim-lsc'
 " Plug 'natebosch/vim-lsc-dart'
@@ -345,9 +348,11 @@ require'telescope'.setup {
     media_files = {
       -- filetypes whitelist
       -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-      filetypes = {"png", "webp", "jpg", "jpeg"},
+      filetypes = {"py", "sh", "html", "md",},
       find_cmd = "rg" -- find command (defaults to `fd`)
     }
   },
 }
+
 EOF
+

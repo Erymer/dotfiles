@@ -65,10 +65,11 @@ nnoremap <C-V> "*p| "Paste text from primary register witch is accesed with midd
 "let g:NERDTreeMapActivateNode="l"
 map <leader>ft :NERDTreeToggle<CR>
 " map <leader>Ff :NERDTreeFocus<CR>
-map <leader>ff :NERDTreeFind<CR>
+" map <leader>ff :NERDTreeFind<CR>
 " map <leader>ff :Files<CR>
-map <leader>fo :Files ~/<CR>
-map <leader>fo :lua require("telescope.builtin").find_files({hidden=true, layout_config={prompt_position="bottom"}}) <CR>
+" map <leader>fo :Files ~/<CR>
+" map <leader>ff :lua require("telescope.builtin").find_files({hidden=true, layout_config={prompt_position="bottom"}}) <CR>
+map <leader>ff :Telescope find_files
 map <leader>fcv :e ~/.config/nvim/init.vim<CR>
 
 "Terminal Keybindings
