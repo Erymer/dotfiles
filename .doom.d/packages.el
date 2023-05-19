@@ -16,6 +16,8 @@
 (package! darkroom) ;; https://github.com/joaotavora/darkroom
 (package! org-superstar) ;; https://github.com/integral-dw/org-superstar-mode
 (package! org-roam)
+(package! beancount
+  :recipe (:host github :repo "beancount/beancount-mode"))
 
 
 ;; To install a package directly from a remote git repo, you must specify a
