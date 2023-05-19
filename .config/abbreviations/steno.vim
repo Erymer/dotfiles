@@ -186,3 +186,14 @@ Abolish merar mejorar
 Abolish ncda en cada
 Abolish hacnd haciendo
 Abolish dsp después
+Abolish nrio necesario
+Abolish nria necesaria
+Abolish explicitat explicitamente
+Abolish innecesariat innecesariamente
+Abolish nriat necesariamente
+Abolish plt por lo tanto
+Abolish completat completamente
+Abolish xlt por lo tanto
+Abolish apropiadat apropiadamente
+Abolish exitosat exitosamente
+Abolish rapidat rápidamente

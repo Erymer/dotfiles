@@ -62,14 +62,26 @@ vnoremap <C-c> "*y :let @+=@*<CR>| "Copy text to Primary and clipboard
 nnoremap <C-V> "*p| "Paste text from primary register witch is accesed with middle mouse botton
 
 "Nerdtree Keybindings and file opening shortcuts
+
+" Define a custom picker that sets the cwd to the root directory of the project
+function! CustomPicker(opts)
+  return require('telescope.pickers').new(opts, {
+    cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+  })
+endfunction
+
+" Use the custom picker for Telescope find_files, grep_string, and live_grep
+" nnoremap <leader>ft :lua CustomPicker({finder = require('telescope.finders').git_files, previewer = false}):find()<cr>
+" nnoremap <leader>fg <cmd>lua CustomPicker({grep_opts = {search = vim.fn.input('Grep For > ')}}):grep_string()<cr>
+" nnoremap <leader>fl <cmd>lua CustomPicker({finder = require('telescope.finders').live_grep}):live_grep()<cr>
 "let g:NERDTreeMapActivateNode="l"
 map <leader>ft :NERDTreeToggle<CR>
 " map <leader>Ff :NERDTreeFocus<CR>
 " map <leader>ff :NERDTreeFind<CR>
 " map <leader>ff :Files<CR>
 " map <leader>fo :Files ~/<CR>
-" map <leader>ff :lua require("telescope.builtin").find_files({hidden=true, layout_config={prompt_position="bottom"}}) <CR>
-map <leader>ff :Telescope find_files
+map <leader>ff :lua require("telescope.builtin").find_files({hidden=false, layout_config={prompt_position="bottom"}}) <CR>
+" map <leader>ff :Telescope find_files
 map <leader>fcv :e ~/.config/nvim/init.vim<CR>
 
 "Terminal Keybindings
@@ -309,3 +321,18 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" Table-mode
+function! s:isAtStartOfLine(mapping)
+  let text_before_cursor = getline('.')[0 : col('.')-1]
+  let mapping_pattern = '\V' . escape(a:mapping, '\')
+  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+endfunction
+
+inoreabbrev <expr> <bar><bar>
+          \ <SID>isAtStartOfLine('\|\|') ?
+          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+inoreabbrev <expr> __
+          \ <SID>isAtStartOfLine('__') ?
+          \ '<c-o>:silent! TableModeDisable<cr>' : '__'

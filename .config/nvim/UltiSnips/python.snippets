@@ -278,6 +278,11 @@ endsnippet
 snippet model "Model class"
 class $1(models.Model):
     ${2:data_types}
+
+		def __str__(self):
+			return self.$2
+
+		pass
 endsnippet
 
 snippet simpleview "Creates a simple view function"

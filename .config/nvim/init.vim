@@ -30,7 +30,7 @@ autocmd FileType markdown setlocal textwidth=80
 autocmd BufEnter * if isdirectory('gitroot()') | lcd gitroot() | endif
 
 " Autosave
-autocmd TextChanged,TextChangedI <buffer> silent write
+" autocmd TextChanged,TextChangedI <buffer> silent write
 
 " This is to avoid pairing square brakets when adding links using vim-zettel shorcut
 autocmd FileType vimwiki let b:AutoPairs = {"(": ")", "'": "'", "`": "`", '"': '"', "```": "```"}
@@ -147,7 +147,7 @@ Plug 'ap/vim-css-color' "Highlight hex color codes their respective color
 Plug 'machakann/vim-highlightedyank'
 Plug 'SirVer/ultisnips' "Code snippets
 " Plug 'nvim-treesitter/nvim-treesitter' "Better Sintax Highlighting. Recomended by Sonokai Color Theme
-Plug 'preservim/vim-markdown'
+" Plug 'preservim/vim-markdown'
 " Plug 'vim-scripts/AutoComplPop'
 " Plug 'vim-syntastic/syntastic'
 " Plug 'nvie/vim-flake8' 
@@ -187,6 +187,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'michal-h21/vim-zettel'
+Plug 'dhruvasagar/vim-table-mode'
 
 call plug#end()
 
@@ -270,6 +271,7 @@ let g:zettel_link_format = "[%title](%link.md)"
 let g:vimwiki_key_mappings = { 'all_maps': 0, }
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_folding = 'expr'
+let g:vimwiki_autolist = 1
 
 function! s:insert_id()
   if exists("g:zettel_current_id")

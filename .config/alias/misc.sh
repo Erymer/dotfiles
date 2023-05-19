@@ -264,3 +264,11 @@ jpg(){
 
   ffmpeg -i "${input_file}" "${output_file}".jpg
 }
+
+dserver(){
+  local root_dir
+
+  root_dir=$(git rev-parse --show-toplevel)
+
+  python "${root_dir}"/manage.py runserver 
+}
