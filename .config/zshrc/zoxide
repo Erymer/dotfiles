@@ -85,8 +85,12 @@ function __zoxide_unset() {
 
 __zoxide_unset z
 function c() {
-    __zoxide_z "$@"
-    exa --icons
+    if [ -d "$@" ]; then
+      __zoxide_z "$@"
+      exa --icons
+    elif [ -f "$@" ]; then
+      bat "$@"
+    fi
 }
 
 __zoxide_unset zi
