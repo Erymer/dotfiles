@@ -6,9 +6,9 @@ nnoremap <leader>fs :w<CR>| "Save file
 nnoremap X <c-v>
 nnoremap <leader>fS :w !sudo tee %<CR>| "Save file
 nnoremap <leader>fr :History<CR>| "Open recent file
-imap cg <Esc>| "Escape character
-imap <c>j <c>h| "Escape character
-vmap cg <Esc>| "Escape character
+imap <c>j <c>h|
+imap cg <Esc>:w<CR>| "Escape character
+vmap cg <Esc>:w<CR>| "Escape character
 vnoremap <leader>p "_dP| "Delete line and paste implicit register
 nnoremap <leader>p V"_dP| "Delete line and paste implicit register
 nnoremap y- "zyg_| "Yank from cursor position until last character

@@ -6,6 +6,7 @@ Abolish pr pero
 Abolish p para
 Abolish tons entonces
 Abolish xq porque
+Abolish pq porque
 Abolish tb también
 Abolish sbx sin embargo
 Abolish pjx por ejemplo
@@ -71,11 +72,12 @@ Abolish dcir decir
 Abolish bno bueno
 Abolish bn buen
 Abolish pensat pensamiento
-Abolish tn tiene
-Abolish tne tiene
-Abolish tns tienes
+Abolish t tiene
+Abolish tn tienen
+Abolish ts tienes
 Abolish tnmos tenemos
-Abolish tngo tengo
+Abolish tg tengo
+Abolish tgx tenga
 Abolish fctivo efectivo
 Abolish fctivos efectivos
 Abolish fctv efectivo
@@ -117,8 +119,7 @@ Abolish dnd donde
 Abolish pro pero
 Abolish xh por ahora
 Abolish qs que es
-Abolish pjx personaje
-Abolish pjxs personajes
+Abolish pjs personajes
 Abolish px persona
 Abolish pxs personas
 Abolish orientacn orientación
@@ -197,3 +198,37 @@ Abolish xlt por lo tanto
 Abolish apropiadat apropiadamente
 Abolish exitosat exitosamente
 Abolish rapidat rápidamente
+Abolish academicat académicamente
+Abolish academicamente académicamente
+Abolish historicat históricamente
+Abolish qls que los
+Abolish qlas que las
+Abolish apsr a pesar
+Abolish inflacn inflación
+Abolish hch hecho
+Abolish xl por el
+Abolish xla por la
+Abolish inv inversión
+Abolish invis inversionista
+Abolish invisz inversionistas
+Abolish recientet recientemente
+Abolish dstos de estos
+Abolish ret retorno
+Abolish crecimt crecimiento
+Abolish invz inversiones
+Abolish sld es el de
+Abolish pasivat pasivamente
+Abolish pdn pueden
+Abolish activat activamente
+Abolish bursatil bursátil
+Abolish retz retornos
+Abolish cta cuenta
+Abolish pte parte
+Abolish fndo fondo
+Abolish eventualt eventualmente
+Abolish tne tiene
+Abolish principalt principalmente
+Abolish substancialt substancialmente
+Abolish mdo mercado
+Abolish segurat seguramente
+Abolish lgo largo
