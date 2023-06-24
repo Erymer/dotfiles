@@ -1,0 +1,285 @@
+'''
+“It' dangerous to go alone! Take this.”
+- The Legend of Zelda
+'''
+
+'''
+“Non mi snudare senza ragione, non mi impugnare senza valore.”
+- Giovanni de Medici
+'''
+
+'''
+“Sometimes that light at the end of the tunnel is a train.”
+- Charles Barkley
+'''
+
+'''
+“If there is a wrong way to do something, then someone will do it.”
+- Edward A. Murphy
+'''
+
+'''
+“If there's more than one way to do a job
+and one of those ways will end in disaster,
+then somebody will do it that way.”
+- Edward A. Murphy
+'''
+
+'''
+“I love mankind... It's people I can't stand!”
+- Charles M. Schulz
+'''
+
+'''
+“Everything we hear is an opinion, not a fact.
+Everything we see is a perspective, not the truth.”
+- Marcus Aurelius
+'''
+
+'''
+“Do not go gentle into that good night,
+Rage, rage against the dying of the light.”
+- Dylan Thomas
+'''
+
+'''
+“When you have eliminated the impossible,
+whatever remains, however improbable,
+must be the truth.”
+- Arthur Conan Doyle
+'''
+
+'''
+“Nomás por joder yo voy a resucitar de entre los vivos.”
+- Efrain Huerta
+'''
+
+'''
+“Dare mighty things.”
+- Perceverance Rover
+'''
+
+'''
+“We are not now that strength which in old days
+Moved earth and heaven, that which we are, we are;
+One equal temper of heroic hearts,
+Made weak by time and fate, but strong in will.”
+- Alfred Tennyson
+'''
+
+'''
+“All that is gold does not glitter,
+Not all those who wander are lost;
+The old that is strong does not wither,
+Deep roots are not reached by the frost.
+
+From the ashes a fire shall be woken,
+A light from the shadows shall spring;
+Renewed shall be blade that was broken,
+The crownless again shall be king.”
+- J.R.R. Tolkien
+'''
+
+'''
+“I have a rendezvous with Death
+At some disputed barricade,
+
+It may be he shall take my hand
+And lead me into his dark land
+And close my eyes and quench my breath
+
+I have a rendezvous with Death
+
+And I to my pledged word am true,
+I shall not fail that rendezvous.”
+- Alan Seeger
+'''
+
+'''
+“The cry of the cicada
+Gives us no sign
+That presently it will die.“
+- Mastuo Basho
+'''
+
+'''
+“If more of us valued food and cheer and song above hoarded gold,
+It would be a merrier world.”
+- J.R.R. Tolkien
+'''
+
+'''
+“My armor is like tenfold shields, my teeth are swords, my claws spears,
+the shock of my tail a thunderbolt, my wings a hurricane, and my breath death!”
+- J.R.R. Tolkien
+'''
+
+'''
+“Shrouded by night, but with steady stride.
+Colored by blood, but always clear of mind.
+Proud hunter of the church.
+Beasts are a curse, and a curse is a shackle.
+Only ye are the true blades of the church.”
+- Bloodborne
+'''
+
+'''
+“My past is not a memory. It's a force at my back. It pushes and steers.
+I may not always like where it leads me, but like any story,
+The past needs resolution. What's past? Is prologue.”
+- Samus Aran
+'''
+
+'''
+“Be safe, friend. Don't you dare go Hollow.”
+- Dark Souls
+'''
+
+'''
+“If you chase two rabbits, you will lose them both.”
+- Native American Proverb
+'''
+
+'''
+“We all make choices, but in the end our choices make us.”
+- BioShock
+'''
+
+'''
+“Science isn't about why, it's about why not.”
+- Portal 2
+'''
+
+'''
+“Do not be sorry. Be better.”
+- God of War
+'''
+
+'''
+“What is a man, but a miserable pile of secrets?”
+- Castlevania
+'''
+
+'''
+“What is better - to be born good,
+or to overcome your evil nature through great effort?”
+- Skyrim
+'''
+
+'''
+“My country lay within a vast desert.
+When the sun rose into the sky, a burning wind punished my lands,
+searing the world.
+And when the moon climbed into the dark of night,
+a frigid gale pierced our homes.
+No matter when it came, the wind carried the same thing... Death.
+But the winds that blew across the green fields of Hyrule brought
+something other than suffering and ruin.
+I coveted that wind, I suppose.”
+- Zelda Wind Waker
+'''
+
+'''
+“War is when the young and stupid are tricked by the old and
+bitter into killing each other.”
+- Grand Theft Auto IV
+'''
+
+'''
+“A warrior takes sword in hand, clasping a gem to his heart.
+Engraving vanishing memories into the sword,
+He places finely honed skills into the stone.
+Spoken from the sword, handed down from the stone...
+Now the story can be told...”
+- Final Fantasy Tactics
+'''
+
+'''
+“A sword wields no strength unless the hand that holds it has courage”
+- The Legend of Zelda: Twilight Princess
+'''
+
+'''
+“You can take a wolf from the forest. You can collar him, chain him.
+You can starve him, beat him until he whimpers and bows down.
+Yet, is that wolf a dog?
+Never.
+A man is only a slave when he allows his heart and mind to be conquered.
+When he comes to believe that his life is no longer his own.
+When he chooses to cast his eyes forever to the ground.
+Like a king that chooses to press his lips to the feet of an emperor.
+A king that looks to his goblet and his plate,
+feasting and fattening while his people starve in their own streets.
+Some might say that I should bear the guilt of regicide.
+That I killed the King of the Ezomytes.
+Yes, I served King Skothe his last meal, for I saw no king at that table.
+I saw a dog.”
+- Path of Exile
+'''
+
+'''
+“I've seen your kind, time and time again.
+Every fleeing man must be caught. Every secret must be unearthed.
+Such is the conceit of the self-proclaimed seeker of truth.
+But in the end, you lack the stomach.
+For the agony that you'll bring upon yourself...”
+- Dark Souls III: Ashes of Ariandel
+'''
+
+'''
+“In moments of crisis panic does nothing. Harness it, let it serve you.”
+- God of War 5: Ragnarok
+'''
+
+'''
+“When thy little heart doth wake,
+Then the dreadful night shall break.”
+- William Blake
+'''
+
+'''
+“Whoever fights monsters should see to it that in the process
+he does not become a monster.
+And if you gaze long enough into an abyss,
+The abyss will gaze back into you.”
+- Friedrich Nietzsche
+'''
+
+'''
+“A lantern lit with borrowed light
+to rouse the creatures of the night
+The chorus starts as if on cue.
+When I arise they sing:
+Awooooo”
+- Unknown
+'''
+
+'''
+The Two Headed Calf
+“Tomorrow when the farm boys find this
+freak of nature, they will wrap his body
+in newspaper and carry him to the museum.
+But tonight he is alive and in the north
+field with his mother. It is a perfect
+summer evening: the moon rising over
+the orchard, the wind in the grass. And
+as he stares into the sky, there are
+twice as many stars as usual.”
+- Laura Gilpin
+'''
+
+'''
+“When the truth offends we lie and lie until 
+we can no longer remember it's even
+there, but it is still there... 
+Every lie we tell incurs a debt to the truth...
+sooner or later that debt is paid.”
+- Valery Legasov: Chernobyl
+'''
+
+'''
+“The ideal man bears the accidents of life with
+dignity and grace, making the best of the
+circumstances.”
+- Aristotle
+'''

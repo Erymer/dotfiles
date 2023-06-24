@@ -253,9 +253,9 @@ let g:arduino_dir='/usr/share/arduino/'
 let g:arduino_home_dir='/home/mag/Arduino/'
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger="<c-space>"
-let g:UltiSnipsJumpForwardTrigger="<c-space>"
-let g:UltiSnipsJumpBackwardTrigger="<c-s-space>"
+" let g:UltiSnipsExpandTrigger="<c-space>"
+" let g:UltiSnipsJumpForwardTrigger="<c-space>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-s-space>"
 
 " Markdown preview
 " let g:mkdp_browser = 'Brave'

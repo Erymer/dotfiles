@@ -156,7 +156,7 @@ for file in $ALIAS_DIRECTORY/* ; do
   fi
 done
 
-$HOME/Projects/Python/oracle-cli/oracle-cli.py
+zennin -j right
 
 PATH="/home/mag/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/mag/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;

@@ -34,7 +34,7 @@ nnoremap <leader>wh :wincmd h<CR>| "Move cursor to left window
 nnoremap <leader>wk :wincmd k<CR>| "Move cursor to above window
 nnoremap <leader>wj :wincmd j<CR>| "Move cursor to below window
 " nnoremap <leader>ww :wincmd p<CR>| "Move cursor to previous window
-nnoremap <C-Space> :wincmd p<CR>| "Move cursor to previous window
+nnoremap <leader>wp :wincmd p<CR>| "Move cursor to previous window
 nnoremap <leader>qq :confirm qall<CR>| "Close Vim
 
 " Git
