@@ -99,14 +99,14 @@ call plug#begin('~/.vim/plugged')
 " Plug 'arcticicestudio/nord-vim' "Nord Color Theme https://www.nordtheme.com/docs/ports/vim/installation 
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'kaicataldo/material.vim'
-" Plug 'sjl/badwolf'
+Plug 'sjl/badwolf'
 " Plug 'NLKNguyen/papercolor-theme' "PaperColor
 " Plug 'tomasr/molokai'
-Plug 'sickill/vim-monokai'
+" Plug 'sickill/vim-monokai'
 " Plug 'twerth/ir_black'
 " Plug 'andreasvc/vim-256noir' "256_noir
 " Plug 'logico/typewriter-vim' "typewriter or typewriter-night
-Plug 'jaredgorski/fogbell.vim' 
+" Plug 'jaredgorski/fogbell.vim' 
 
 
 Plug 'vim-airline/vim-airline'
@@ -196,7 +196,7 @@ call plug#end()
 "==============================================================================
 "COLOR CONFIGURATION
 "==============================================================================
-colorscheme monokai
+colorscheme badwolf
 "Change to fogbell when writting text, Monokai for code
 " autocmd BufEnter * colorscheme monokai
 " autocmd BufEnter *.md colorscheme fogbell
@@ -274,6 +274,7 @@ let g:vimwiki_key_mappings = { 'all_maps': 0, }
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_folding = 'expr'
 let g:vimwiki_autolist = 1
+let g:vimwiki_commentstring = '<!--%s-->'
 
 function! s:insert_id()
   if exists("g:zettel_current_id")
@@ -319,7 +320,7 @@ let zettel.ext = '.md'
 let zettel.syntax = 'markdown'
 let zettel.links_space_char = '_'
 let zettel_options = {}
-let zettel_options.front_matter = [[":*****", ""], ["id", function("s:insert_id")], ["tags", ""], ["category", "Nota"]]
+let zettel_options.front_matter = [["MARKDOWN_FILE_START", ""], ["id", function("s:insert_id")], ["tags", ""], ["category", "Nota"]]
 
 let g:vimwiki_list = [foo, onyon, zettel, serpentKing, algard]
 let g:zettel_options = [foo_options, {}, zettel_options, {}]

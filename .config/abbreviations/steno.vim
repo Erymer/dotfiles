@@ -232,3 +232,48 @@ Abolish substancialt substancialmente
 Abolish mdo mercado
 Abolish segurat seguramente
 Abolish lgo largo
+Abolish hnd haciendo
+Abolish hrla hacerla
+Abolish doc documento
+Abolish doccn documentación
+Abolish gral general
+Abolish gralt generalmente
+Abolish ctrl control
+Abolish sel selección
+Abolish nlq en el que
+Abolish invte invierte
+Abolish invtir invertir
+Abolish lgop largo plazo
+Abolish emocion emoción
+Abolish fut futuro
+Abolish futa futura
+Abolish futz futuros
+Abolish futaz futuras
+Abolish aritmetica aritmética
+Abolish alocacion alocación
+Abolish cb cambiar
+Abolish fl fácil
+Abolish pjz personajes
+Abolish flz fáciles
+Abolish yql ya que el
+Abolish yqlx ya que la
+Abolish xlq por lo que
+Abolish hdo haciendo
+Abolish cdo cuando
+Abolish murcielago murciélago
+Abolish pdmos podemos
+Abolish compontentes componentes
+Abolish nat natural
+Abolish natza natulareza
+Abolish pden pueden
+Abolish infcn inflación
+Abolish xlc por la cual
+Abolish suficientet suficientemente
+Abolish anualt anualmente
+Abolish difx diferencia
+Abolish relacn relación
+Abolish pcdo para cuando
+Abolish basicat básicamente
+Abolish idealt idealmente
+Abolish tlv tal vez
+Abolish stuvra estuviera
