@@ -254,7 +254,7 @@ dtXPKeymap = M.fromList $
 ------------------------------------------------------------------------
 -- For more icons: https://fontawesome.com/v4/cheatsheet/
 -- myWorkspaces = ["1: \xf0ac", "2: \xf07c", "3: \xf121", "4: \xf15c", "5: \xf001", "6: \xf086", "7: \xf26c", "8: \xf188", "9: \xf26c", "10: \xf26c"]
-myWorkspaces = ["0: Browser", "1: Chat", "2: Notion", "3: Ext Monitor", "4: ?", "5: Terminal", "6: File Nav", "7: Work", "8: Info", "9: BG"]
+myWorkspaces = ["0: ?", "1: Chat", "2: Notion", "3: Ext Monitor", "4: ?", "5: Browser", "6: File Nav", "7: Work", "8: Info", "9: BG"]
 -- myWorkspaces = ["Browser", "Chat", "Notion", "Ext Monitor", "?", "Terminal", "File Nav", "Work", "Info", "BG"]
 
 
@@ -285,7 +285,7 @@ myManageHook = composeAll
      -- I'm doing it this way because otherwise I would have to write out
      -- the full name of my clickable workspaces, which would look like:
      -- doShift "<action xdotool super+8>gfx</action>"
-     [ className =? "Brave-browser" --> doShift ( workspaceZero )
+     [ className =? "Brave-browser" --> doShift ( workspaceFive )
      , className =? "FileManager"     --> doShift ( workspaceSix )
      , className =? "Pcmanfm"     --> doShift ( workspaceSix )
      , className =? "nvim-qt" --> doShift ( workspaceSeven )

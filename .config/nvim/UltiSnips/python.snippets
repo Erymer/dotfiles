@@ -118,18 +118,13 @@ for $1 in $2:
 	$3
 endsnippet
 
-snippet	w "while" 
+snippet	while "while" 
 while $1:
 	$2
 endsnippet
 
 snippet	dictfor "Iterate over a dictionary" 
 for (${1:key}, ${2:value}) in ${3:dict}.items():
-	$4
-endsnippet
-
-snippet	dffor "Iterate over a DataFrame" 
-for (${1:index}, ${2:row}) in ${3:dataframe}.iterrows():
 	$4
 endsnippet
 
@@ -146,7 +141,7 @@ elif $1:
 	$2		
 endsnippet
 
-snippet	el "else conditional"
+snippet	else "else conditional"
 else:
 	$1
 endsnippet
@@ -174,36 +169,6 @@ $1 = input("${2:text}")
 endsnippet
 
 #------------------------------------------------------------------------------
-# LINUX SCRIPTS
-#------------------------------------------------------------------------------
-snippet pscript "Create a linux script"
-#!/usr/bin/env python3
-#==============================================================================
-#   FILE: $1
-#
-#   USAGE: $2
-#
-#   DESCRIPTION: $3
-#
-#   OPTIONS: $4
-#   DEPENDENCIES: $5
-#   AUTHOR:  
-#   COMPANY:  
-#   VERSION:  1.0
-#   CREATED:  `!v strftime("%c")`
-#   REVISION:  
-#==============================================================================
-
-import subprocess as sp
-import sys
-
-endsnippet
-
-snippet sprun "Execute linux command"
-$1 = sp.run("$2", shell=True, capture_output=True, text=True)
-endsnippet
-
-#------------------------------------------------------------------------------
 # FILES
 #------------------------------------------------------------------------------
 
@@ -226,21 +191,6 @@ snippet readlines "Read lines"
 with open("$1") as $2:
 	$3 = $2.readlines()
 endsnippet
-
-
-#------------------------------------------------------------------------------
-# CSV
-#------------------------------------------------------------------------------
-
-snippet readcsv "Read csv file"
-with open("$1") as $2:
-	$3 = csv.reader($2)
-endsnippet
-
-snippet csvtodf "Create a dataframe from a csv file"
-${1:dataframe} = pd.read_csv("${2:path/to/file.csv}")
-endsnippet
-
 
 
 #------------------------------------------------------------------------------
@@ -277,20 +227,20 @@ endsnippet
 
 snippet model "Model class"
 class $1(models.Model):
-    ${2:data_types}
+	${2:data_types}
 
-		def __str__(self):
-			return self.$2
-
-		pass
+	def __str__(self):
+		return self.$2
 endsnippet
+
 
 snippet simpleview "Creates a simple view function"
 from django.http import HttpResponse
 
 def hello(requests):
-    return HttpResponse('Do not gentle into that good night.')
+	return HttpResponse('Do not gentle into that good night.')
 endsnippet
+
 
 snippet urlspy "Url file"
 from django.urls import path
@@ -300,6 +250,21 @@ urlpatterns = [
 		path("", views.$1)
 ]
 endsnippet
+
+
+snippet modeltest "Model creation unit test"
+def test_create_$1(self):
+	"""Test creating a $1 is sucessful"""
+	$1 = models.$1.objects.create(
+		$2
+	)
+
+	saved_$1 = models.$1.objects.get(id=$1.id)
+
+	self.assertEqual($1, saved_$1)
+endsnippet
+
+
 
 #---------------------------
 # Unit test
@@ -311,24 +276,24 @@ from ${1:module} import ${2:class}
 
 class Test${3:name}(unittest.TestCase):
 
-    def setUp(self):
-        '''
-        This will be runned before every test
-        '''
-				pass
+	def setUp(self):
+		'''
+		This will be runned before every test
+		'''
+		pass
 
 
-    def tearDown(self):
-        '''
-        This will be runned after every test
-        '''
-				pass
+	def tearDown(self):
+		'''
+		This will be runned after every test
+		'''
+		pass
 
 
-    def test_${4:name}(self):
-				pass
+	def test_${4:name}(self):
+		pass
 
 if __name__ == '__main__':
-    unittest.main()
+	unittest.main()
 endsnippet
 

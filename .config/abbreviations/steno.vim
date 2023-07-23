@@ -277,3 +277,30 @@ Abolish basicat básicamente
 Abolish idealt idealmente
 Abolish tlv tal vez
 Abolish stuvra estuviera
+Abolish principalt pricipalmente
+Abolish usualt usualmente
+Abolish relativat relativamente
+Abolish altat altamente
+Abolish sigz siguientes
+Abolish especulacn especulación
+Abolish valuacn valuación
+Abolish combinacn combinacíon
+Abolish rendimt rendimiento
+Abolish dte durante
+Abolish cbo cambio
+Abolish ciaz compañias
+Abolish nlqx en la que
+Abolish nvo nuevo
+Abolish obj objeto
+Abolish nva nueva
+Abolish fe fé
+Abolish deseperacn desesperación
+Abolish enterat enteramente
+Abolish ctop corto plazo
+Abolish mdoz mercados
+Abolish volatiles volátiles
+Abolish difte diferente
+Abolish tristet tristemente
+Abolish perfectat perfectamente
+Abolish formulacn formulación
+Abolish reinversion reinversión
