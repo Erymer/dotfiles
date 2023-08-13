@@ -106,7 +106,8 @@ myBrowser = "brave"                 -- Sets brave as browser for tree select
 
 myEditor :: String
 -- myEditor = "neovide"
-myEditor = "kitty --override window_margin_width=0 tmux new-session -s NeoVim \"nvim\""
+-- myEditor = "kitty --override window_margin_width=0 tmux new-session -s NeoVim \"nvim\""
+myEditor = "kitty --override window_margin_width=0 tmux new-session \"nvim\""
 
 myAppLauncher :: String
 -- myAppLauncher = "dmenu_run"

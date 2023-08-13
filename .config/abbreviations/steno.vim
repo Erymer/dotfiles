@@ -304,3 +304,4 @@ Abolish tristet tristemente
 Abolish perfectat perfectamente
 Abolish formulacn formulación
 Abolish reinversion reinversión
+Abolish tipicat típicamente

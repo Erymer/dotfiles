@@ -313,6 +313,12 @@ let algard.ext = '.md'
 let algard.syntax = 'markdown'
 let algard.links_space_char = '_'
 
+let algard = {}
+let algard.path = '~/Documents/Cars/'
+let algard.ext = '.md'
+let algard.syntax = 'markdown'
+let algard.links_space_char = '_'
+
 " Zettelcasten
 let zettel = {}
 let zettel.path = '~/Documents/Zettel/'
