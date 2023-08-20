@@ -313,11 +313,11 @@ let algard.ext = '.md'
 let algard.syntax = 'markdown'
 let algard.links_space_char = '_'
 
-let algard = {}
-let algard.path = '~/Documents/Cars/'
-let algard.ext = '.md'
-let algard.syntax = 'markdown'
-let algard.links_space_char = '_'
+let cars = {}
+let cars.path = '~/Documents/Cars/'
+let cars.ext = '.md'
+let cars.syntax = 'markdown'
+let cars.links_space_char = '_'
 
 " Zettelcasten
 let zettel = {}
@@ -328,7 +328,7 @@ let zettel.links_space_char = '_'
 let zettel_options = {}
 let zettel_options.front_matter = [["MARKDOWN_FILE_START", ""], ["id", function("s:insert_id")], ["tags", ""], ["category", "Nota"]]
 
-let g:vimwiki_list = [foo, onyon, zettel, serpentKing, algard]
+let g:vimwiki_list = [foo, onyon, zettel, serpentKing, algard, cars]
 let g:zettel_options = [foo_options, {}, zettel_options, {}]
 
 

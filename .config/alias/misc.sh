@@ -29,7 +29,6 @@ alias n='nnn'
 alias open='xdg-open'
 alias o='xdg-open'
 alias b='bat'
-alias x='exit'
 
 
 
