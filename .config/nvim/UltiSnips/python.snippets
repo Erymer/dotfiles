@@ -65,7 +65,16 @@ endsnippet
 snippet m "Method with no parameters"
 def $1(self):
 	'''
-	$2
+	${2:description}
+	Parameters
+	----------
+	${3:parameter} : ${4:type}
+			${5:description}
+
+	Returns
+	-------
+	${6:type}
+			${7:description}
 	'''
 	pass
 endsnippet
@@ -298,3 +307,20 @@ if __name__ == '__main__':
 	unittest.main()
 endsnippet
 
+# -----
+# DOCSCTRINGS
+# ____
+snippet docstring "Basic numpy docstring"
+'''
+${1:description}
+Parameters
+----------
+${2:parameter} : ${3:type}
+		${4:description}
+
+Returns
+-------
+${5:type}
+		${6:description}
+'''
+endsnippet

@@ -305,3 +305,6 @@ Abolish perfectat perfectamente
 Abolish formulacn formulación
 Abolish reinversion reinversión
 Abolish tipicat típicamente
+Abolish res resultado
+Abolish resz resultados
+Abolish exactat exactamente
