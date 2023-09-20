@@ -321,7 +321,7 @@ let cars.links_space_char = '_'
 
 " Zettelcasten
 let zettel = {}
-let zettel.path = '~/Documents/Zettel/'
+let zettel.path = '~/40_Notebooks/Zettel/'
 let zettel.ext = '.md'
 let zettel.syntax = 'markdown'
 let zettel.links_space_char = '_'

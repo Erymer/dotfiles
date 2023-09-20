@@ -85,18 +85,35 @@ function __zoxide_unset() {
 
 __zoxide_unset z
 function c() {
-    if [ -d "$@" ]; then
-      __zoxide_z "$@"
-      exa --icons
-    elif [ -f "$@" ]; then
-      bat "$@"
-    fi
+  __zoxide_z "$@"
+  eza --icons
+}
+
+# Go parent directory
+function ..() {
+  __zoxide_z ..
+  eza --icons
+}
+
+# Go last directory
+function -() {
+  __zoxide_z -
+  eza --icons
+}
+
+
+# Change to a dir in home from anywhere
+function cj() {
+  local directory
+  directory=$(find ~ -maxdepth 4 -type d -name "${1}_*")
+  __zoxide_z "${directory}"
+  eza --icons
 }
 
 __zoxide_unset zi
 function f() {
     __zoxide_zi "$@"
-    exa --icons
+    eza --icons
 }
 
 if [[ -o zle ]]; then

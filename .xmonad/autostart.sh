@@ -4,10 +4,10 @@ export XSECURELOCK_PASSWORD_PROMPT=kaomoji
 
 # The value of this constant must be output of the following command when the
 # monitor you want to use as dock is connected to the HDMI port
-# md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -f 1 -d " "
+# `md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -f 1 -d " "`
 DOCK_MON_MD5HASH="8ce2f2999715042dbc42bc4bc9cf35ab"
 
-WALLPAPER=~/Images/Wallpapers/weeb/minimalist-shark.png
+WALLPAPER=~/30_Images/31_Wallpapers/weeb/minimalist-shark.png
 
 setWallpaper(){
   feh --bg-fill "${@}" 
@@ -38,11 +38,6 @@ randomWallpaper(){
 xset s 300 5 &
 xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 
-# if lsusb | grep -q 'Logitech, Inc. G13 Advanced Gameboard'; then
-#   notify-send "trying g13"
-#   sudo g13d --config ~/.config/g13/g13.bind &
-# fi
-
 # In some ocations unclutter can create problems with the mouse.
 # If this happens use "unclutter -grab" or install unclutter-xfixes-git
 # source: https://wiki.archlinux.org/index.php/unclutter
@@ -63,11 +58,11 @@ fi
 if [ "$(md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
   dock &
   sleep 2
-  setWallpaper ~/Images/Wallpapers/weeb/minimalist-shark_2560x1080.png ~/Images/Wallpapers/weeb/minimalist-shark.png
+  setWallpaper ~/30_Images/31_Wallpapers/weeb/minimalist-shark_2560x1080.png ~/30_Images/31_Wallpapers/weeb/minimalist-shark.png
 fi
 
 setxkbmap -layout mag # For some reason plover needs this to work properly.
 
-source "${HOME}/Scripts/nextcloud-sync.sh" &
+# source "${HOME}/Scripts/nextcloud-sync.sh" &
 
 conky &

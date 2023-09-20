@@ -37,6 +37,10 @@ nnoremap <leader>wj :wincmd j<CR>| "Move cursor to below window
 nnoremap <leader>wp :wincmd p<CR>| "Move cursor to previous window
 nnoremap <leader>qq :confirm qall<CR>| "Close Vim
 
+" Tab Commands
+nnoremap <leader>tn :tabnew<CR>| "Create new tab
+nnoremap <leader>tc :tabclose<CR>| "Close current tab
+
 " Git
 nnoremap <leader>gs :Git status<CR>| "Git status
 nnoremap <leader>ga :Git add .<CR>| "Git add files

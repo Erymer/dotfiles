@@ -98,14 +98,13 @@ myModMask :: KeyMask
 myModMask = mod4Mask       -- Sets modkey to super/windows key
 
 myTerminal :: String
-myTerminal = "kitty --class Terminal --title Kitty"   -- Sets default terminal
+myTerminal = "kitty --class Terminal --title Kitty "   -- Sets default terminal
 
 myBrowser :: String
 -- myBrowser = myTerminal ++ " -e lynx "  -- Sets lynx as browser for tree select
 myBrowser = "brave"                 -- Sets brave as browser for tree select
 
 myEditor :: String
--- myEditor = "neovide"
 -- myEditor = "kitty --override window_margin_width=0 tmux new-session -s NeoVim \"nvim\""
 myEditor = "kitty --override window_margin_width=0 tmux new-session \"nvim\""
 
@@ -478,7 +477,7 @@ dvorakKeys =
         , ("M-m", spawn (scriptsFolder ++ "quick-todo.sh"))
         , ("M-s", spawn (scriptsFolder ++ "web-search.sh"))
         , ("M-z", spawn (myEditor ++ " $HOME/Documents/Zettel/00-index.md"))
-        , ("M-v", spawn (myTerminal ++ "-e --title ScratchPad nvim -c 'normal G' +:Goyo +startinsert! /tmp/scratchpad.md"))
+        , ("M-v", spawn (myTerminal ++ "--override window_margin_width=0 -e --title ScratchPad nvim -c 'normal G' +:Goyo +startinsert! /tmp/scratchpad.md"))
 
     -- Special Keys
         , ("M-<F1>", spawn (scriptsFolder ++ "toggle-mute.sh"))
@@ -497,7 +496,7 @@ dvorakKeys =
         , ("M-<Print>", spawn "scrot --quality 100 --file '%Y-%m-%dT%TCT.jpg' -e 'mv $f /tmp/' --select --line style=dash && notify-send 'Printed window'")
         , ("M-<KP_Enter>", spawn (scriptsFolder ++ "calculator.sh"))
         , ("M-<End>", spawn (scriptsFolder ++ "addAbolish.sh"))
-        , ("M-<Insert>", spawn "grep -v '^#' ~/Documents/bookmarks | dmenu -i -l 50 | cut -d ' ' -f 1 | xclip -selection clipboard")
+        , ("M-<Insert>", spawn "grep -v '^#' ~/10_Documents/bookmarks | dmenu -i -l 50 | cut -d ' ' -f 1 | xclip -selection clipboard")
         , ("M-<Page_Down>", spawn (scriptsFolder ++ "translate.sh"))
         , ("M-S-<Insert>", spawn (scriptsFolder ++ "browser-session.sh"))
         , ("M-<Page_Up>", spawn "brave https://eyeplus.closeli.com/device/list")

@@ -4,7 +4,6 @@ alias mag='sudo '
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias mkfs.vfat='sudo mkfs.vfat'
 alias lynx='lynx -vikeys -scrollbar -accept_all_cookies duckduckgo.com'
 alias printscreen='scrot --quality 100 --select'
 alias printscr='scrot --quality 100 --select'
@@ -29,6 +28,8 @@ alias n='nnn'
 alias open='xdg-open'
 alias o='xdg-open'
 alias b='bat'
+alias q='exit'
+alias dmesg='sudo dmesg -Tw'
 
 
 

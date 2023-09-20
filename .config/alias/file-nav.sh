@@ -1,23 +1,21 @@
 
-alias B='cd ~/.magBin && exa --icons'
+alias B='cd ~/.magBin && eza --icons'
 
-alias D='cd ~/Documents && exa --icons'
+alias D='cd ~/10_Documents/ && eza --icons'
 
-alias C='cd ~/.config && exa --icons --all'
-alias S='cd ~/Scripts && exa --icons'
+alias C='cd ~/.config && eza --icons --all'
+alias S='cd ~/Scripts && eza --icons'
 
-alias P='cd ~/Projects && exa --icons'
-alias Ps='cd ~/Projects/ShellScript && exa --icons'
-alias Pp='cd ~/Projects/Python && exa --icons'
+alias P='cd ~/20_Projects && eza --icons'
 
-alias Z='cd ~/Documents/Zettel && exa --icons'
+alias Z='cd ~/40_Notebooks/Zettel && eza --icons'
 
 alias wifiscan='nmcli device wifi list'
 
 push(){
-  pushd "$@" && exa --icons
+  pushd "$@" && eza --icons
 }
 
 pop(){
-  popd "$@" && exa --icons
+  popd "$@" && eza --icons
 }

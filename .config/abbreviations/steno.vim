@@ -166,7 +166,6 @@ Abolish cprar comprar
 Abolish hb haber
 Abolish hbr haber
 Abolish observacn observación
-Abolish rest resto
 Abolish dls de los
 Abolish dlsx de las
 Abolish dlas de las
