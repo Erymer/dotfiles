@@ -80,26 +80,26 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
         # If the terminal is running without xorg, this is the promp that will be used
         PS1="%F{yellow}%K{000}%n%F{yellow}%K{000}@%F{white}%K{000}%~%F{yellow}%K{000}:%F{yellow}%K{000}\$ "
     ;;
- 'tmux: server')
-       RPROMPT='$(git_prompt_string)'
+ # 'tmux: server')
+ #       RPROMPT='$(git_prompt_string)'
 #		## Base16 Shell color themes.
 		# possible themes: 3024, apathy, ashes, atelierdune, atelierforest, atelierhearth,
 #		#atelierseaside, bespin, brewer, chalk, codeschool, colors, default, eighties, 
 #		#embers, flat, google, grayscale, greenscreen, harmonic16, isotope, londontube,
 #		#marrakesh, mocha, monokai, ocean, paraiso, pop (dark only), railscasts, shapesifter,
 #		#solarized, summerfruit, tomorrow, twilight
-		theme="monokai"
+		# theme="monokai"
 #		#Possible variants: dark and light
-		shade="dark"
+		# shade="dark"
 		# BASE16_SHELL="/usr/share/zsh/scripts/base16-shell/base16-$theme.$shade.sh"
 		# BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-$theme.$shade.sh"
 		# [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 #		# Use autosuggestion
     # PS1="%F{yellow}%K{000}%n%F{yellow}%K{000}@%F{white}%K{000}%~%F{yellow}%K{000}:%F{yellow}%K{000}\$ "
-		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-		ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
- 		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
-    ;;
+		# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+		# ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ 		# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+    # ;;
   *)
         RPROMPT='$(git_prompt_string)'
     ;;

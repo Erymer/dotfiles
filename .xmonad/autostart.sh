@@ -64,5 +64,7 @@ fi
 setxkbmap -layout mag # For some reason plover needs this to work properly.
 
 # source "${HOME}/Scripts/nextcloud-sync.sh" &
+#
+# nextcloud &
 
 conky &

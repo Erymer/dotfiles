@@ -8,7 +8,6 @@ alias lynx='lynx -vikeys -scrollbar -accept_all_cookies duckduckgo.com'
 alias printscreen='scrot --quality 100 --select'
 alias printscr='scrot --quality 100 --select'
 alias pk='pkill'
-alias v='nvim'
 alias nv='nvim'
 alias emacs='emacs --no-window-system'
 alias rss="newsboat --refresh-on-start"
@@ -24,13 +23,22 @@ alias please='sudo bash -c "$(fc -ln -1)"'
 alias pls='sudo bash -c "$(fc -ln -1)"'
 alias pager='bash -c "$(fc -ln -1)" | bat'
 alias pg='bash -c "$(fc -ln -1)" | bat'
-alias n='nnn'
 alias open='xdg-open'
 alias o='xdg-open'
 alias b='bat'
 alias q='exit'
 alias dmesg='sudo dmesg -Tw'
+alias otp='pass otp'
 
+v(){
+  if [[ -z "${1}" ]]; then
+    file=$(pwd)
+  else
+    file="${1}"
+  fi
+
+  nvim "${file}" 
+}
 
 
 rpg () {
@@ -160,16 +168,6 @@ yesdisk(){
   sudo wipefs --all --force "${blk_device}" > /dev/null
 }
 
-t(){
-  tmux new-session \; \
-        split-window -h \; \
-        split-window -v \; \
-        new-window \; \
-        select-window -t 0 \; \
-        select-pane -t 0 \; \
-        attach
-}
-
 
 # Notepads
 # via https://github.com/melloc/dotfiles/blob/master/zsh/zshrc
@@ -180,7 +178,7 @@ qn(){
   else
       file_path="${1}.md"
   fi
-  nvim +:Goyo +startinsert "$HOME"/Documents/Notes/"${file_path}"
+  nvim +:Goyo +startinsert "${HOME}/10_Documents/11_Notes/${file_path}"
 }
 
 # alias sp="vim +set\ buftype=nofile +startinsert" ## A quick scratchpad from the shell
@@ -298,4 +296,38 @@ dserver(){
   root_dir=$(git rev-parse --show-toplevel)
 
   python "${root_dir}"/manage.py runserver 
+}
+
+
+bindkey '^l' clear
+
+n ()
+{
+    # Block nesting of nnn in subshells
+    [ "${NNNLVL:-0}" -eq 0 ] || {
+        echo "nnn is already running"
+        return
+    }
+
+    # The behaviour is set to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # If NNN_TMPFILE is set to a custom path, it must be exported for nnn to
+    # see. To cd on quit only on ^G, remove the "export" and make sure not to
+    # use a custom path, i.e. set NNN_TMPFILE *exactly* as follows:
+    #      NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+    # stty start undef
+    # stty stop undef
+    # stty lwrap undef
+    # stty lnext undef
+
+    # The command builtin allows one to alias nnn to n, if desired, without
+    # making an infinitely recursive alias
+    command nnn "$@"
+
+    [ ! -f "$NNN_TMPFILE" ] || {
+        . "$NNN_TMPFILE"
+        rm -f "$NNN_TMPFILE" > /dev/null
+    }
 }

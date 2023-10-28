@@ -132,6 +132,7 @@ fi
 
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
+
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^[[A' history-substring-search-up			
@@ -148,6 +149,7 @@ source $HOME/.config/zshrc/constant-definition.sh
 source $HOME/.config/zshrc/prompt.sh
 source $HOME/.config/zshrc/zoxide # cd replacement
 source $HOME/.config/zshrc/nnn
+source $HOME/.config/zshrc/atuin
 
 # source all files in alias directory
 for file in $ALIAS_DIRECTORY/* ; do

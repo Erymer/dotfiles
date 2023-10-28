@@ -307,3 +307,8 @@ Abolish tipicat típicamente
 Abolish res resultado
 Abolish resz resultados
 Abolish exactat exactamente
+Abolish qcdo que cuando
+Abolish seq secuencia
+Abolish ind independientemente
+Abolish ctos cuantos
+Abolish def definir
