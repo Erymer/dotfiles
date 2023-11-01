@@ -1,3 +1,5 @@
+local autocmd = vim.api.nvim_create_autocmd
+
 vim.g.mapleader = " "
 
 vim.keymap.set("i", "cg", "<Esc>")
@@ -50,3 +52,6 @@ vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left>
 
 
 vim.keymap.set("n", "H", ":b#<CR>")
+
+vim.api.nvim_buf_set_keymap(0, 'n', ',br', ':RunBashScript<CR>', { noremap = true, silent = true })
+vim.api.nvim_buf_set_keymap(0, 'n', ',jt', ':RunMavenTest<CR>', { noremap = true, silent = true })

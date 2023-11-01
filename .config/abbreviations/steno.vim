@@ -291,6 +291,7 @@ Abolish ciaz compañias
 Abolish nlqx en la que
 Abolish nvo nuevo
 Abolish obj objeto
+Abolish objz objetos
 Abolish nva nueva
 Abolish fe fé
 Abolish deseperacn desesperación
@@ -312,3 +313,12 @@ Abolish seq secuencia
 Abolish ind independientemente
 Abolish ctos cuantos
 Abolish def definir
+Abolish dl del
+Abolish car característica
+Abolish carz características
+Abolish sc es como
+Abolish scq es como que
+Abolish ej ejemplo
+Abolish dift diferente
+Abolish diftes diferentes
+

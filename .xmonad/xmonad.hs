@@ -98,12 +98,12 @@ myModMask :: KeyMask
 myModMask = mod4Mask       -- Sets modkey to super/windows key
 
 myTerminal :: String
-myTerminal = "kitty "   -- Sets default terminal
+myTerminal = "alacritty "   -- Sets default terminal
 -- myTerminal = "kitty --override window_margin_width=0 tmux new-session \"terminal\""
 
 myBrowser :: String
 -- myBrowser = myTerminal ++ " -e lynx "  -- Sets lynx as browser for tree select
-myBrowser = "brave"                 -- Sets brave as browser for tree select
+myBrowser = "brave --password-store=basic"                 -- Sets brave as browser for tree select
 
 myEditor :: String
 myEditor = myTerminal ++ "tmux new-session -A -s NeoVim"
@@ -407,7 +407,7 @@ dvorakKeys =
         , ("M-S-r", spawn "xmonad --recompile && xmonad --restart && notify-send 'Xmonad Recompiled & Restarted'")        -- Restarts xmonad
         , ("M-S-q", io exitSuccess)                  -- Quits xmonad
         -- , ("M-<Return>", spawn myTerminal)
-        , ("M-<Return>", spawn (myTerminal ++ " tmux new-session -A -s Terminal"))
+        , ("M-<Return>", spawn (myTerminal ++ "-e tmux new-session -A -s Terminal"))
         , ("M-S-<Return>", spawn (myTerminal ++ " --override window_margin_width=0"))
 
     -- Windows
@@ -473,7 +473,7 @@ dvorakKeys =
     -- Apps
         , ("M-b", spawn myBrowser)
         , ("M-t", spawn myEditor)
-        , ("M-n", spawn ( "kitty -e --class FileManager --title nnn nnn"))
+        , ("M-n", spawn ( "alacritty -e nnn"))
         , ("M-S-n", spawn "pcmanfm")
         , ("M-m", spawn "todo -d")
         , ("M-s", spawn (scriptsFolder ++ "web-search.sh"))

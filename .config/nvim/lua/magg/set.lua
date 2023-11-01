@@ -33,7 +33,7 @@ set.isfname:append("@-@")
 
 set.updatetime = 50
 
-set.colorcolumn = "80"
+set.colorcolumn = "81"
 
 -- In markdown files create new line after 80 characters
 autocmd(
