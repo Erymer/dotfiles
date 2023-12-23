@@ -12,35 +12,20 @@ Abolish sbx sin embargo
 Abolish pjx por ejemplo
 Abolish pj personaje
 Abolish sb sobre
-Abolish unicat únicamente
 Abolish animacn animación
 Abolish animacns animaciones
 Abolish exp experiencia
-Abolish realt realmente
 Abolish resolucn resolución
-Abolish especificat específicamente
-Abolish constantet constantemente
-Abolish pacificat pacificamente
-Abolish aparentet aparentemen
-Abolish inexplicablet inexplicablemente
 Abolish sq es que
-Abolish afortunadat afortunadamente
-Abolish tecnicat técnicamente
-Abolish automaticat automáticamente
 Abolish mer mejor
 Abolish hr hacer
 Abolish hn hacen
 Abolish instalacn instalación
-Abolish manualt manualmente
 Abolish configuracn configuración
-Abolish facilt fácilmente
-Abolish generalt generalmente
 Abolish hrnos hacernos
-Abolish simplet simplemente
 Abolish hrlo hacerlo
 Abolish h hace
 Abolish hs haces
-Abolish complet completamente
 Abolish sto esto
 Abolish stan estan
 Abolish sta esta
@@ -97,7 +82,6 @@ Abolish hcia hacia
 Abolish hta hasta
 Abolish ht hasta
 Abolish creacn creación
-Abolish probablet probablemente
 Abolish slo solo
 Abolish cia compañia
 Abolish sten esten
@@ -126,21 +110,16 @@ Abolish orientacn orientación
 Abolish peticn petición
 Abolish qd quedo
 Abolish qdx quedó
-Abolish ligerat ligeramente
 Abolish cq cualquier
 Abolish clq cualquier
 Abolish aclaracn aclaración
-Abolish proporcionalt proporcionalmente
 Abolish gde grande
 Abolish pnr poner
 Abolish pdr poder
-Abolish actualt actualmente
-Abolish unicat únicamente
 Abolish pde puede
 Abolish dnde donde
 Abolish ql que el
 Abolish plm por el momento
-Abolish forzosat forzosamente
 Abolish ppdr para poder
 Abolish qre quiere
 Abolish ygr llegar
@@ -188,18 +167,8 @@ Abolish hacnd haciendo
 Abolish dsp después
 Abolish nrio necesario
 Abolish nria necesaria
-Abolish explicitat explicitamente
-Abolish innecesariat innecesariamente
-Abolish nriat necesariamente
 Abolish plt por lo tanto
-Abolish completat completamente
 Abolish xlt por lo tanto
-Abolish apropiadat apropiadamente
-Abolish exitosat exitosamente
-Abolish rapidat rápidamente
-Abolish academicat académicamente
-Abolish academicamente académicamente
-Abolish historicat históricamente
 Abolish qls que los
 Abolish qlas que las
 Abolish apsr a pesar
@@ -210,33 +179,25 @@ Abolish xla por la
 Abolish inv inversión
 Abolish invis inversionista
 Abolish invisz inversionistas
-Abolish recientet recientemente
 Abolish dstos de estos
 Abolish ret retorno
 Abolish crecimt crecimiento
 Abolish invz inversiones
 Abolish sld es el de
-Abolish pasivat pasivamente
 Abolish pdn pueden
-Abolish activat activamente
 Abolish bursatil bursátil
 Abolish retz retornos
 Abolish cta cuenta
 Abolish pte parte
 Abolish fndo fondo
-Abolish eventualt eventualmente
 Abolish tne tiene
-Abolish principalt principalmente
-Abolish substancialt substancialmente
 Abolish mdo mercado
-Abolish segurat seguramente
 Abolish lgo largo
 Abolish hnd haciendo
 Abolish hrla hacerla
 Abolish doc documento
 Abolish doccn documentación
 Abolish gral general
-Abolish gralt generalmente
 Abolish ctrl control
 Abolish sel selección
 Abolish nlq en el que
@@ -267,19 +228,11 @@ Abolish natza natulareza
 Abolish pden pueden
 Abolish infcn inflación
 Abolish xlc por la cual
-Abolish suficientet suficientemente
-Abolish anualt anualmente
 Abolish difx diferencia
 Abolish relacn relación
 Abolish pcdo para cuando
-Abolish basicat básicamente
-Abolish idealt idealmente
 Abolish tlv tal vez
 Abolish stuvra estuviera
-Abolish principalt pricipalmente
-Abolish usualt usualmente
-Abolish relativat relativamente
-Abolish altat altamente
 Abolish sigz siguientes
 Abolish especulacn especulación
 Abolish valuacn valuación
@@ -295,22 +248,16 @@ Abolish objz objetos
 Abolish nva nueva
 Abolish fe fé
 Abolish deseperacn desesperación
-Abolish enterat enteramente
 Abolish ctop corto plazo
 Abolish mdoz mercados
 Abolish volatiles volátiles
 Abolish difte diferente
-Abolish tristet tristemente
-Abolish perfectat perfectamente
 Abolish formulacn formulación
 Abolish reinversion reinversión
-Abolish tipicat típicamente
 Abolish res resultado
 Abolish resz resultados
-Abolish exactat exactamente
 Abolish qcdo que cuando
 Abolish seq secuencia
-Abolish ind independientemente
 Abolish ctos cuantos
 Abolish def definir
 Abolish dl del
@@ -322,3 +269,55 @@ Abolish ej ejemplo
 Abolish dift diferente
 Abolish diftes diferentes
 
+Abolish {simple,comple,probable,ligera,proporcional,actual}t {}mente
+
+Abolish probablet probablemente
+Abolish ligerat ligeramente
+Abolish proporcionalt proporcionalmente
+Abolish actualt actualmente
+Abolish unicat únicamente
+Abolish forzosat forzosamente
+Abolish explicitat explicitamente
+Abolish innecesariat innecesariamente
+Abolish aparentet aparentemente
+Abolish nriat necesariamente
+Abolish completat completamente
+Abolish apropiadat apropiadamente
+Abolish exitosat exitosamente
+Abolish rapidat rápidamente
+Abolish academicat académicamente
+Abolish academicamente académicamente
+Abolish historicat históricamente
+Abolish recientet recientemente
+Abolish pasivat pasivamente
+Abolish activat activamente
+Abolish eventualt eventualmente
+Abolish principalt principalmente
+Abolish substancialt substancialmente
+Abolish segurat seguramente
+Abolish gralt generalmente
+Abolish suficientet suficientemente
+Abolish anualt anualmente
+Abolish basicat básicamente
+Abolish idealt idealmente
+Abolish principalt pricipalmente
+Abolish usualt usualmente
+Abolish relativat relativamente
+Abolish altat altamente
+Abolish enterat enteramente
+Abolish tristet tristemente
+Abolish perfectat perfectamente
+Abolish tipicat típicamente
+Abolish exactat exactamente
+Abolish ind independientemente
+Abolish unicat únicamente
+Abolish realt realmente
+Abolish especificat específicamente
+Abolish constantet constantemente
+Abolish inexplicablet inexplicablemente
+Abolish afortunadat afortunadamente
+Abolish tecnicat técnicamente
+Abolish automaticat automáticamente
+Abolish manualt manualmente
+Abolish facilt fácilmente
+Abolish generalt generalmente

@@ -45,13 +45,21 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+-- Tmux sessionizer
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ts<CR>")
 
 -- Hover cursor over a word you want to replace and press leader s
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
-
+-- Go previous buffer
 vim.keymap.set("n", "H", ":b#<CR>")
 
-vim.api.nvim_buf_set_keymap(0, 'n', ',br', ':RunBashScript<CR>', { noremap = true, silent = true })
-vim.api.nvim_buf_set_keymap(0, 'n', ',jt', ':RunMavenTest<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "X", "<C-v>")
+
+
+
+-- vim.api.nvim_buf_set_keymap(0, 'n', ',br', ':RunBashScript<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_buf_set_keymap(0, 'n', ',jt', ':RunMavenTest<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', ',br', ':RunBashScript<CR>')
+vim.keymap.set('n', ',jt', ':RunMavenTest<CR>')

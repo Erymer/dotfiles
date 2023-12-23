@@ -66,6 +66,28 @@ autocmd(
     }
 )
 
+autocmd(
+    "FileType", {
+    pattern = { 'java' },
+    command = 'setlocal softtabstop=4',
+    group = generalSettingsGroup,
+    }
+)
+autocmd(
+    "FileType", {
+    pattern = { 'java' },
+    command = 'setlocal tabstop=4',
+    group = generalSettingsGroup,
+    }
+)
+autocmd(
+    "FileType", {
+    pattern = { 'java' },
+    command = 'setlocal shiftwidth=4',
+    group = generalSettingsGroup,
+    }
+)
+
 -- github.com/brainfucksec/neovim-lua/blob/main/nvim/lua/core/autocmds.lua
 autocmd(
     'CMDlineEnter', {

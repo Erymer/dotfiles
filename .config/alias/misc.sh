@@ -299,8 +299,6 @@ dserver(){
 }
 
 
-bindkey '^l' clear
-
 n ()
 {
     # Block nesting of nnn in subshells

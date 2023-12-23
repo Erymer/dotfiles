@@ -99,14 +99,13 @@ myModMask = mod4Mask       -- Sets modkey to super/windows key
 
 myTerminal :: String
 myTerminal = "alacritty "   -- Sets default terminal
--- myTerminal = "kitty --override window_margin_width=0 tmux new-session \"terminal\""
 
 myBrowser :: String
 -- myBrowser = myTerminal ++ " -e lynx "  -- Sets lynx as browser for tree select
 myBrowser = "brave --password-store=basic"                 -- Sets brave as browser for tree select
 
 myEditor :: String
-myEditor = myTerminal ++ "tmux new-session -A -s NeoVim"
+myEditor = myTerminal ++ "-e tmux new-session -A -s NeoVim"
 
 myAppLauncher :: String
 -- myAppLauncher = "dmenu_run"
@@ -255,7 +254,6 @@ dtXPKeymap = M.fromList $
 -- For more icons: https://fontawesome.com/v4/cheatsheet/
 -- myWorkspaces = ["1: \xf0ac", "2: \xf07c", "3: \xf121", "4: \xf15c", "5: \xf001", "6: \xf086", "7: \xf26c", "8: \xf188", "9: \xf26c", "10: \xf26c"]
 myWorkspaces = ["0: ?", "1: Chat", "2: Notion", "3: Ext Monitor", "4: ?", "5: Browser", "6: File Nav", "7: Work", "8: Info", "9: BG"]
--- myWorkspaces = ["Browser", "Chat", "Notion", "Ext Monitor", "?", "Terminal", "File Nav", "Work", "Info", "BG"]
 
 
 workspaceZero = myWorkspaces !! 0
@@ -473,17 +471,17 @@ dvorakKeys =
     -- Apps
         , ("M-b", spawn myBrowser)
         , ("M-t", spawn myEditor)
-        , ("M-n", spawn ( "alacritty -e nnn"))
+        , ("M-n", spawn ( myTerminal ++ "-e tmux new-session -A -s nnn"))
         , ("M-S-n", spawn "pcmanfm")
         , ("M-m", spawn "todo -d")
         , ("M-s", spawn (scriptsFolder ++ "web-search.sh"))
-        , ("M-z", spawn (myEditor ++ " $HOME/40_Notebooks/Zettel/00-index.md"))
-        , ("M-v", spawn (myTerminal ++ "--override window_margin_width=0 -e --title ScratchPad nvim -c 'normal G' +:Goyo +startinsert! /tmp/scratchpad.md"))
+        , ("M-z", spawn (myEditor ++ " $HOME/40_Notebooks/Zettel/zettel/00-index.md"))
+        , ("M-v", spawn (myTerminal ++ "-e nvim -c 'normal G' +:Goyo +startinsert! /tmp/scratchpad.md"))
 
     -- Special Keys
         , ("M-<F1>", spawn (scriptsFolder ++ "toggle-mute.sh"))
         , ("M-<F2>", spawn (scriptsFolder ++ "spotify.sh"))
-        , ("M-<F3>", spawn (myTerminal ++ "-e --class Mixer --title PulseMixer pulsemixer"))
+        , ("M-<F3>", spawn (myTerminal ++ "-e pulsemixer"))
         , ("M-<F4>", spawn (scriptsFolder ++ "shutdown.sh"))
         , ("M-<F5>", spawn (scriptsFolder ++ "quick-todo.sh"))
         , ("M-<F6>", spawn (scriptsFolder ++ "long-todo.sh"))
