@@ -44,8 +44,8 @@
 
 (add-hook 'text-mode-hook #'mag-text-mode)
 
-(require 'ledger-mode)
-(add-to-list 'auto-mode-alist '("\\.ldg\\'" . ledger-mode))
+; (require 'ledger-mode)
+; (add-to-list 'auto-mode-alist '("\\.ldg\\'" . ledger-mode))
 
 (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
 (add-hook 'beancount-mode-hook #'outline-minor-mode)
