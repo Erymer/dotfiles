@@ -185,19 +185,12 @@ qn(){
 # alias sp="nvim +:Goyo +$ +startinsert + /tmp/scratchpad.md"
 alias sp='nvim -c "normal G" +:Goyo +startinsert! /tmp/scratchpad.md'
 
-
-py() {
-  touch $1.py && chmod +x $1.py
-}
 alias wallpaper='feh --bg-fill'
 
 # Package Manager
-alias pacinstall='sudo pacman -S'
+alias pacinstall='sudo pacman --needed -S'
 alias pacrm='sudo pacman -Rs'
 alias cacherm='sudo pacman -Scc; yay -Scc'
-
-# Homelab
-alias amberjack='ping -c 2 192.168.100.93 && ssh amberjack'
 
 # dd
 alias dd='sudo dd status=progress' # Show progress during operation. 
