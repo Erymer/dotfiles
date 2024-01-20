@@ -29,6 +29,10 @@ alias b='bat'
 alias q='exit'
 alias dmesg='sudo dmesg -Tw'
 alias otp='pass otp'
+alias trls='transmission-remote -l'
+alias tradd='transmission-remote -a'
+alias trrm='transmission-remote -r -t'
+alias trdel='transmission-remote -rad -t'
 
 v(){
   if [[ -z "${1}" ]]; then
