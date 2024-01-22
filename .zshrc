@@ -24,10 +24,12 @@ HISTSIZE=1000
 SAVEHIST=500
 
 # Seleccionar editor para editar linea de comandos con C-e
+export BAT_STYLE="snip"
+# able (e.g.: export BAT_STYLE="..").  Possible  values:  *default*,  full,  auto,  plain,  changes,
+# header, header-filename, header-filesize, grid, rule, numbers, snip.
+
 export EDITOR=nvim
 export VISUAL=nvim
-export PREDGER_ID="Marcelo"
-# export PAGER=bat
 
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
