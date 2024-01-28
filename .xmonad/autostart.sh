@@ -1,5 +1,7 @@
-#!/usr/bin/bash
-# Change permissions so it can be executed withot beign root
+#!/usr/bin/env bash
+
+# Change permissions so it can be executed without beign root
+
 export XSECURELOCK_PASSWORD_PROMPT=kaomoji
 
 # The value of this constant must be output of the following command when the
@@ -7,7 +9,7 @@ export XSECURELOCK_PASSWORD_PROMPT=kaomoji
 # `md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -f 1 -d " "`
 DOCK_MON_MD5HASH="8ce2f2999715042dbc42bc4bc9cf35ab"
 
-WALLPAPER=~/30_Images/31_Wallpapers/weeb/minimalist-shark.png
+WALLPAPER_DIR=~/30_Images/31_Wallpapers
 
 setWallpaper(){
   feh --bg-fill "${@}" 
@@ -58,13 +60,11 @@ fi
 if [ "$(md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
   dock &
   sleep 2
-  setWallpaper ~/30_Images/31_Wallpapers/weeb/minimalist-shark_2560x1080.png ~/30_Images/31_Wallpapers/weeb/minimalist-shark.png
+  setWallpaper "${WALLPAPER_DIR}/weeb/minimalist-shark_2560x1080.png" "${WALLPAPER_DIR}/weeb/minimalist-shark.png"
 fi
 
 setxkbmap -layout mag # For some reason plover needs this to work properly.
 
-# source "${HOME}/Scripts/nextcloud-sync.sh" &
-#
-# nextcloud &
+nextcloud &
 
 conky &

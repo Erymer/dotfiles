@@ -241,31 +241,6 @@ alias ytls="youtube-dl -F"
 
 alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
-dotpush(){
-  local comment
-  local files
-
-  comment=$1
-
-  echo "Pulling Repo"
-  git --git-dir="${HOME}"/.dotfiles/ --work-tree="${HOME}" pull && echo "Repo pulled"
-
-  files=$(git --git-dir="${HOME}"/.dotfiles/ --work-tree="${HOME}" status |\
-          grep modified | cut -f 4 -d ' ' | tr )
-
-  echo "FILES IS ${files}"
-
-  # for file in $files; do
-  #   echo "ADDING ${file}"
-  #   git --git-dir="${HOME}"/.dotfiles/ --work-tree="${HOME}" add "${file}"
-  # done
-  git --git-dir="${HOME}"/.dotfiles/ --work-tree="${HOME}" add "${files}"
-
-  git --git-dir="${HOME}"/.dotfiles/ --work-tree="${HOME}" commit -m "${comment}"
-
-}
-
-
 web() {
   local query
   query=$(echo $1 | tr " " "+")
