@@ -473,7 +473,7 @@ dvorakKeys =
         , ("M-t", spawn myEditor)
         , ("M-n", spawn ( myTerminal ++ "-e tmux new-session -A -s nnn"))
         , ("M-S-n", spawn "pcmanfm")
-        , ("M-m", spawn "todo -d")
+        , ("M-m", spawn (scriptsFolder ++  "notion-todo.sh"))
         , ("M-s", spawn (scriptsFolder ++ "web-search.sh"))
         , ("M-z", spawn (myEditor ++ " $HOME/40_Notebooks/Zettel/zettel/00-index.md"))
         , ("M-v", spawn (myTerminal ++ "-e nvim -c 'normal G' +:Goyo +startinsert! /tmp/scratchpad.md"))

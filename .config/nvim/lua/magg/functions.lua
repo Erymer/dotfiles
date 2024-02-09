@@ -20,6 +20,17 @@ function RunMavenTest()
   vim.api.nvim_win_set_height(0, height)
 end
 
+function RunPythonScript()
+  local height = 20
+  local current_file = vim.fn.expand('%:p')
+
+  local term_command = "term://$BASH python " .. current_file
+  vim.cmd("belowright split " .. term_command)
+
+  vim.api.nvim_win_set_height(0, height)
+end
+
+
 function CompilePDF()
   local height = 5
   local current_file = vim.fn.expand('%:p')
@@ -37,5 +48,6 @@ end
 
 -- Define a command to run the function
 vim.cmd('command! RunBashScript lua RunBashScript()')
+vim.cmd('command! RunPythonScript lua RunPythonScript()')
 vim.cmd('command! RunMavenTest lua RunMavenTest()')
 vim.cmd('command! CompilePDF lua CompilePDF()')

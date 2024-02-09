@@ -62,5 +62,6 @@ vim.keymap.set("n", "X", "<C-v>")
 -- vim.api.nvim_buf_set_keymap(0, 'n', ',jt', ':RunMavenTest<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', ',br', ':RunBashScript<CR>')
+vim.keymap.set('n', ',pr', ':RunPythonScript<CR>')
 vim.keymap.set('n', ',jt', ':RunMavenTest<CR>')
 vim.keymap.set('n', ',lc', ':CompilePDF<CR>')

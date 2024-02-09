@@ -9,8 +9,6 @@ export XSECURELOCK_PASSWORD_PROMPT=kaomoji
 # `md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -f 1 -d " "`
 DOCK_MON_MD5HASH="8ce2f2999715042dbc42bc4bc9cf35ab"
 
-WALLPAPER_DIR=~/30_Images/31_Wallpapers
-
 setWallpaper(){
   feh --bg-fill "${@}" 
 }
@@ -48,7 +46,7 @@ xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 # Weird fix that prevents everything to look GIGANTIC
 xrandr --dpi 96
 
-setWallpaper "${WALLPAPER}" 
+setWallpaper ~/30_Images/31_Wallpapers/weeb/minimalist-shark.png
 
 if [ "$HOSTNAME" = "Nostromo" ]; then
   polybar Nostromo &
@@ -60,7 +58,7 @@ fi
 if [ "$(md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
   dock &
   sleep 2
-  setWallpaper "${WALLPAPER_DIR}/weeb/minimalist-shark_2560x1080.png" "${WALLPAPER_DIR}/weeb/minimalist-shark.png"
+  setWallpaper ~/30_Images/31_Wallpapers/weeb/minimalist-shark_2560x1080.png ~/30_Images/31_Wallpapers/weeb/minimalist-shark.png
 fi
 
 setxkbmap -layout mag # For some reason plover needs this to work properly.

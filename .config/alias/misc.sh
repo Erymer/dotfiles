@@ -34,6 +34,16 @@ alias tradd='transmission-remote -a'
 alias trrm='transmission-remote -r -t'
 alias trdel='transmission-remote -rad -t'
 
+cdj() {
+  number=${1}
+  padded_number=$(printf "%02d.%02d" $((number / 100)) $((number % 100)))
+
+  pushd ~/*/*/"${padded_number}"* || return
+
+  eza --icons
+}
+ 
+
 v(){
   if [[ -z "${1}" ]]; then
     file=$(pwd)

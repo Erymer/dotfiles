@@ -1,6 +1,6 @@
 [module/internet-download]
 type = custom/script
-exec = ~/Projects/Python/net-speed.py --download
+exec = ~/20_Projects/Net-speed.py --download
 interval = 60
 tail = true
 
