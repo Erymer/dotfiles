@@ -7,4 +7,4 @@
 -- end
 
 -- ColorMyPencils()
-vim.cmd.colorscheme("monokai")
+vim.cmd.colorscheme("gruvbox")

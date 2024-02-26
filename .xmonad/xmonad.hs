@@ -124,7 +124,7 @@ altMask :: KeyMask
 altMask = mod1Mask         -- Setting this for use in xprompts
 
 scriptsFolder :: String
-scriptsFolder = "$HOME/Scripts/"
+scriptsFolder = "$HOME/.local/bin/"
 
 -- Colors for polybar
 color1, color2, color3, color4 :: String
@@ -490,7 +490,7 @@ dvorakKeys =
         , ("M-<F9>", spawn "$HOME/.magBin/screencf")
         , ("M-<F11>", spawn (scriptsFolder ++ "lock-suspend.sh"))
         , ("M-<F12>", spawn (scriptsFolder ++ "lorem.sh"))
-        , ("M-<Space>", spawn (scriptsFolder ++ "Touchpad.sh"))
+        , ("M-<Space>", spawn (scriptsFolder ++ "touchpad.sh"))
         , ("<Print>", spawn "scrot --focused --quality 100 --file '%Y-%m-%dT%TCT.jpg' -e 'mv $f /tmp/'&& notify-send 'Printed window'")
         , ("M-<Print>", spawn "scrot --quality 100 --file '%Y-%m-%dT%TCT.jpg' -e 'mv $f /tmp/' --select --line style=dash && notify-send 'Printed window'")
         , ("M-<KP_Enter>", spawn (scriptsFolder ++ "calculator.sh"))

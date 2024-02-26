@@ -140,8 +140,8 @@ bindkey '^[[B' history-substring-search-down
 
 
 export PATH="${PATH}:$HOME/.magBin"
-export PATH="${PATH}:/home/mag/.local/bin/"
-export PATH="${PATH}:$HOME/.config/emacs/bin/"
+export PATH="${PATH}:$HOME/.local/bin"
+export PATH="${PATH}:$HOME/.config/emacs/bin"
 
 
 source $HOME/.config/zshrc/git-prompt.sh
