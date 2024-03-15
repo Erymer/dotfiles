@@ -102,7 +102,7 @@ myTerminal = "alacritty "   -- Sets default terminal
 
 myBrowser :: String
 -- myBrowser = myTerminal ++ " -e lynx "  -- Sets lynx as browser for tree select
-myBrowser = "brave --password-store=basic"                 -- Sets brave as browser for tree select
+myBrowser = "brave --password-store=basic" -- Sets brave as browser for tree select
 
 myEditor :: String
 myEditor = myTerminal ++ "-e tmux new-session -A -s NeoVim"
@@ -252,8 +252,9 @@ dtXPKeymap = M.fromList $
 -- WORKSPACES
 ------------------------------------------------------------------------
 -- For more icons: https://fontawesome.com/v4/cheatsheet/
+
 -- myWorkspaces = ["1: \xf0ac", "2: \xf07c", "3: \xf121", "4: \xf15c", "5: \xf001", "6: \xf086", "7: \xf26c", "8: \xf188", "9: \xf26c", "10: \xf26c"]
-myWorkspaces = ["0: ?", "1: Chat", "2: Notion", "3: Ext Monitor", "4: ?", "5: Browser", "6: File Nav", "7: Work", "8: Info", "9: BG"]
+myWorkspaces = ["0: ?", "1: Chat", "2: Notion", "3: Ext Monitor", "4: ?", "5: File Nav", "6: Work", "7: Work", "8: Work", "9: BG"]
 
 
 workspaceZero = myWorkspaces !! 0
@@ -279,17 +280,11 @@ workspaceNine = myWorkspaces !! 9
 
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
-     -- using 'doShift ( myWorkspaces !! 7)' sends program to workspace 8!
-     -- I'm doing it this way because otherwise I would have to write out
-     -- the full name of my clickable workspaces, which would look like:
-     -- doShift "<action xdotool super+8>gfx</action>"
-     [ className =? "Brave-browser" --> doShift ( workspaceFive )
-     , className =? "FileManager"     --> doShift ( workspaceSix )
-     , className =? "Pcmanfm"     --> doShift ( workspaceSix )
-     , className =? "nvim-qt" --> doShift ( workspaceSeven )
-     -- , className =? "Gimp"    --> doFloat
+     [
+       className =? "Brave"    --> doCenterFloat
+     , className =? "Spotify" --> doShift ( workspaceZero )
+     , className =? "discord" --> doShift ( workspaceOne )
      , className =? "Gcr-prompter"    --> doCenterFloat
-     , className =? "Brave"    --> doCenterFloat
      , className =? "CalcResult"    --> doCenterFloat
      , className =? "dzen"    --> doFloat
      , title =? "Oracle VM VirtualBox Manager"     --> doFloat
@@ -364,6 +359,12 @@ codingMagnify   = renamed [Replace "Coding Magnify"]
            $ mySpacing 5
            $ ResizableTall 1 (3/100) (1/2) []
 
+-- For TTRPG Games in wide screen. Map on the left, notes on the right
+dnD   = renamed [Replace "TTRPG"]
+           $ limitWindows 2
+           $ mySpacing 5
+           $ ResizableTall 1 (3/100) (2/3) []
+
 codingWide   = renamed [Replace "Coding Wide"]
            $ limitWindows 3
            $ mySpacing 5
@@ -393,6 +394,7 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                                  ||| codingMagnify
                                  ||| codingWide
                                  ||| codingWideMagnify
+                                 ||| dnD
                                  ||| noBorders monocle
                                  --
                                  --
