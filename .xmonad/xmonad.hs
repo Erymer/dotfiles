@@ -284,6 +284,7 @@ myManageHook = composeAll
        className =? "Brave"    --> doCenterFloat
      , className =? "Spotify" --> doShift ( workspaceZero )
      , className =? "discord" --> doShift ( workspaceOne )
+     , className =? "UltiMaker-Cura" --> doShift ( workspaceNine )
      , className =? "Gcr-prompter"    --> doCenterFloat
      , className =? "CalcResult"    --> doCenterFloat
      , className =? "dzen"    --> doFloat
@@ -477,7 +478,6 @@ dvorakKeys =
         , ("M-S-n", spawn "pcmanfm")
         , ("M-m", spawn (scriptsFolder ++  "notion-todo.sh"))
         , ("M-s", spawn (scriptsFolder ++ "web-search.sh"))
-        , ("M-z", spawn (myEditor ++ " $HOME/40_Notebooks/Zettel/zettel/00-index.md"))
         , ("M-v", spawn (myTerminal ++ "-e nvim -c 'normal G' +:Goyo +startinsert! /tmp/scratchpad.md"))
 
     -- Special Keys
@@ -489,14 +489,14 @@ dvorakKeys =
         , ("M-<F6>", spawn (scriptsFolder ++ "long-todo.sh"))
         , ("M-<F7>", spawn "brightnessctl set 20%-")
         , ("M-<F8>", spawn "brightnessctl set +20%")
-        , ("M-<F9>", spawn "$HOME/.magBin/screencf")
+        , ("M-<F9>", spawn (scriptsFolder ++ "screencf"))
         , ("M-<F11>", spawn (scriptsFolder ++ "lock-suspend.sh"))
         , ("M-<F12>", spawn (scriptsFolder ++ "lorem.sh"))
         , ("M-<Space>", spawn (scriptsFolder ++ "touchpad.sh"))
         -- , ("<Print>", spawn "scrot --focused --quality 100 --file '%Y-%m-%dT%TCT.jpg' -e 'mv $f /tmp/'&& notify-send 'Printed window'")
         -- , ("M-<Print>", spawn "scrot --quality 100 --file '%Y-%m-%dT%TCT.jpg' -e 'mv $f /tmp/' --select --line style=dash && notify-send 'Printed window'")
-        , ("<Print>", spawn "escrotum -e 'mv $f /tmp/' '%Y-%m-%dT%TCT.jpg' || notify-send 'Cant print screen'")
-        , ("M-<Print>", spawn "escrotum -s -e 'mv $f /tmp/' '%Y-%m-%dT%TCT.jpg' || notify-send 'Cant print screen'")
+        , ("<Print>", spawn "escrotum -e 'mv $f /tmp/' '%Y-%m-%dT%H%M%S.jpg' || notify-send 'Cant print screen'")
+        , ("M-<Print>", spawn "escrotum -s -e 'mv $f /tmp/' '%Y-%m-%dT%H%M%S.jpg' || notify-send 'Cant print screen'")
         , ("M-<KP_Enter>", spawn (scriptsFolder ++ "calculator.sh"))
         , ("M-<End>", spawn (scriptsFolder ++ "addAbolish.sh"))
         , ("M-<Insert>", spawn (scriptsFolder ++ "get-bookmarks.sh"))

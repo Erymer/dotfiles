@@ -41,7 +41,7 @@ _tmux_sessionizer() {
 # zle -N _tmux_sessionizer_widget _tmux_sessionizer
 # bindkey '^f' _tmux_sessionizer_widget
 
-bindkey -s '^f' "tmux-sessionizer\n"
+bindkey -s '^f' "ts\n"
 
 
 # vim:ft=zsh
