@@ -1,6 +1,6 @@
 [module/internet-download]
 type = custom/script
-exec = ~/20_Projects/Net-speed.py --download
+exec = speedtest --no-upload --simple | grep 'Download' | cut -d ' ' -f 2
 interval = 60
 tail = true
 
