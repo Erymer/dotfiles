@@ -105,7 +105,7 @@ myBrowser :: String
 myBrowser = "brave --password-store=basic" -- Sets brave as browser for tree select
 
 myEditor :: String
-myEditor = myTerminal ++ "-e tmux new-session -A -s NeoVim"
+myEditor = myTerminal ++ "-e tmux new-session -A -s Work"
 
 myAppLauncher :: String
 -- myAppLauncher = "dmenu_run"
@@ -254,7 +254,7 @@ dtXPKeymap = M.fromList $
 -- For more icons: https://fontawesome.com/v4/cheatsheet/
 
 -- myWorkspaces = ["1: \xf0ac", "2: \xf07c", "3: \xf121", "4: \xf15c", "5: \xf001", "6: \xf086", "7: \xf26c", "8: \xf188", "9: \xf26c", "10: \xf26c"]
-myWorkspaces = ["0: ?", "1: Chat", "2: Notion", "3: Ext Monitor", "4: ?", "5: File Nav", "6: Work", "7: Work", "8: Work", "9: BG"]
+myWorkspaces = ["0: ?", "1: Chat", "2: Notion", "3: Ext Monitor", "4: ?", "5: File Nav", "6: Work", "7: Work", "8: Work", "9: Web"]
 
 
 workspaceZero = myWorkspaces !! 0
@@ -422,16 +422,31 @@ dvorakKeys =
         
     -- Change to workspace
         -- https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/XMonad-Actions-CycleWS.html#g:3
-        , ("M-;", toggleOrView workspaceZero)
-        , ("M-,", toggleOrView workspaceOne)
-        , ("M-.", toggleOrView workspaceTwo)
-        , ("M-p", toggleOrView workspaceThree)
-        , ("M-!", toggleOrView workspaceFour)
-        , ("M-a", toggleOrView workspaceFive)
-        , ("M-o", toggleOrView workspaceSix)
-        , ("M-e", toggleOrView workspaceSeven)
-        , ("M-u", toggleOrView workspaceEight)
-        , ("M-i", toggleOrView workspaceNine)
+        -- toggleOrView makes that if you press the key of a workspace that is already in view toggles to
+        -- a previews workspace
+        -- , ("M-;", toggleOrView workspaceZero)
+        -- , ("M-,", toggleOrView workspaceOne)
+        -- , ("M-.", toggleOrView workspaceTwo)
+        -- , ("M-p", toggleOrView workspaceThree)
+        -- , ("M-!", toggleOrView workspaceFour)
+        -- , ("M-a", toggleOrView workspaceFive)
+        -- , ("M-o", toggleOrView workspaceSix)
+        -- , ("M-e", toggleOrView workspaceSeven)
+        -- , ("M-u", toggleOrView workspaceEight)
+        -- , ("M-i", toggleOrView workspaceNine)
+
+        -- greedyView switches to that workspace
+        , ("M-;", windows $ W.greedyView workspaceZero)
+        , ("M-,", windows $ W.greedyView workspaceOne)
+        , ("M-.", windows $ W.greedyView workspaceTwo)
+        , ("M-p", windows $ W.greedyView workspaceThree)
+        , ("M-!", windows $ W.greedyView workspaceFour)
+        , ("M-a", windows $ W.greedyView workspaceFive)
+        , ("M-o", windows $ W.greedyView workspaceSix)
+        , ("M-e", windows $ W.greedyView workspaceSeven)
+        , ("M-u", windows $ W.greedyView workspaceEight)
+        , ("M-i", windows $ W.greedyView workspaceNine)
+
         , ("M-g", swapNextScreen)
 
         , ("M-S-;", windows $ W.shift workspaceZero)
