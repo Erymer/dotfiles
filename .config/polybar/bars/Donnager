@@ -11,7 +11,7 @@
 ;
 ;=====================================================
 
-[bar/Nostromo]
+[bar/Donnager]
 monitor = eDP
 ;enable-ipc = true
 width = ${config.width}

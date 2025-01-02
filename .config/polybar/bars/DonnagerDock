@@ -11,7 +11,7 @@
 ;
 ;=====================================================
 
-[bar/NostromoDock]
+[bar/DonnagerDock]
 monitor = HDMI-1-1
 ;enable-ipc = true
 width = ${config.width}
