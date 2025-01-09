@@ -114,22 +114,6 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
-
-## Plugins section: Enable fish style features
-
-CURRENT_OS=$(grep -e '^NAME' </etc/os-release | sed 's/NAME=//')
-
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
-if [ "${CURRENT_OS}" = '"Arch Linux"' ] ; then
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-elif [ "${CURRENT_OS}" = '"Fedora Linux"' ] ; then
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
-
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
 
@@ -138,13 +122,11 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^[[A' history-substring-search-up			
 bindkey '^[[B' history-substring-search-down
 
-
 export PATH="${PATH}:$HOME/.magBin"
 export PATH="${PATH}:$HOME/.local/bin"
 export PATH="${PATH}:$HOME/.config/emacs/bin"
 
-
-source $HOME/.config/zshrc/git-prompt.sh
+# source $HOME/.config/zshrc/git-prompt.sh
 source $HOME/.config/zshrc/constant-definition.sh
 source $HOME/.config/zshrc/prompt.sh
 source $HOME/.config/zshrc/zoxide # cd replacement
@@ -165,3 +147,14 @@ PERL5LIB="/home/mag/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/mag/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/mag/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/mag/perl5"; export PERL_MM_OPT;
+
+## Plugins section: Enable fish style features
+
+CURRENT_OS=$(grep -e '^NAME' </etc/os-release | sed 's/NAME=//')
+
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

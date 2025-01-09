@@ -51,8 +51,8 @@ setWallpaper ~/20_Areas/29_Images/wallhaven-zywgxy_1920x1080.png
 if [ "$HOSTNAME" = "Nostromo" ]; then
   polybar Nostromo &
   numlockx & # Turns on Num Lk
-elif [ "$HOSTNAME" = "Serenity" ]; then
-  polybar Serenity &
+elif [ "$HOSTNAME" = "Donnager" ]; then
+  polybar Donnager &
 fi
 
 if [ "$(md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then

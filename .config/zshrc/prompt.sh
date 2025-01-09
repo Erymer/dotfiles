@@ -50,17 +50,9 @@ setopt prompt_subst
 # %{$reset_color%}$\
 # %b "
 
-# Current prompt (only shows last part of dir path)
-PS1="%B\
-%{$fg[white]%}[\
-%{$fg[white]%}%n\
-%{$fg[white]%}@\
-%{$fg[white]%}%M \
-%{$fg[white]%}%1~\
-%{$fg[white]%}]\
-%{$reset_color%}$\
-%b "
-
+# Current prompt
+#
+source /usr/lib/spaceship-prompt/spaceship.zsh
 
 
 # Base16 Shell
