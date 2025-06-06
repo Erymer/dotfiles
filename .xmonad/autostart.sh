@@ -46,7 +46,7 @@ xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 # Weird fix that prevents everything to look GIGANTIC
 xrandr --dpi 96
 
-setWallpaper ~/20_Areas/29_Images/wallhaven-zywgxy_1920x1080.png
+setWallpaper ~/20_Areas/Images/wallhaven-zywgxy_1920x1080.png
 
 if [ "$HOSTNAME" = "Nostromo" ]; then
   polybar Nostromo &
@@ -58,7 +58,7 @@ fi
 if [ "$(md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
   dock &
   sleep 2
-  setWallpaper ~/20_Areas/29_Images/wallhaven-zywgxy_2560x1080.png ~/20_Areas/29_Images/wallhaven-zywgxy_1920x1080.png 
+  setWallpaper ~/20_Areas/Images/wallhaven-zywgxy_2560x1080.png ~/20_Areas/Images/wallhaven-zywgxy_2560x1080.png
 fi
 
 setxkbmap -layout mag # For some reason plover needs this to work properly.
