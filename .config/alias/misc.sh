@@ -202,7 +202,6 @@ alias sp='nvim -c "normal G" +:Goyo +startinsert! /tmp/scratchpad.md'
 alias wallpaper='feh --bg-fill'
 
 # Package Manager
-alias pacinstall='sudo pacman --noconfirm --needed -S'
 alias yayinstall='yay --noconfirm --needed -S'
 alias pacrm='sudo pacman -Rs'
 alias cacherm='sudo pacman -Scc; yay -Scc'

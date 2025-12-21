@@ -276,12 +276,14 @@ workspaceNine = myWorkspaces !! 9
 -- programs to always float, or to always appear on a certain workspace.
 -- Forcing programs to a certain workspace with a doShift requires xdotool
 -- if you are using clickable workspaces. You need the className or title
--- of the program. Use xprop to get this info.
+-- of the program. To get this info use 'xprop | grep WM_CLASS', first string
+-- corresponds to instance name and the second to class name. 
 
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
      [
-       className =? "Brave"    --> doCenterFloat
+       -- className =? "Brave"    --> doCenterFloat
+       className =? "Brave-browser"   --> doShift ( workspaceNine )
      , className =? "Spotify" --> doShift ( workspaceZero )
      , className =? "discord" --> doShift ( workspaceOne )
      , className =? "UltiMaker-Cura" --> doShift ( workspaceNine )
