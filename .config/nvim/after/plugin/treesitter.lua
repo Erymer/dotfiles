@@ -14,6 +14,7 @@ require'nvim-treesitter.configs'.setup {
     "lua",
     "vim",
     "vimdoc",
+    "latex",
     "query",
   },
 

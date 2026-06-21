@@ -513,7 +513,7 @@ dvorakKeys =
         -- , ("<Print>", spawn "scrot --focused --quality 100 --file '%Y-%m-%dT%TCT.jpg' -e 'mv $f /tmp/'&& notify-send 'Printed window'")
         -- , ("M-<Print>", spawn "scrot --quality 100 --file '%Y-%m-%dT%TCT.jpg' -e 'mv $f /tmp/' --select --line style=dash && notify-send 'Printed window'")
         , ("<Print>", spawn "escrotum -e 'mv $f /tmp/' '%Y-%m-%dT%H%M%S.jpg' || notify-send 'Cant print screen'")
-        , ("M-<Print>", spawn "escrotum -s -e 'mv $f /tmp/' '%Y-%m-%dT%H%M%S.jpg' || notify-send 'Cant print screen'")
+        , ("M-<Print>", spawn "escrotum -s -e 'mv $f /tmp/' '%Y-%m-%dT%H%M%S.png' || notify-send 'Cant print screen'")
         , ("M-<KP_Enter>", spawn (scriptsFolder ++ "calculator.sh"))
         , ("M-<End>", spawn (scriptsFolder ++ "addAbolish.sh"))
         , ("M-<Insert>", spawn (scriptsFolder ++ "get-bookmarks.sh"))
