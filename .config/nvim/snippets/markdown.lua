@@ -52,6 +52,8 @@ local section_link = s("sectionlink", fmt("[{}]({})",{
 })
 )
 
+local checklist = s("checklist", { t("- [ ]") })
+
 -- local insert_date = ls.snippet({ trig = "date", wordTrig = true }, os.date("%Y-%m-%d"))
 local insert_date = s("date", {
   t(os.date("%d-%m-%Y"))
@@ -64,5 +66,6 @@ table.insert(snippets, insert_img)
 table.insert(snippets, insert_link)
 table.insert(snippets, section_link)
 table.insert(snippets, insert_date)
+table.insert(snippets, checklist)
 
 return snippets, autosnippets
