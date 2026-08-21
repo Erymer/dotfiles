@@ -72,9 +72,9 @@ green = #A6E22E
 
 [colors]
 transparent	= #00000000
-background	= #00000000
-foreground = #23262E
-underline = #424552
+background	= #CC101216
+foreground = #E2E8F0
+underline = #2AA99B
 prefix = ${monokai.violet}
 ; https://coolors.co/121419-d6e2e4-424552-dae5e7-23262e
 

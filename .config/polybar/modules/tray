@@ -1,0 +1,11 @@
+[module/tray]
+type = internal/tray
+format = <tray>
+format-overline = #00000000
+format-underline = #00000000
+tray-spacing = 0px
+tray-padding = 0px
+tray-size = 100%
+tray-background = ${colors.background}
+
+# vim:ft=dosini
