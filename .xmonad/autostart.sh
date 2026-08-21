@@ -18,6 +18,9 @@ randomWallpaper(){
   feh --bg-fill --randomize "${1}"
 }
 
+WALLPAPER_FHD=~/20_Areas/Images/wallhaven-lydkg2_1920x1080.png
+WALLPAPER_WIDE=~/20_Areas/Images/wallhaven-lydkg2_2560x1080.png
+
 # PICOM
 # picom must be runned with --backend glx flag so that xsecurelock can work correctly
 # otherwhise shows an error saying that the compositor doesn't work.
@@ -44,9 +47,9 @@ xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 [ "$(pgrep "unclutter")" ] || unclutter & # Hides mouse if is not beign used
 
 # Weird fix that prevents everything to look GIGANTIC
-xrandr --dpi 96
+# xrandr --dpi 96
 
-setWallpaper ~/20_Areas/Images/wallhaven-zywgxy_1920x1080.png
+setWallpaper ${WALLPAPER_FHD}
 
 if [ "$HOSTNAME" = "Nostromo" ]; then
   polybar Nostromo &
@@ -58,7 +61,7 @@ fi
 if [ "$(md5sum /sys/class/drm/card*-HDMI-A-1/edid | cut -d " " -f 1)" = "$DOCK_MON_MD5HASH" ]; then
   dock &
   sleep 2
-  setWallpaper ~/20_Areas/Images/wallhaven-zywgxy_2560x1080.png ~/20_Areas/Images/wallhaven-zywgxy_2560x1080.png
+  setWallpaper ${WALLPAPER_WIDE} ${WALLPAPER_FHD}
 fi
 
 setxkbmap -layout mag # For some reason plover needs this to work properly.
