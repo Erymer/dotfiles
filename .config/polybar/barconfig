@@ -9,9 +9,9 @@ moduleMarginLeft = 0
 moduleMarginRight = 0
 font0 = "Fira Mono: style=Regular:size=9"
 font1 = "Fira Mono: style=Medium:size=9"
-font2 = "Font Awesome 6 Free:style=Regular:pixelsize=9;1"
-font3 = "Font Awesome 6 Free:style=Solid:pixelsize=9;1"
-font4 = "Font Awesome 6 Brands:pixelsize=9;1"
+font2 = "Font Awesome 7 Free:style=Regular:pixelsize=9;1"
+font3 = "Font Awesome 7 Free:style=Solid:pixelsize=9;1"
+font4 = "Font Awesome 7 Brands:pixelsize=9;1"
 trayPosition = right
 trayDetached = true
 trayOffsetX = -800
