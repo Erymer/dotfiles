@@ -101,7 +101,7 @@ bindkey '^e' edit-command-line
 
 # Theming section  
 autoload -U compinit colors zcalc
-compinit -d
+compinit
 colors
 
 # Color man pages

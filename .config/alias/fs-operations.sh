@@ -6,9 +6,11 @@ alias duh='du -h'
 alias du1='du --human-readable --max-depth=1 --all | sort -hr 2> /dev/null | less'
 alias rm='rm -I'  # Prevents epic mistakes
 alias free='free -m'  # Show sizes in MB
-alias l='eza --icons'
-alias la='eza --long --all --icons'
-alias ll='eza --long --icons'
+
+alias l='eza --icons=auto'
+alias la='eza --long --all --icons=auto'
+alias ll='eza --long --icons=auto'
+
 alias ex="chmod +x"
 
 alias copy="rsync -avi --info=progress1" 
@@ -21,3 +23,5 @@ if hash rsync 2>/dev/null; then
   alias rupdate="rsync -avu --progress -h"
   alias rsynchronize="rsync -avu --delete --progress -h"
 fi
+
+

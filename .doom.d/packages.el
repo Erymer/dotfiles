@@ -8,7 +8,7 @@
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
-(package! centered-window-mode) ;; https://github.com/anler/centered-window-mode
+; (package! centered-window-mode) ;; https://github.com/anler/centered-window-mode
 (package! ob-dart) ;; https://github.com/mzimmerm/ob-dart (para tener sintaxis de dart en org)
 (package! ob-php) ;; Para tener sintaxis de php en org-mode
 (package! olivetti) ;; https://github.com/rnkn/olivetti
